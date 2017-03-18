@@ -6,10 +6,20 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Ingredient {
 	
-	private String ingredientName ;
+	private String name ;
+	private String value ;
+	private String type ;
 
 	public Ingredient(String ingredientName) {
-		this.ingredientName = ingredientName ;
+		this.name = ingredientName ;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	@Override
