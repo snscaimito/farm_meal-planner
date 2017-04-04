@@ -1,0 +1,6 @@
+source "https://rubygems.org"
+ruby RUBY_VERSION
+
+gem "rspec"
+gem "selenium-webdriver"
+gem "page-object"

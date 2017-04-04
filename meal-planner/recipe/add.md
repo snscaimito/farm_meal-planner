@@ -2,39 +2,31 @@
 layout: main
 title: Add Recipe
 ---
-# Add your recipe
 
-## Recipe overview
-
-<form id="recipeOverview">
-	<label for="recipeName">Recipe name</label>
-	<input type="text" name="recipeName"/><br/>
+<div itemscope itemtype="http://schema.org/Recipe">
+	<p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
+	<p itemprop="description" class="editable defaultValue">Describe your recipe</p>
+	<p>Yield: <span itemprop="recipeYield" class="editable defaultValue">For how many people</span></p>
 	
-	<label for="recipeIntroduction">Introduction</label> 
-	<textarea id="recipeIntroduction" rows="5" cols="50"></textarea><br/>
-</form>
+	<p>Ingredients</p>
+	<ul id="ingredientsList"></ul>
+	<div id="ingredientsForm">	
+		<input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
+		<input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
+		<input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
+		<input type="button" value="Add Ingredient" id="addIngredient"/><br/>
+	</div>
 	
-## Ingredients
-
-<ul id="ingredientsList"></ul>
-
-<form id="ingredientsForm">	
-	<label>Ingredient</label>
-	<input type="text" class="focusOnNext" name="ingredientQuantity" size="4"/>
-	<input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
-	<input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
-	<input type="button" value="Add Ingredient" id="addIngredient"/><br/>
-</form>
-
-## Instructions
-
-<ul id="instructionsList"></ul>
-
-<form id="instructionForm">
-	<label for="instruction">Instruction</label> 
-	<textarea id="instruction" rows="5" cols="50"></textarea>
-	<input type="button" value="Add Instruction" id="addInstruction"/><br/>
-</form>
+	<p>Instructions</p>
+	<ul id="instructionsList"></ul>
+	<div id="instructionForm">
+		<textarea id="instruction" rows="4" cols="50">Describe step by step how to cook this</textarea>
+		<input type="button" value="Add step" id="addInstruction"/>
+	</div>
+	<ul>
+		<li><p itemprop="recipeInstructions" class="editable defaultValue">First instruction</p></li>
+	</ul>
+</div>
 
 <input type="button" value="Save" id="saveRecipe"/>
 
@@ -54,9 +46,8 @@ $(document).ready(function(){
 		}
 	});
 
-
 	$("#addIngredient").click(function(){
-		$('#ingredientsList').append('<li>' +
+		$('#ingredientsList').append('<li itemprop="recipeIngredient">' +
 			$('#ingredientsForm input[name=ingredientQuantity]').val() + ' ' +
 			$('#ingredientsForm input[name=ingredientUnit]').val() + ' ' +
 			$('#ingredientsForm input[name=ingredientName]').val() + 
@@ -73,16 +64,23 @@ $(document).ready(function(){
 	});
 
 	$("#addInstruction").click(function(){
-		$("#instructionsList").append('<li>' +
+		$("#instructionsList").append('<li itemprop="recipeInstructions">' +
 			$('#instructionForm #instruction').val() +
 			'</li>');
 	});
 	
 	$("#saveRecipe").click(function(){
-		alert($("#recipeOverview input[name=recipeName]").val() +
-		' ' + $("#recipeOverview #recipeIntroduction").val() +
-		' ' + $("#ingredientsList").text() +
-		' ' + $("#instructionsList").text());
+		var recipe = { 
+			"recipeName": $("[itemprop=name]").text(), 
+			"recipeDescription": $("[itemprop=description]").text(), 
+			"recipeYield": $("[itemprop=recipeYield]").text(),
+			"ingredients": [],
+			"instructions": []
+		} ;
+		
+		$.each()
+
+		alert(JSON.stringify(recipe));
 	});
 
 });
