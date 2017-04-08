@@ -20,12 +20,9 @@ title: Add Recipe
 	<p>Instructions</p>
 	<ul id="instructionsList"></ul>
 	<div id="instructionForm">
-		<textarea id="instruction" rows="4" cols="50">Describe step by step how to cook this</textarea>
+		<textarea id="instruction" rows="4" cols="50" placeholder="Describe step by step how to cook this"></textarea>
 		<input type="button" value="Add step" id="addInstruction"/>
 	</div>
-	<ul>
-		<li><p itemprop="recipeInstructions" class="editable defaultValue">First instruction</p></li>
-	</ul>
 </div>
 
 <input type="button" value="Save" id="saveRecipe"/>

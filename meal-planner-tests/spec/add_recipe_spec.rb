@@ -44,4 +44,20 @@ RSpec.describe 'Add Recipe' do
     expect(@driver.find_element(:css, "[itemprop=recipeYield]").text).to eq("4 adults")
   end
 
+  it "should add one ingredient" do
+    @driver.find_element(:css, "input[name=ingredientQuantity]").send_key("1")
+    @driver.find_element(:css, "input[name=ingredientUnit]").send_key("spoonful")
+    @driver.find_element(:css, "input[name=ingredientName]").send_key("Salt")
+    @driver.find_element(:id, "addIngredient").click()
+    
+    expect(@driver.find_element(:css, "[itemprop=recipeIngredient]").text).to eq("1 spoonful Salt")
+  end
+  
+  it "should add one instruction" do
+    @driver.find_element(:id, "instruction").send_key("Heat pan")
+    @driver.find_element(:id, "addInstruction").click()
+    
+    expect(@driver.find_element(:css, "[itemprop=recipeInstructions]").text).to eq("Heat pan")
+  end
+  
 end
