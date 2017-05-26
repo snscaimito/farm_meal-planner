@@ -16,3 +16,7 @@ target/
 hs_err_pid*
 
 _site/
+
+.gradle
+.jruby
+.sass-cache
