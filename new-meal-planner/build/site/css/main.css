@@ -1,2 +1,29 @@
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\000031}}
-BODY { background: white; }
+BODY { background: white; font-family: Sans-Serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\000036}}
+.sidebar { grid-area: sidebar; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000310}}
+.content { grid-area: content; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000314}}
+.header { grid-area: header; background-color: #32CD32; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000319}}
+.footer { grid-area: footer; border-top: thin solid silver; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000324}}
+.wrapper { display: grid; grid-template-columns: 200px 10px auto; grid-template-rows: auto; grid-template-areas: "header header header"  "sidebar . content" "footer footer footer"; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000334}}
+.footer UL { display: grid; grid-template-columns: auto 150px 150px 150px auto; grid-template-rows: auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000340}}
+.footer UL LI { display: inline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000344}}
+H1.title { color: white; margin-top: 0px; margin-left: 10px; margin-bottom: 0px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000351}}
+UL.actionMenu { list-style-type: none; padding-left: 0px; }
