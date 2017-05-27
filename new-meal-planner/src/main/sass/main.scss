@@ -13,7 +13,6 @@ BODY {
 
 .header {
 	grid-area: header;
-	background-color: #32CD32;
 }
 
 .footer {
@@ -42,13 +41,21 @@ BODY {
 }
 
 H1.title {
-	color: white;
+	color: #3CB371;
 	margin-top: 0px;
-	margin-left: 10px;
+	margin-left: 0px;
 	margin-bottom: 0px;
 }
 
 UL.actionMenu {
 	list-style-type: none ;
 	padding-left: 0px;
+}
+
+.defaultValue {
+	color: #d8d4d4;
+}
+
+.unavailable {
+	color: #d8d4d4;
 }
