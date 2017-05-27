@@ -14,14 +14,19 @@
 		</div>
 		<div class="sidebar">
 			<ul class="actionMenu">
-				<li class="unavailable">Create</li>
+				<li class="unavailable" id="createAction">Create</li>
 				<li class="unavailable">Read</li>
 				<li class="unavailable">Update</li>
 				<li class="unavailable">Delete</li>
 			</ul>
 		</div>
 		<div class="content">
-			<div itemscope itemtype="http://schema.org/Recipe">
+			<div id="welcome">
+				<h2>Welcome</h2>
+				<p>Work with your own recipes.</p>
+				<p><input id="getStarted" type="button" value="Get started"/></p>
+			</div>
+			<div id="recipeForm" class="hidden" itemscope itemtype="http://schema.org/Recipe">
 				<p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
 				<p itemprop="description" class="editable defaultValue">Describe your recipe</p>
 				<p>Yield: <span itemprop="recipeYield" class="editable defaultValue">For how many people</span></p>
@@ -41,8 +46,8 @@
 					<textarea id="instruction" rows="4" cols="50" placeholder="Describe step by step how to cook this"></textarea>
 					<input type="button" value="Add step" id="addInstruction"/>
 				</div>
+				<input type="button" value="Save" id="saveRecipe"/>
 			</div>
-			<input type="button" value="Save" id="saveRecipe"/>
 		</div>
 		<div class="footer">
 			<ul>
@@ -57,6 +62,12 @@
 	
 	<script>
 	$(document).ready(function(){
+		
+		$("#getStarted").click(function(){
+			$('#createAction').removeClass('unavailable');
+			$('#welcome').addClass('hidden');
+			$('#recipeForm').removeClass('hidden');
+		});
 	
 		$("#ingredientsForm .focusOnNext").keydown(function(e){
 			if (e.which == 13) {

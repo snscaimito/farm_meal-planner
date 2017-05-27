@@ -33,3 +33,6 @@ UL.actionMenu { list-style-type: none; padding-left: 0px; }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000359}}
 .unavailable { color: #d8d4d4; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sns\/dev\/meal-planner\/source\/new-meal-planner\/src\/main\/sass\/main\.scss}line{font-family:\0000363}}
+.hidden { display: none; }
