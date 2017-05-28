@@ -24,6 +24,13 @@
 			<div id="welcome">
 				<h2>Welcome</h2>
 				<p>Work with your own recipes.</p>
+				
+				<h3>Use your existing social media account</h3>
+				<p><img src="img/btn_google_signin_light_normal_web.png" width="191" height="46" alt="Btn Google Signin Light Normal Web"></p>
+				
+				<h3>Use your email address</h3>
+				<input id="email" type="text" name="email"/> <input id="join" type="button" value="Join"/>
+				
 				<p><input id="getStarted" type="button" value="Get started"/></p>
 			</div>
 			<div id="recipeForm" class="hidden" itemscope itemtype="http://schema.org/Recipe">
@@ -60,68 +67,7 @@
 		</div>
 	</div>
 	
-	<script>
-	$(document).ready(function(){
-		
-		$("#getStarted").click(function(){
-			$('#createAction').removeClass('unavailable');
-			$('#welcome').addClass('hidden');
-			$('#recipeForm').removeClass('hidden');
-		});
-	
-		$("#ingredientsForm .focusOnNext").keydown(function(e){
-			if (e.which == 13) {
-				$(this).next(".focusOnNext").focus();
-			}
-		});
-
-		$("#ingredientsForm .submit").keydown(function(e){
-			if (e.which == 13) {
-				$("#addIngredient").click();
-				$("#ingredientsForm input[name=ingredientQuantity]").focus();
-			}
-		});
-
-		$("#addIngredient").click(function(){
-			$('#ingredientsList').append('<li itemprop="recipeIngredient">' +
-				$('#ingredientsForm input[name=ingredientQuantity]').val() + ' ' +
-				$('#ingredientsForm input[name=ingredientUnit]').val() + ' ' +
-				$('#ingredientsForm input[name=ingredientName]').val() + 
-				'</li>');
-			$('#ingredientsForm').trigger("reset");
-		});
-
-		$("#instructionForm #instruction").keydown(function(e){
-			if (e.which == 13) {
-				$("#addInstruction").click();
-				$("#instructionForm #instruction").val("");
-				return false;
-			}
-		});
-
-		$("#addInstruction").click(function(){
-			$("#instructionsList").append('<li itemprop="recipeInstructions">' +
-				$('#instructionForm #instruction').val() +
-				'</li>');
-		});
-	
-		$("#saveRecipe").click(function(){
-			var recipe = { 
-				"recipeName": $("[itemprop=name]").text(), 
-				"recipeDescription": $("[itemprop=description]").text(), 
-				"recipeYield": $("[itemprop=recipeYield]").text(),
-				"ingredients": [],
-				"instructions": []
-			} ;
-		
-			$.each()
-
-			alert(JSON.stringify(recipe));
-		});
-
-	});
-	</script>
-
 	<script src="js/form.js"></script>
+	<script src="js/dummy.js"></script>
 </body>
 </html>

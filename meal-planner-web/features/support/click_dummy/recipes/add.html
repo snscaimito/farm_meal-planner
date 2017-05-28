@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Meal Planner</title>
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<h1 class="title">Meal Planner</h1>
+		</div>
+		<div class="sidebar">
+			<ul class="actionMenu">
+				<li id="createAction">Create</li>
+				<li class="unavailable">Read</li>
+				<li class="unavailable">Update</li>
+				<li class="unavailable">Delete</li>
+			</ul>
+		</div>
+		<div class="content">
+			<div id="recipeForm" itemscope itemtype="http://schema.org/Recipe">
+				<p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
+				<p itemprop="description" class="editable defaultValue">Describe your recipe</p>
+				<p>Yield: <span itemprop="recipeYield" class="editable defaultValue">For how many people</span></p>
+	
+				<p>Ingredients</p>
+				<ul id="ingredientsList"></ul>
+				<div id="ingredientsForm">	
+					<input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
+					<input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
+					<input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
+					<input type="button" value="Add Ingredient" id="addIngredient"/><br/>
+				</div>
+	
+				<p>Instructions</p>
+				<ul id="instructionsList"></ul>
+				<div id="instructionForm">
+					<textarea id="instruction" rows="4" cols="50" placeholder="Describe step by step how to cook this"></textarea>
+					<input type="button" value="Add step" id="addInstruction"/>
+				</div>
+				<input type="button" value="Save" id="saveRecipe"/>
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li>&nbsp;</li>
+				<li>About</li>
+				<li>Data storage</li>
+				<li>Change history</li>
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="../js/form.js"></script>
+	<script src="../js/dummy.js"></script>
+</body>
+</html>
