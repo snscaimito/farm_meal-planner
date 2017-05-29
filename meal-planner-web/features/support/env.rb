@@ -1,7 +1,7 @@
 # set CLICK_DUMMY to true to fake backend
 CLICK_DUMMY = true
 
-BASE_URL = "file://#{Dir.pwd}/features/support/click_dummy"
+BASE_URL = "http://localhost:8080"
 TMP_DIR = "#{Dir.pwd}/build/cucumber-tmp"
 
 MEMBER_DB = "#{TMP_DIR}/members.yaml"

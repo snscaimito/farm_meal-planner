@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Meal Planner</title>
-	<link rel="stylesheet" href="css/main.css">
-	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="/css/main.css">
+	<script src="/js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,11 @@
 				<h3>Use your existing social media account</h3>
 				<p><img src="img/btn_google_signin_light_normal_web.png" width="191" height="46" alt="Btn Google Signin Light Normal Web"></p>
 				
+				<h3>Use your email address</h3>
+				<input id="email" type="text" name="email"/> <input id="join" type="button" value="Join"/>
+				
 				<p><input id="getStarted" type="button" value="Get started"/></p>
+
 			</div>
 			<div id="recipeForm" class="hidden" itemscope itemtype="http://schema.org/Recipe">
 				<p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
@@ -126,6 +130,6 @@
 	});
 	</script>
 
-	<script src="js/form.js"></script>
+	<script src="/js/form.js"></script>
 </body>
 </html>
