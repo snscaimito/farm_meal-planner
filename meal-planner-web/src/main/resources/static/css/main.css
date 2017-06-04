@@ -1,0 +1,209 @@
+BODY {
+	background: white;
+	font-family: Sans-Serif;
+}
+
+H1.title {
+	color: #3CB371;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 0px;
+}
+
+UL.actionMenu {
+	list-style-type: none ;
+	padding-left: 0px;
+}
+
+.defaultValue {
+	color: #d8d4d4;
+}
+
+.unavailable {
+	color: #d8d4d4;
+}
+
+.hidden {
+	display: none;
+}
+
+
+.landing_header {
+    display: grid;
+    grid-template-columns: auto 180px 180px;
+    grid-column-gap: 20px;
+    background-color: #eef9d4;
+}
+
+.landing_title {
+    grid-column: 1;
+    color: brown ;
+    font-size: 16pt;
+    margin: 0;
+}
+
+input[type=button] {
+    -moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+	background-color:#33bdef;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+
+input[type=button]:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+	background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+	background-color:#019ad2;
+}
+
+.landing_button {
+	font-size:12pt;
+}
+
+.landing_try_it {
+    grid-column: 2;
+}
+
+.landing_login {
+    grid-column: 3;
+}
+
+.landing_footer {
+    border-top: thin solid silver ;
+    display: grid;
+    grid-auto-columns: 400px;
+    justify-items: center;
+}
+
+.landing_footer H2 {
+    font-size: 14pt;
+}
+
+
+
+.landing_about {
+    grid-column: 1;
+}
+
+.landing_help {
+    grid-column: 2;
+}
+
+.landing_rules {
+    grid-column: 3;
+}
+
+.landing_overview {
+    background-color: #eef9d4;
+    height: 400px ;
+}
+
+.landing-overview H2 {
+    margin: 0px ;
+}
+
+.landing_feature {
+    background-color: #e3f9ee;
+    height: 400px ;
+}
+
+.landing_page {
+    margin: 0 ;
+}
+
+#signupForm {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+#loginForm {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+#week {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+}
+
+.weekHeader {
+    border-bottom: thin solid black ;
+}
+
+.evenColumn {
+    background-color: #e8eae9 ;
+}
+
+.oddColumn {
+    background-color: #d6d6d6;
+}
+
+.mealEvent {
+    height: 50px;
+}
+
+.daySchedule {
+    border-top: thin solid black ;
+}
+
+.recipeSelectionArea {
+    display: grid ;
+    grid-auto-columns: 50%;
+    grid-auto-flow: column ;
+}
+
+.recipeSelectionArea .actions {
+    display: grid ;
+    grid-auto-columns: auto;
+    grid-auto-flow: column ;
+    height: 30px;
+}
+
+.recipe P.title {
+    font-weight: bold ;
+}
+
+.recipe .description {
+    font-size: smaller;
+}
+
+.recipe P {
+    margin: 0 ;
+}
+
+.recipe IMG {
+    margin-right: 15px;
+}
+
+.recipe {
+    display: grid ;
+    grid-template-columns: 60px auto;
+}
+
+.searchResultList {
+    margin-top: 15px;
+}

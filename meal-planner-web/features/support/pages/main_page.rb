@@ -7,7 +7,7 @@ class MainPage
   page_url :my_page_url
   
   def my_page_url
-    "#{BASE_URL}/index.html"
+    "#{BASE_URL}/"
   end
   
   def join_with_email

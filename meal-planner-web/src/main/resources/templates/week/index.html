@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Welcome to Meal Planner</title>
+	<link rel="stylesheet" href="../../static/css/main.css"  th:href="@{/css/main.css}"/>
+	<script src="../../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+</head>
+
+<body>
+    <h1>Meal Plan for Week</h1>
+    <div id="week">
+        <div id="monday" class="evenColumn">
+            <span>Monday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+        <div id="tuesday" class="oddColumn">
+            <span>Tuesday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+        <div id="wednesday" class="evenColumn">
+            <span>Wednesday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+        <div id="thursday" class="oddColumn">
+            <span>Thursday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+        <div id="friday" class="evenColumn">
+            <span>Friday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+        <div id="saturday" class="oddColumn">
+            <span>Saturday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+        <div id="sunday" class="evenColumn">
+            <span>Sunday</span>
+            <div class="daySchedule">
+                <div class="mealEvent"><span>Breakfast</span></div>
+                <div class="mealEvent"><span>Lunch</span></div>
+                <div class="mealEvent"><span>Dinner</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="recipeSelectionArea">
+        <div id="search">
+            <div class="actions">
+                <div>
+                    <input id="newRecipe" type="button" value="New Recipe"/>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search for any term" size="40"/>
+                    <input type="button" value="Search"/>
+                </div>
+            </div>
+
+            <div id="searchResultList">
+                <div class="recipe">
+                    <div>
+                        <img src="http://placehold.it/50x50"/>
+                    </div>
+                    <div>
+                        <p class="title">Egg-Asparagus</p>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est lectus, ullamcorper at odio et, consectetur tempor est. Pellentesque sed diam nisi. Morbi pellentesque rhoncus ultrices.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="recipeForm" class="hidden" itemscope="" itemtype="http://schema.org/Recipe">
+                <p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
+                <p itemprop="description" class="editable defaultValue">Describe your recipe</p>
+                <p>Yield: <span itemprop="recipeYield" class="editable defaultValue">For how many people</span></p>
+
+                <p>Ingredients</p>
+                <ul id="ingredientsList"></ul>
+                <div id="ingredientsForm">	
+                    <input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
+                    <input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
+                    <input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
+                    <input type="button" value="Add Ingredient" id="addIngredient"/><br/>
+                </div>
+
+                <p>Instructions</p>
+                <ul id="instructionsList"></ul>
+                <div id="instructionForm">
+                    <textarea id="instruction" rows="4" cols="50" placeholder="Describe step by step how to cook this"></textarea>
+                    <input type="button" value="Add step" id="addInstruction"/>
+                </div>
+                <input type="button" value="Save" id="saveRecipe"/>
+            </div>
+
+        </div>
+
+        <div id="pick">
+            <div class="actions">
+                <span>Pick List</span>
+            </div>
+            <div id="pickList">
+                <div class="recipe">
+                    <div>
+                        <img src="http://placehold.it/50x50"/>
+                    </div>
+                    <div>
+                        <p class="title">Egg-Asparagus</p>
+                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est lectus, ullamcorper at odio et, consectetur tempor est. Pellentesque sed diam nisi. Morbi pellentesque rhoncus ultrices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../static/js/dummy.js" th:src="@{/js/dummy.js}"></script>
+</body>
+</html>
