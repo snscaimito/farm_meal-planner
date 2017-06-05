@@ -25,11 +25,6 @@ $(document).ready(function(){
         location.href = 'week/index.html';
     });
 
-    $('#newRecipe').click(function(){
-        $('#searchResultList').hide();
-        $('#recipeEditor').load('/snippets/recipeEditor.html');
-    });
-
     // ACTUAL FUNCTIONS BEGIN
 	
 

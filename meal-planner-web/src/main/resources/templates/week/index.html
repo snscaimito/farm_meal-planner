@@ -73,6 +73,14 @@
             <div class="actions">
                 <div>
                     <input id="newRecipe" type="button" value="New Recipe"/>
+                    <script th:inline="javascript">
+                        $('#newRecipe').click(function(){
+                            $('#searchResultList').hide();
+                            
+                            var snippetPath = /*[[@{/snippet/recipeEditor.html}]]*/ '../../static/snippets/recipeEditor.html' ;
+                            $('#recipeEditor').load(snippetPath);
+                        });
+                    </script>
                 </div>
                 <div>
                     <input type="text" placeholder="Search for any term" size="40"/>
