@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 class WeekController {
 
-    @GetMapping("/week")
+    @GetMapping("/week/index.html")
     String index() {
         return "week/index";
     }

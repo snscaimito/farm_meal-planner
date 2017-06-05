@@ -92,28 +92,7 @@
                 </div>
             </div>
             
-            <div id="recipeForm" class="hidden" itemscope="" itemtype="http://schema.org/Recipe">
-                <p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
-                <p itemprop="description" class="editable defaultValue">Describe your recipe</p>
-                <p>Yield: <span itemprop="recipeYield" class="editable defaultValue">For how many people</span></p>
-
-                <p>Ingredients</p>
-                <ul id="ingredientsList"></ul>
-                <div id="ingredientsForm">	
-                    <input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
-                    <input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
-                    <input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
-                    <input type="button" value="Add Ingredient" id="addIngredient"/><br/>
-                </div>
-
-                <p>Instructions</p>
-                <ul id="instructionsList"></ul>
-                <div id="instructionForm">
-                    <textarea id="instruction" rows="4" cols="50" placeholder="Describe step by step how to cook this"></textarea>
-                    <input type="button" value="Add step" id="addInstruction"/>
-                </div>
-                <input type="button" value="Save" id="saveRecipe"/>
-            </div>
+            <div id="recipeEditor"></div>
 
         </div>
 
@@ -135,6 +114,6 @@
         </div>
     </div>
     
-    <script src="../../static/js/dummy.js" th:src="@{/js/dummy.js}"></script>
+	<script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
 </body>
 </html>

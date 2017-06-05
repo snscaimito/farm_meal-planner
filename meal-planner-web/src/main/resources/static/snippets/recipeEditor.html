@@ -1,0 +1,131 @@
+<!--
+#recipeEditor has to be a DIV. The contents of this file will be placed into it.
+-->
+
+<p>Please describe your recipe.</p>
+
+<div id="recipeForm" itemscope="" itemtype="http://schema.org/Recipe">
+    <p itemprop="name" class="recipeName editable defaultValue">The name of your recipe</p>
+    <p itemprop="description" class="editable defaultValue">Describe your recipe</p>
+    <p>Yield: <span itemprop="recipeYield" class="editable defaultValue">For how many people</span></p>
+
+    <p>Ingredients</p>
+    <ul id="ingredientsList"></ul>
+    <div id="ingredientsForm">	
+        <input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
+        <input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
+        <input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
+        <input type="button" value="Add Ingredient" id="addIngredient"/><br/>
+    </div>
+
+    <p>Instructions</p>
+    <ul id="instructionsList"></ul>
+    <div id="instructionForm">
+        <textarea id="instruction" rows="4" cols="50" placeholder="Describe step by step how to cook this"></textarea>
+        <input type="button" value="Add step" id="addInstruction"/>
+    </div>
+    <input type="button" value="Save" id="saveRecipe"/>
+</div>
+
+<script>
+	$(".editable").click(function(){
+		var element = $(this);
+		var inputField = null ;
+		
+		if ($(element).prop("tagName").toUpperCase() === "P") {
+			inputField = document.createElement("textarea");
+			$(inputField).attr("rows", "2") ;
+			$(inputField).attr("cols", "50") ;
+		} else {
+			inputField = document.createElement("input");
+			inputField.type = "text";
+		}
+		
+		if (!$(element).hasClass("defaultValue"))
+			inputField.value = $(element).text();
+		
+		$.each($(this).prop("attributes"), function() {
+		    $(inputField).attr(this.name, this.value);
+		});
+
+		$(inputField).removeClass("editable");
+		$(inputField).removeClass("defaultValue");
+		
+		$(inputField).blur(function(){
+			$(element).text($(inputField).val());
+			$(element).removeClass("defaultValue");
+			$(inputField).remove();
+			$(element).show();
+		});
+		
+		$(element).hide();
+		$(element).after(inputField);
+		$(inputField).focus();
+	}) ;
+
+    $("#ingredientsForm .focusOnNext").keydown(function(e){
+        if (e.which == 13) {
+            $(this).next(".focusOnNext").focus();
+        }
+    });
+
+    $("#ingredientsForm .submit").keydown(function(e){
+        if (e.which == 13) {
+            $("#addIngredient").click();
+            $("#ingredientsForm input[name=ingredientQuantity]").focus();
+        }
+    });
+
+    $("#addIngredient").click(function(){
+        $('#ingredientsList').append('<li itemprop="recipeIngredient">' +
+            $('#ingredientsForm input[name=ingredientQuantity]').val() + ' ' +
+            $('#ingredientsForm input[name=ingredientUnit]').val() + ' ' +
+            $('#ingredientsForm input[name=ingredientName]').val() + 
+            '</li>');
+        $('#ingredientsForm').trigger("reset");
+    });
+
+    $("#instructionForm #instruction").keydown(function(e){
+        if (e.which == 13) {
+            $("#addInstruction").click();
+            $("#instructionForm #instruction").val("");
+            return false;
+        }
+    });
+
+    $("#addInstruction").click(function(){
+        $("#instructionsList").append('<li itemprop="recipeInstructions">' +
+            $('#instructionForm #instruction').val() +
+            '</li>');
+    });
+
+    $("#saveRecipe").click(function(){
+        var ingredients = $("#ingredientsList").children().map(function(listItem, element){return $(element).text();}).get();
+        var instructions = $("#instructionsList").children().map(function(listItem, element){return $(element).text();}).get();
+
+        var recipe = { 
+            "name": $("[itemprop=name]").text(), 
+            "description": $("[itemprop=description]").text(), 
+            "yield": $("[itemprop=recipeYield]").text(),
+            "ingredients": ingredients,
+            "instructions": instructions
+        } ;
+
+        $.each()
+       
+        $.ajax({
+            url: "http://localhost:8080/recipe",
+            method: "PUT",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(recipe)
+        }).done(function(msg){
+            alert('Received' + JSON.stringify(msg)) ;
+        });
+        
+        $('#recipeEditor').empty();
+        $('#recipeEditor').load('recipeEditor.html');
+
+    });
+
+</script>
