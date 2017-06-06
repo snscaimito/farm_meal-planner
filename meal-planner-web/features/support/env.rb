@@ -6,6 +6,7 @@ TMP_DIR = "#{Dir.pwd}/build/cucumber-tmp"
 
 MEMBER_DB = "#{TMP_DIR}/members.yaml"
 
+require 'selenium-webdriver'
 require 'page-object'
 require 'page-object/page_factory'
 require 'rspec-expectations'
@@ -16,7 +17,7 @@ FileUtils.mkdir_p "build/features"
 browser = Selenium::WebDriver.for :chrome
 
 
-@@default_member_data = {
+@default_member_data = {
   :stephan => {
     :email => 'sns@caimito.net'
   }

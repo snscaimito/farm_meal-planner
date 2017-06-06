@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-    // FUNCTIONS FOR CLICK DUMMY
     $('#join').click(function(){
         location.href = 'recipes/index.html';
     });
@@ -9,8 +8,8 @@ $(document).ready(function(){
         location.href = 'add.html';
     });
 
-    $('#signup').click(function(){
-        location.href = 'signup.html';
+    $('#tryIt').click(function(){
+        location.href = 'week/index.html';
     });
 
     $('#login').click(function(){
@@ -24,8 +23,5 @@ $(document).ready(function(){
     $('#signupForm #submit').click(function(){
         location.href = 'week/index.html';
     });
-
-    // ACTUAL FUNCTIONS BEGIN
-	
 
 });

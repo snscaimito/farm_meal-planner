@@ -1,3 +1,26 @@
+When(/^I visit the Meal Planner$/) do
+  visit MainPage
+end
+
+Then(/^I see the main page$/) do
+  expect(on(MainPage).title).to eql("Welcome to Meal Planner")
+end
+
+When(/^I decide to try Meal Planner$/) do
+  visit MainPage do |page|
+    page.try_meal_planner
+  end
+end
+
+Then(/^I can start planning meals for the week$/) do
+  expect(on(WeekPlanningPage).title).to eql('Meal Plan for Week')
+end
+
+
+
+
+
+
 Given(/^I am not yet a member$/) do
   @user_id = nil
 end

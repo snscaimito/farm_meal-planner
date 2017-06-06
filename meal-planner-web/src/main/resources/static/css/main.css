@@ -207,3 +207,7 @@ input[type=button]:hover {
 .searchResultList {
     margin-top: 15px;
 }
+
+.advertisement {
+    background-color: blanchedalmond ;
+}

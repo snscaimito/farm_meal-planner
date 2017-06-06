@@ -2,13 +2,14 @@
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<title>Welcome to Meal Planner</title>
+	<title>Meal Plan for Week</title>
 	<link rel="stylesheet" href="../../static/css/main.css"  th:href="@{/css/main.css}"/>
 	<script src="../../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
 </head>
 
 <body>
     <h1>Meal Plan for Week</h1>
+        
     <div id="week">
         <div id="monday" class="evenColumn">
             <span>Monday</span>
@@ -68,11 +69,17 @@
         </div>
     </div>
     
+    <div class="advertisement">
+        <p>Do you want to use your own recipes?</p>
+        <p><input id="signup" type="button" value="Signup to use your own recipes"/></p>
+    </div>
+
+    
     <div class="recipeSelectionArea">
         <div id="search">
             <div class="actions">
                 <div>
-                    <input id="newRecipe" type="button" value="New Recipe"/>
+                    <!-- <input id="newRecipe" type="button" value="New Recipe"/> -->
                     <script th:inline="javascript">
                         $('#newRecipe').click(function(){
                             $('#searchResultList').hide();
@@ -83,7 +90,7 @@
                     </script>
                 </div>
                 <div>
-                    <input type="text" placeholder="Search for any term" size="40"/>
+                    <input type="text" placeholder="Search for an ingredient" size="40"/>
                     <input type="button" value="Search"/>
                 </div>
             </div>
