@@ -1,4 +1,4 @@
-package net.caimito;
+package net.caimito.recipe;
 
 import java.util.ArrayList;
 import java.util.List;

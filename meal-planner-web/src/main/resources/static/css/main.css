@@ -208,6 +208,10 @@ input[type=button]:hover {
     margin-top: 15px;
 }
 
+.searchResultList UL {
+	list-style: none;
+}
+
 .advertisement {
     background-color: blanchedalmond ;
 }

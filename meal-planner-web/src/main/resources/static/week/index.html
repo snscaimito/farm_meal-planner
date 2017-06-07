@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Meal Plan for Week</title>
-	<link rel="stylesheet" href="../../static/css/main.css"  th:href="@{/css/main.css}"/>
-	<script src="../../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<link rel="stylesheet" href="/css/main.css"/>
+	<script src="/js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -90,22 +90,13 @@
                     </script>
                 </div>
                 <div>
-                    <input type="text" placeholder="Search for an ingredient" size="40"/>
-                    <input type="button" value="Search"/>
+                    <input id="searchTerm" type="text" placeholder="Search for an ingredient" size="40"/>
+                    <input id="searchForRecipe" type="button" value="Search"/>
                 </div>
             </div>
 
-            <div id="searchResultList">
-                <div class="recipe">
-                    <div>
-                        <img src="http://placehold.it/50x50"/>
-                    </div>
-                    <div>
-                        <p class="title">Egg-Asparagus</p>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est lectus, ullamcorper at odio et, consectetur tempor est. Pellentesque sed diam nisi. Morbi pellentesque rhoncus ultrices.</p>
-                    </div>
-                </div>
-            </div>
+            <ul id="searchResultList">
+            </ul>
             
             <div id="recipeEditor"></div>
 
@@ -129,6 +120,20 @@
         </div>
     </div>
     
-	<script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
+	<script src="/js/main.js"></script>
+    <script>
+        $('#searchForRecipe').click(function(){
+            $.ajax({
+                url: "http://localhost:8080/recipe/search?term=" + $('#searchTerm').val(),
+                method: "GET",
+                dataType: "json"
+            }).done(function(msg){
+                $.each(msg, function(index, value){
+                    $('#searchResultList').append('<div class="recipe"><div><img src="http://placehold.it/50x50"/></div><div><p class="">' + value['name'] + '</p><p class="description">' + value['description'] + '</p></div></div>');
+                });
+                
+            });
+        });
+    </script>
 </body>
 </html>

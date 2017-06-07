@@ -11,6 +11,9 @@ require 'page-object'
 require 'page-object/page_factory'
 require 'rspec-expectations'
 require 'fileutils'
+require 'rest_client'
+require 'json'
+
 
 FileUtils.mkdir_p TMP_DIR
 FileUtils.mkdir_p "build/features"
