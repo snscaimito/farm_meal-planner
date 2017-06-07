@@ -2,7 +2,7 @@
 CLICK_DUMMY = true
 
 BASE_URL = "http://localhost:8080"
-TMP_DIR = "#{Dir.pwd}/build/cucumber-tmp"
+TMP_DIR = "#{Dir.pwd}/target/cucumber-tmp"
 
 MEMBER_DB = "#{TMP_DIR}/members.yaml"
 
@@ -16,7 +16,7 @@ require 'json'
 
 
 FileUtils.mkdir_p TMP_DIR
-FileUtils.mkdir_p "build/features"
+FileUtils.mkdir_p "target/features"
 browser = Selenium::WebDriver.for :chrome
 
 

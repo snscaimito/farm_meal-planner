@@ -32,7 +32,7 @@ end
 
 When(/^I search for recipes with ingredient Egg$/) do
   on WeekPlanningPage do |page|
-    page.searchTerm = 'egg'
+    page.searchTerm = 'Egg'
     page.search
   end
 end
