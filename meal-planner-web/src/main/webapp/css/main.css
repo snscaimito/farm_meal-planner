@@ -204,12 +204,9 @@ input[type=button]:hover {
     grid-template-columns: 60px auto;
 }
 
-.searchResultList {
+#searchResultList {
     margin-top: 15px;
-}
-
-.searchResultList UL {
-	list-style: none;
+	list-style-type: none;
 }
 
 .advertisement {

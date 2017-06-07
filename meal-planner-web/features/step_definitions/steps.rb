@@ -37,6 +37,12 @@ When(/^I search for recipes with ingredient Egg$/) do
   end
 end
 
+Then(/^the search field is empty$/) do
+  expect(on(WeekPlanningPage).searchTerm).to be_empty
+end
+
+
+
 
 Given(/^I am not yet a member$/) do
   @user_id = nil

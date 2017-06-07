@@ -6,11 +6,11 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Recipe {
-	public String name = "";
-	public String description = "";
-	public String yield = "";
-	public List<String> ingredients = new ArrayList<>();
-	public List<String> instructions = new ArrayList<>();
+	private String name = "";
+	private String description = "";
+	private String yield = "";
+	private List<String> ingredients = new ArrayList<>();
+	private List<String> instructions = new ArrayList<>();
 
 	public String getName() {
 		return name;

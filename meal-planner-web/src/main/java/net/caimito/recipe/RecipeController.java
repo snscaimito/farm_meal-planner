@@ -22,14 +22,19 @@ public class RecipeController {
 	@RequestMapping(value="/recipe", method=RequestMethod.PUT)
 	public Recipe addRecipe(@RequestBody Recipe recipe) {
 		logger.info(recipe.toString());
-		recipes.put(recipe.name, recipe) ;
+		recipes.put(recipe.getName(), recipe) ;
 		return recipe ;
 	}
 
 	@RequestMapping(value="/recipe/search", method=RequestMethod.GET)
 	public List<Recipe> searchRecipes(@RequestParam(name="term", required = true) String searchTerm) {
+		logger.info(searchTerm);
 		List<Recipe> recipesFound = new ArrayList<>() ;
-			for (Recipe recipe : recipes.values()) {
+		
+		if (searchTerm.isEmpty())
+			return recipesFound ;
+		
+		for (Recipe recipe : recipes.values()) {
 				if (recipe.getName().contains(searchTerm))
 					recipesFound.add(recipe) ;
 				else if (recipe.getDescription().contains(searchTerm))
