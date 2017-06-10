@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Welcome to Meal Planner</title>
-	<link rel="stylesheet" href="../static/css/main.css"  th:href="@{/css/main.css}"/>
-	<script src="../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<link rel="stylesheet" href="/css/main.css"/>
+	<script src="/js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -16,6 +16,22 @@
         <input id="submit" type="button" value="Signup" style="grid-column: 2"/>
     </div>
     
-	<script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+	<script src="/js/js.cookie-2.1.4.js"></script>
+	<script src="/js/main.js"></script>
+	<script>
+	$('#submit').click(function(){
+		var membershipInformation = { "email" : $('#email').val() }
+		
+        $.ajax({
+            url: "http://localhost:8080/member",
+            method: "PUT",
+            dataType: "json",
+            contentType: "application/json",
+            data: JSON.stringify(membershipInformation)
+        }).done(function(msg){
+    		Cookies.set('member_uuid', msg['uuid']);
+        });
+	});
+	</script>
 </body>
 </html>

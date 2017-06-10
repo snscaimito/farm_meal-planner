@@ -24,12 +24,19 @@ public class RecipeController {
 		logger.info(recipe.toString());
 		recipes.put(recipe.getName(), recipe) ;
 		return recipe ;
+		/*
+		 * TODO: Store incoming recipes as JSON in Solr
+		 */
 	}
 
 	@RequestMapping(value="/recipe/search", method=RequestMethod.GET)
 	public List<Recipe> searchRecipes(@RequestParam(name="term", required = true) String searchTerm) {
 		logger.info(searchTerm);
 		List<Recipe> recipesFound = new ArrayList<>() ;
+		
+		/*
+		 * TODO: Query Solr and obtain recipe data
+		 */
 		
 		if (searchTerm.isEmpty())
 			return recipesFound ;

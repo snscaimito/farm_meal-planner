@@ -12,8 +12,12 @@ $(document).ready(function(){
         location.href = 'week/index.html';
     });
 
+    $('#signup').click(function(){
+        location.href = '/signup.html';
+    });
+
     $('#login').click(function(){
-        location.href = 'login.html';
+        location.href = '/login.html';
     });
 
     $('#loginForm #submit').click(function(){

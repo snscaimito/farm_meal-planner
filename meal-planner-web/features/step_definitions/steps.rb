@@ -31,7 +31,7 @@ Then(/^I see the Egg\-Asparagus recipe in the search result list$/) do
 end
 
 When(/^I search for recipes with ingredient Egg$/) do
-  on WeekPlanningPage do |page|
+  visit WeekPlanningPage do |page|
     page.searchTerm = 'Egg'
     page.search
   end
@@ -41,12 +41,32 @@ Then(/^the search field is empty$/) do
   expect(on(WeekPlanningPage).searchTerm).to be_empty
 end
 
+When(/^I am planning my week$/) do
+  visit WeekPlanningPage
+end
 
-
+Then(/^I am encouraged to join$/) do
+  expect(on(WeekPlanningPage).signup_element).to be_visible
+end
 
 Given(/^I am not yet a member$/) do
   @user_id = nil
 end
+
+When(/^I join as "([^"]*)"$/) do |person|
+  on(WeekPlanningPage).signup
+  on(SignupPage).register_with(person, 'geheim')
+end
+
+Then(/^I am not encouraged to join$/) do
+  expect(on(WeekPlanningPage).signup_element).not_to be_visible
+end
+
+Given(/^there are no registered members$/) do
+  RestClient.delete 'http://localhost:8080/member'
+end
+
+
 
 When(/^I join using my email address$/) do
   visit(MainPage) do |page|

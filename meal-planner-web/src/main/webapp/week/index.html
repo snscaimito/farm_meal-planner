@@ -5,6 +5,7 @@
 	<title>Meal Plan for Week</title>
 	<link rel="stylesheet" href="/css/main.css"/>
 	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/js.cookie-2.1.4.js"></script>
 </head>
 
 <body>
@@ -69,10 +70,28 @@
         </div>
     </div>
     
-    <div class="advertisement">
+    <div id="signupAdvertisement" class="advertisement">
         <p>Do you want to use your own recipes?</p>
         <p><input id="signup" type="button" value="Signup to use your own recipes"/></p>
     </div>
+    <script>
+    	var memberUUID = Cookies.get('member_uuid') ;
+    	
+    	if (memberUUID != null) {
+        	$.ajax({
+		        url: "http://localhost:8080/member/" + memberUUID,
+		        method: "GET",
+		        dataType: "json",
+		        contentType: "application/json"
+		    }).done(function(msg){
+		    	if (msg['activeMember'] == false)
+		    		$('#signupAdvertisement').show() ;
+		    	else
+		    		$('#signupAdvertisement').hide() ;
+		    });
+    	} else
+    		$('#signupAdvertisement').show() ;
+    </script>
 
     
     <div class="recipeSelectionArea">
