@@ -82,6 +82,12 @@ Then(/^my login attempt is rejected$/) do
   expect(on(LoginPage).login_rejected_message_element).to be_visible
 end
 
-Then(/^I see teh Egg\-Asparagus recipe as featured recipe$/) do
+Then(/^I see the Egg\-Asparagus recipe as featured recipe$/) do
+  expect(on(WeekPlanningPage).pick_list_name).to eql 'Featured Recipes'
+  expect(on(WeekPlanningPage).pick_list).to include('Egg-Asparagus')
+end
+
+Then(/^I see the Egg\-Asparagus recipe in the pick list$/) do
+  expect(on(WeekPlanningPage).pick_list_name).to eql 'My personal pick list'
   expect(on(WeekPlanningPage).pick_list).to include('Egg-Asparagus')
 end

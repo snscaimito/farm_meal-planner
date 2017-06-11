@@ -13,6 +13,7 @@ class WeekPlanningPage
   text_field(:yield, :id => 'recipeYield')
   
   unordered_list(:pick_list, :id => 'pickList')
+  span(:pick_list_name, :id => 'pickListName')
   
   page_url :my_page_url
   

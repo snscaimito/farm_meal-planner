@@ -11,4 +11,4 @@ Scenario: Search recipes
 Scenario: Featured recipes
     Given the Egg-Asparagus recipe exists
     When I am planning my week
-    Then I see teh Egg-Asparagus recipe as featured recipe
+    Then I see the Egg-Asparagus recipe as featured recipe

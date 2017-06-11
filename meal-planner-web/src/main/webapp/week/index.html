@@ -145,7 +145,10 @@
 
 		<div id="featuredRecipes"></div>
 		<script>
-			$('#featuredRecipes').load('/snippets/featuredRecipes.html');
+	    	if (memberUUID == null)
+				$('#featuredRecipes').load('/snippets/featuredRecipes.html');
+	    	else
+				$('#featuredRecipes').load('/snippets/personalRecipes.html');
 		</script>
     </div>
     
