@@ -8,5 +8,6 @@ After do |scenario|
 end
 
 Before do
-  RestClient.delete "#{BASE_URL}/members"
+  clear_members
+  clear_recipes
 end

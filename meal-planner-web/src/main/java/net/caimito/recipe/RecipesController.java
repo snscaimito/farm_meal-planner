@@ -1,6 +1,7 @@
 package net.caimito.recipe;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,18 @@ public class RecipesController {
 		/*
 		 * TODO: Store incoming recipes as JSON in Solr
 		 */
+	}
+	
+	@RequestMapping(method=RequestMethod.GET)
+	public Collection<Recipe> listAll() {
+		logger.info("listing all recipes");
+		return recipes.values() ;
+	}
+
+	@RequestMapping(method=RequestMethod.DELETE)
+	public void deleteAll() {
+		logger.info("clearing recipes database");
+		recipes.clear();
 	}
 
 	@RequestMapping(value="/search", method=RequestMethod.GET)

@@ -99,7 +99,7 @@
             <div class="actions">
                 <div>
                     <input id="newRecipe" type="button" value="New Recipe"/>
-                    <script th:inline="javascript">
+                    <script>
                     	if (memberUUID == null)
                     		$('#newRecipe').hide();
                     
@@ -114,6 +114,25 @@
                 <div>
                     <input id="searchTerm" type="text" placeholder="Search for an ingredient" size="40"/>
                     <input id="searchForRecipe" type="button" value="Search"/>
+				    <script>
+				        $('#searchForRecipe').click(function(){
+				            $.ajax({
+				                url: "/recipes/search?term=" + $('#searchTerm').val(),
+				                method: "GET",
+				                dataType: "json"
+				            }).done(function(msg){
+				                $('#searchResultList').empty();
+				                if (msg.length == 0)
+				                    $('#searchResultList').append('<LI>No recipes were found</LI>')
+				                    
+				                $.each(msg, function(index, value){
+				                    $('#searchResultList').append('<div class="recipe"><div><img src="http://placehold.it/50x50"/></div><div><p class="">' + value['name'] + '</p><p class="description">' + value['description'] + '</p></div></div>');
+				                });
+				                
+				                $('#searchTerm').val('');
+				            });
+				        });
+				    </script>
                 </div>
             </div>
 
@@ -124,44 +143,13 @@
 
         </div>
 
-        <div id="pick">
-            <div class="actions">
-                <span>Pick List</span>
-            </div>
-            <div id="pickList">
-                <div class="recipe">
-                    <div>
-                        <img src="http://placehold.it/50x50"/>
-                    </div>
-                    <div>
-                        <p class="title">Egg-Asparagus</p>
-                        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec est lectus, ullamcorper at odio et, consectetur tempor est. Pellentesque sed diam nisi. Morbi pellentesque rhoncus ultrices.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div id="featuredRecipes"></div>
+		<script>
+			$('#featuredRecipes').load('/snippets/featuredRecipes.html');
+		</script>
     </div>
     
 	<script src="/js/main.js"></script>
-    <script>
-        $('#searchForRecipe').click(function(){
-            $.ajax({
-                url: "/recipes/search?term=" + $('#searchTerm').val(),
-                method: "GET",
-                dataType: "json"
-            }).done(function(msg){
-                $('#searchResultList').empty();
-                if (msg.length == 0)
-                    $('#searchResultList').append('<LI>No recipes were found</LI>')
-                    
-                $.each(msg, function(index, value){
-                    $('#searchResultList').append('<div class="recipe"><div><img src="http://placehold.it/50x50"/></div><div><p class="">' + value['name'] + '</p><p class="description">' + value['description'] + '</p></div></div>');
-                });
-                
-                $('#searchTerm').val('');
-            });
-        });
-    </script>
 </body>
 </html>
  

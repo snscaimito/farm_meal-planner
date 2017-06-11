@@ -17,11 +17,7 @@ Then(/^I can start planning meals for the week$/) do
 end
 
 Given(/^the Egg\-Asparagus recipe exists$/) do
-  request = { :name => 'Egg-Asparagus', 
-    :description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
-    :yield => '3 people',
-    :ingredients => [ '3 eggs' ] }
-  RestClient.put "#{BASE_URL}/recipes", request.to_json, {:content_type => :json}
+  create_egg_asparagus_recipe
 end
 
 Then(/^I see the Egg\-Asparagus recipe in the search result list$/) do
@@ -63,8 +59,7 @@ Given(/^there are no registered members$/) do
 end
 
 Given(/^a member with email "([^"]*)" and password "([^"]*)" exists$/) do |email, password|
-  request = { :email => email, :password => password }
-  RestClient.put "#{BASE_URL}/members", request.to_json, {:content_type => :json}
+  register_member_with email, password
 end
 
 When(/^I create the recipe for pancakes$/) do
@@ -85,4 +80,8 @@ end
 
 Then(/^my login attempt is rejected$/) do
   expect(on(LoginPage).login_rejected_message_element).to be_visible
+end
+
+Then(/^I see teh Egg\-Asparagus recipe as featured recipe$/) do
+  expect(on(WeekPlanningPage).pick_list).to include('Egg-Asparagus')
 end

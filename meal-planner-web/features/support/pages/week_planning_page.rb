@@ -12,6 +12,8 @@ class WeekPlanningPage
   text_field(:description, :id => 'recipeDescription')
   text_field(:yield, :id => 'recipeYield')
   
+  unordered_list(:pick_list, :id => 'pickList')
+  
   page_url :my_page_url
   
   def my_page_url
