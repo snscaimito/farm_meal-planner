@@ -27,21 +27,6 @@ UL.actionMenu {
 	display: none;
 }
 
-
-.landing_header {
-    display: grid;
-    grid-template-columns: auto 180px 180px;
-    grid-column-gap: 20px;
-    background-color: #eef9d4;
-}
-
-.landing_title {
-    grid-column: 1;
-    color: brown ;
-    font-size: 16pt;
-    margin: 0;
-}
-
 input[type=button] {
     -moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
 	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
@@ -79,41 +64,38 @@ input[type=button]:hover {
 	background-color:#019ad2;
 }
 
-.landing_button {
+
+.landing_header {
+    display: grid;
+    grid-auto-columns: 220px;
+    grid-auto-flow: column ;
+    grid-column-gap: 20px;
+}
+
+.landing_menu_item {
 	font-size:12pt;
+	justify-self: center;
+	align-self: center;
 }
 
-.landing_try_it {
-    grid-column: 2;
+.landing_menu_item input[type=button] {
+	font-size: 13pt;
 }
 
-.landing_login {
-    grid-column: 3;
+A.landing_menu_item {
+	text-transform: uppercase;
 }
 
 .landing_footer {
     border-top: thin solid silver ;
     display: grid;
     grid-auto-columns: 400px;
+    grid-auto-flow: column ;
     justify-items: center;
 }
 
 .landing_footer H2 {
     font-size: 14pt;
-}
-
-
-
-.landing_about {
-    grid-column: 1;
-}
-
-.landing_help {
-    grid-column: 2;
-}
-
-.landing_rules {
-    grid-column: 3;
 }
 
 .landing_overview {

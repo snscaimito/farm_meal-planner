@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MemberController {
-	private final Logger logger = LoggerFactory.getLogger(MemberController.class) ;
+@RequestMapping("/members")
+public class MembersController {
+	private final Logger logger = LoggerFactory.getLogger(MembersController.class) ;
 	
 	private Map<String, MembershipInformation> members = new HashMap<>() ;
 
-	@RequestMapping(value="/member/{uuid}", method=RequestMethod.GET)
+	@RequestMapping(value="/{uuid}", method=RequestMethod.GET)
 	public MembershipInformation isMember(@PathVariable String uuid) {
 		logger.info(String.format("asking for %s", uuid));
 		MembershipInformation membershipInformation = members.get(uuid) ;
@@ -33,7 +34,7 @@ public class MemberController {
 		return membershipInformation ;
 	}
 
-	@RequestMapping(value="/member/login", method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public MembershipInformation login(@RequestBody MembershipInformation membershipInformation) {
 		logger.info(String.format("Login attempt with %s", membershipInformation.toString()));
 		
@@ -45,7 +46,7 @@ public class MemberController {
 		return membershipInformation ;
 	}
 	
-	@RequestMapping(value="/member", method=RequestMethod.PUT)
+	@RequestMapping(method=RequestMethod.PUT)
 	public MembershipInformation signup(@RequestBody MembershipInformation membershipInformation) {
 		logger.info(membershipInformation.toString());
 		membershipInformation.setActiveMember(true);
@@ -54,7 +55,7 @@ public class MemberController {
 		return membershipInformation ;
 	}
 	
-	@RequestMapping(value="/member", method=RequestMethod.DELETE)
+	@RequestMapping(method=RequestMethod.DELETE)
 	public void deleteMembers() {
 		logger.info("clearing membership database");
 		members.clear();

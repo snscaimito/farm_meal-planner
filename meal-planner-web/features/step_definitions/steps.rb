@@ -21,7 +21,7 @@ Given(/^the Egg\-Asparagus recipe exists$/) do
     :description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
     :yield => '3 people',
     :ingredients => [ '3 eggs' ] }
-  RestClient.put "#{BASE_URL}/recipe", request.to_json, {:content_type => :json}
+  RestClient.put "#{BASE_URL}/recipes", request.to_json, {:content_type => :json}
 end
 
 Then(/^I see the Egg\-Asparagus recipe in the search result list$/) do
@@ -59,12 +59,12 @@ Then(/^I am not encouraged to join$/) do
 end
 
 Given(/^there are no registered members$/) do
-  RestClient.delete "#{BASE_URL}/member"
+  RestClient.delete "#{BASE_URL}/members"
 end
 
 Given(/^a member with email "([^"]*)" and password "([^"]*)" exists$/) do |email, password|
   request = { :email => email, :password => password }
-  RestClient.put "#{BASE_URL}/member", request.to_json, {:content_type => :json}
+  RestClient.put "#{BASE_URL}/members", request.to_json, {:content_type => :json}
 end
 
 When(/^I create the recipe for pancakes$/) do

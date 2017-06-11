@@ -79,7 +79,7 @@
     	
     	if (memberUUID != null) {
         	$.ajax({
-		        url: "http://localhost:8080/member/" + memberUUID,
+		        url: "/members/" + memberUUID,
 		        method: "GET",
 		        dataType: "json",
 		        contentType: "application/json"
@@ -146,7 +146,7 @@
     <script>
         $('#searchForRecipe').click(function(){
             $.ajax({
-                url: "http://localhost:8080/recipe/search?term=" + $('#searchTerm').val(),
+                url: "/recipes/search?term=" + $('#searchTerm').val(),
                 method: "GET",
                 dataType: "json"
             }).done(function(msg){

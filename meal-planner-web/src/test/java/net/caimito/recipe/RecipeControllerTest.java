@@ -14,7 +14,7 @@ public class RecipeControllerTest {
 		recipe.setName("Eggs");
 		recipe.setDescription("5 Minute boiled Eggs");
 		
-		RecipeController recipeController = new RecipeController() ;
+		RecipesController recipeController = new RecipesController() ;
 		recipeController.addRecipe(recipe) ;
 		
 		assertThat(recipeController.searchRecipes(""), is(empty())) ;

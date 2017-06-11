@@ -13,7 +13,7 @@
         <label for="email">Your email address</label> <input id="email" type="text" size="40" placeholder="Your email address"/>
         <label for="password">Password</label> <input id="password" type="password" size="14"/>
         <input id="submit" type="button" value="Login" style="grid-column: 2"/>
-        <span id="loginRejected" style="grid-column: 2; display: none" class="errorMessage">Login attempt was rejected</span>
+        <span id="loginRejected" style="grid-column: 2" class="errorMessage hidden">Login attempt was rejected</span>
     </div>
     
 	<script src="/js/js.cookie-2.1.4.js"></script>
@@ -22,7 +22,7 @@
 		var membershipInformation = { "email" : $('#email').val() }
 
     	$.ajax({
-	        url: "http://localhost:8080/member/login",
+	        url: "/members/login",
 	        method: "POST",
 	        dataType: "json",
 	        contentType: "application/json",

@@ -23,7 +23,7 @@
 		var membershipInformation = { "email" : $('#email').val() }
 		
         $.ajax({
-            url: "http://localhost:8080/member",
+            url: "/members",
             method: "PUT",
             dataType: "json",
             contentType: "application/json",

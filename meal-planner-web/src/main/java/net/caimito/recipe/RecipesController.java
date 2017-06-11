@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RecipeController {
-	private final Logger logger = LoggerFactory.getLogger(RecipeController.class) ;
+@RequestMapping("/recipes")
+public class RecipesController {
+	private final Logger logger = LoggerFactory.getLogger(RecipesController.class) ;
 
 	private Map<String, Recipe> recipes = new HashMap<>() ;
 	
-	@RequestMapping(value="/recipe", method=RequestMethod.PUT)
+	@RequestMapping(method=RequestMethod.PUT)
 	public Recipe addRecipe(@RequestBody Recipe recipe) {
 		logger.info(recipe.toString());
 		recipes.put(recipe.getName(), recipe) ;
@@ -29,7 +30,7 @@ public class RecipeController {
 		 */
 	}
 
-	@RequestMapping(value="/recipe/search", method=RequestMethod.GET)
+	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public List<Recipe> searchRecipes(@RequestParam(name="term", required = true) String searchTerm) {
 		logger.info(searchTerm);
 		List<Recipe> recipesFound = new ArrayList<>() ;

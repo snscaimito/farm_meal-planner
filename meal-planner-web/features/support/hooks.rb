@@ -8,5 +8,5 @@ After do |scenario|
 end
 
 Before do
-  RestClient.delete "#{BASE_URL}/member"
+  RestClient.delete "#{BASE_URL}/members"
 end
