@@ -3,6 +3,7 @@ CLICK_DUMMY = true
 
 BASE_URL = "http://localhost:8080"
 TMP_DIR = "#{Dir.pwd}/target/cucumber-tmp"
+SCREENSHOTS_DIR = "#{TMP_DIR}/screenshots"
 
 MEMBER_DB = "#{TMP_DIR}/members.yaml"
 
@@ -15,30 +16,17 @@ require 'rest_client'
 require 'json'
 
 
+FileUtils.remove_dir TMP_DIR, true
 FileUtils.mkdir_p TMP_DIR
-FileUtils.mkdir_p "target/features"
+
+FileUtils.remove_dir SCREENSHOTS_DIR, true
+FileUtils.mkdir_p SCREENSHOTS_DIR
+
 browser = Selenium::WebDriver.for :chrome
-browser.manage.delete_all_cookies
-
-
-@default_member_data = {
-  :stephan => {
-    :email => 'sns@caimito.net'
-  }
-}
-
 
 Before do
   @browser = browser
-end
-
-After do |scenario|
-  if (scenario.failed?)
-    time = Time.now.strftime('%Y_%m_%d_%Y_%H_%M_%S_')
-    name_of_scenario = time + scenario.name.gsub(/\s+/, "_").gsub("/","_")
-    file_path = "#{Dir.pwd}/target/features/#{name_of_scenario}.png"
-    @browser.save_screenshot file_path
-  end
+  @browser.manage.delete_all_cookies
 end
 
 at_exit do

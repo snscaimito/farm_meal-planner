@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8"/>
 	<title>Welcome to Meal Planner</title>
-	<link rel="stylesheet" href="../static/css/main.css"  th:href="@{/css/main.css}"/>
-	<script src="../static/js/jquery-3.2.1.min.js" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+	<link rel="stylesheet" href="/css/main.css"/>
+	<script src="/js/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -13,8 +13,28 @@
         <label for="email">Your email address</label> <input id="email" type="text" size="40" placeholder="Your email address"/>
         <label for="password">Password</label> <input id="password" type="password" size="14"/>
         <input id="submit" type="button" value="Login" style="grid-column: 2"/>
+        <span id="loginRejected" style="grid-column: 2; display: none" class="errorMessage">Login attempt was rejected</span>
     </div>
     
-    <script src="../static/js/main.js" th:src="@{/js/main.js}"></script>
+	<script src="/js/js.cookie-2.1.4.js"></script>
+	<script>
+	$('#submit').click(function(){
+		var membershipInformation = { "email" : $('#email').val() }
+
+    	$.ajax({
+	        url: "http://localhost:8080/member/login",
+	        method: "POST",
+	        dataType: "json",
+	        contentType: "application/json",
+	        data: JSON.stringify(membershipInformation)
+	    }).done(function(msg){
+	    	if (msg['activeMember'] == true) {
+	    		Cookies.set('member_uuid', msg['uuid']);
+	    		location.href = '/week/index.html' ;
+	    	} else
+	    		$('#loginRejected').show();
+	    });
+	});
+	</script>
 </body>
 </html>

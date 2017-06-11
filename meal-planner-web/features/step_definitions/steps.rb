@@ -21,7 +21,7 @@ Given(/^the Egg\-Asparagus recipe exists$/) do
     :description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
     :yield => '3 people',
     :ingredients => [ '3 eggs' ] }
-  RestClient.put 'http://localhost:8080/recipe', request.to_json, {:content_type => :json}
+  RestClient.put "#{BASE_URL}/recipe", request.to_json, {:content_type => :json}
 end
 
 Then(/^I see the Egg\-Asparagus recipe in the search result list$/) do
@@ -49,10 +49,6 @@ Then(/^I am encouraged to join$/) do
   expect(on(WeekPlanningPage).signup_element).to be_visible
 end
 
-Given(/^I am not yet a member$/) do
-  @user_id = nil
-end
-
 When(/^I join as "([^"]*)"$/) do |person|
   on(WeekPlanningPage).signup
   on(SignupPage).register_with(person, 'geheim')
@@ -63,17 +59,30 @@ Then(/^I am not encouraged to join$/) do
 end
 
 Given(/^there are no registered members$/) do
-  RestClient.delete 'http://localhost:8080/member'
+  RestClient.delete "#{BASE_URL}/member"
 end
 
+Given(/^a member with email "([^"]*)" and password "([^"]*)" exists$/) do |email, password|
+  request = { :email => email, :password => password }
+  RestClient.put "#{BASE_URL}/member", request.to_json, {:content_type => :json}
+end
 
-
-When(/^I join using my email address$/) do
-  visit(MainPage) do |page|
-    page.join_with_email
+When(/^I create the recipe for pancakes$/) do
+  visit(WeekPlanningPage) do |page|
+    page.new_recipe
+    page.create_recipe_for_pancakes
   end
 end
 
-Then(/^I am a member$/) do
-  member_db = Psych.load_file(MEMBER_DB)
+Then(/^the recipe for pancakes is available in the pick list$/) do
+  on(WeekPlanningPage) do |page|
+  end
+end
+
+Given(/^I log in as "([^"]*)" with password "([^"]*)"$/) do |email, password|
+  visit(LoginPage).login_with email, password
+end
+
+Then(/^my login attempt is rejected$/) do
+  expect(on(LoginPage).login_rejected_message_element).to be_visible
 end

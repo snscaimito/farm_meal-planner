@@ -33,6 +33,18 @@ public class MemberController {
 		return membershipInformation ;
 	}
 
+	@RequestMapping(value="/member/login", method=RequestMethod.POST)
+	public MembershipInformation login(@RequestBody MembershipInformation membershipInformation) {
+		logger.info(String.format("Login attempt with %s", membershipInformation.toString()));
+		
+		for (MembershipInformation member : members.values()) {
+			if (member.getEmail().equals(membershipInformation.getEmail()))
+				return member ;
+		}
+		
+		return membershipInformation ;
+	}
+	
 	@RequestMapping(value="/member", method=RequestMethod.PUT)
 	public MembershipInformation signup(@RequestBody MembershipInformation membershipInformation) {
 		logger.info(membershipInformation.toString());

@@ -212,3 +212,8 @@ input[type=button]:hover {
 .advertisement {
     background-color: blanchedalmond ;
 }
+
+.errorMessage {
+	color: red ;
+	text-weight: bold ;
+}
