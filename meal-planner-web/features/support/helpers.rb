@@ -1,9 +1,14 @@
 def clear_members
-  RestClient.delete "#{BASE_URL}/members"
+  # for now do nothing until Spring Security has been used properly
+#  RestClient.delete "#{BASE_URL}/members"
 end
 
 def clear_recipes
-  RestClient.delete "#{BASE_URL}/recipes"
+  begin
+    RestClient.delete "#{BASE_URL}/recipes"
+  rescue RestClient::ExceptionWithResponse => e
+    e.response
+  end
 end
 
 def create_egg_asparagus_recipe

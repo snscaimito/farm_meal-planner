@@ -8,33 +8,33 @@
 </head>
 
 <body>
-    <h1>Login</h1>
-    <div id="loginForm">
-        <label for="email">Your email address</label> <input id="email" type="text" size="40" placeholder="Your email address"/>
-        <label for="password">Password</label> <input id="password" type="password" size="14"/>
-        <input id="submit" type="button" value="Login" style="grid-column: 2"/>
-        <span id="loginRejected" style="grid-column: 2" class="errorMessage hidden">Login attempt was rejected</span>
-    </div>
-    
-	<script src="/js/js.cookie-2.1.4.js"></script>
+	<h1>Login</h1>
+	<div>
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username"/>
+		
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password"/>
+		
+		<input id="login" name="submit" type="submit" value="Log in"/>
+	</div>
 	<script>
-	$('#submit').click(function(){
-		var membershipInformation = { "email" : $('#email').val() }
-
-    	$.ajax({
-	        url: "/members/login",
-	        method: "POST",
+	$('#login').click(function() {
+		var basicAuth = $('#username').val() + ":" + $('#password').val() ;
+		
+	    $.ajax({
+	        url: "/user",
+	        method: "GET",
 	        dataType: "json",
 	        contentType: "application/json",
-	        data: JSON.stringify(membershipInformation)
+	        data: {},
+	    	beforeSend: function (xhr) {
+	    	    xhr.setRequestHeader("Authorization", "Basic " + btoa(basicAuth));
+	    	}
 	    }).done(function(msg){
-	    	if (msg['activeMember'] == true) {
-	    		Cookies.set('member_uuid', msg['uuid']);
-	    		location.href = '/week/index.html' ;
-	    	} else
-	    		$('#loginRejected').show();
+	    	location.href = "/weeklyPlan.html";
 	    });
-	});
+	}) ;
 	</script>
 </body>
 </html>

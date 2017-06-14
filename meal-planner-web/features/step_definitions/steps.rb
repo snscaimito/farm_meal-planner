@@ -55,7 +55,7 @@ Then(/^I am not encouraged to join$/) do
 end
 
 Given(/^there are no registered members$/) do
-  RestClient.delete "#{BASE_URL}/members"
+  clear_members
 end
 
 Given(/^a member with email "([^"]*)" and password "([^"]*)" exists$/) do |email, password|

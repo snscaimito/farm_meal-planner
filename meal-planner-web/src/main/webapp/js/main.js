@@ -1,15 +1,7 @@
 $(document).ready(function(){
 
-    $('#join').click(function(){
-        location.href = 'recipes/index.html';
-    });
-
-    $('#createAction').click(function(){
-        location.href = 'add.html';
-    });
-
     $('#tryIt').click(function(){
-        location.href = 'week/index.html';
+        location.href = 'weeklyPlan.html';
     });
 
     $('#signup').click(function(){
@@ -21,11 +13,11 @@ $(document).ready(function(){
     });
 
     $('#loginForm #submit').click(function(){
-        location.href = 'week/index.html';
+        location.href = 'weeklyPlan.html';
     });
 
     $('#signupForm #submit').click(function(){
-        location.href = 'week/index.html';
+        location.href = 'weeklyPlan.html';
     });
 
 });

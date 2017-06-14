@@ -8,7 +8,7 @@
 	<script src="/js/js.cookie-2.1.4.js"></script>
 </head>
 
-<body>
+<body id="body" style="display:none;">
     <h1>Meal Plan for Week</h1>
         
     <div id="week">
@@ -74,25 +74,6 @@
         <p>Do you want to use your own recipes?</p>
         <p><input id="signup" type="button" value="Signup to use your own recipes"/></p>
     </div>
-    <script>
-    	var memberUUID = Cookies.get('member_uuid') ;
-    	
-    	if (memberUUID != null) {
-        	$.ajax({
-		        url: "/members/" + memberUUID,
-		        method: "GET",
-		        dataType: "json",
-		        contentType: "application/json"
-		    }).done(function(msg){
-		    	if (msg['activeMember'] == false)
-		    		$('#signupAdvertisement').show() ;
-		    	else
-		    		$('#signupAdvertisement').hide() ;
-		    });
-    	} else
-    		$('#signupAdvertisement').show() ;
-    </script>
-
     
     <div class="recipeSelectionArea">
         <div id="search">
@@ -100,14 +81,9 @@
                 <div>
                     <input id="newRecipe" type="button" value="New Recipe"/>
                     <script>
-                    	if (memberUUID == null)
-                    		$('#newRecipe').hide();
-                    
                         $('#newRecipe').click(function(){
                             $('#searchResultList').hide();
-                            
-                            var snippetPath = '/snippets/recipeEditor.html' ;
-                            $('#recipeEditor').load(snippetPath);
+                            $('#recipeEditor').load('/snippets/recipeEditor.html');
                         });
                     </script>
                 </div>
@@ -144,15 +120,42 @@
         </div>
 
 		<div id="featuredRecipes"></div>
-		<script>
-	    	if (memberUUID == null)
-				$('#featuredRecipes').load('/snippets/featuredRecipes.html');
-	    	else
-				$('#featuredRecipes').load('/snippets/personalRecipes.html');
-		</script>
     </div>
-    
-	<script src="/js/main.js"></script>
+
+    <script>
+	    $(document).ready(function() {
+	    	function disableMemberFunctions() {
+				$('#signupAdvertisement').show() ;
+        		$('#newRecipe').hide();
+    	       	$('#body').show();
+
+    	       	$('#featuredRecipes').load('/snippets/featuredRecipes.html');
+	    	};
+	    	
+	    	function enableMemberFunctions() {
+				$('#signupAdvertisement').hide() ;
+		       	$('#body').show();
+
+		       	$('#featuredRecipes').load('/snippets/personalRecipes.html');
+	    	};
+	    	
+	       	$.ajax({
+		        url: "/user",
+		        method: "GET",
+		        dataType: "json",
+		        contentType: "application/json"
+		    }).done(function(userInfo){
+				if (userInfo['authenticated'] == false) {
+					disableMemberFunctions();
+				} else {
+					enableMemberFunctions();
+				}
+		    })
+		    .fail(function(userInfo, textStatus, errorThrown){
+		    	disableMemberFunctions();
+		    });
+	    });
+    </script>
 </body>
 </html>
  

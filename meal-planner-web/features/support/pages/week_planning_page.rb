@@ -18,7 +18,7 @@ class WeekPlanningPage
   page_url :my_page_url
   
   def my_page_url
-    "#{BASE_URL}/week/index.html"
+    "#{BASE_URL}/weeklyPlan.html"
   end
   
   def create_recipe_for_pancakes

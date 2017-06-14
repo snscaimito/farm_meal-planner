@@ -1,9 +1,9 @@
 class LoginPage
   include PageObject
   
-  text_field(:email, :id => 'email')
+  text_field(:email, :id => 'username')
   text_field(:password, :id => 'password')
-  button(:login, :id => 'submit')
+  button(:login, :id => 'login')
   
   span(:login_rejected_message, :id => 'loginRejected')
   

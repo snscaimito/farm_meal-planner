@@ -1,8 +1,8 @@
 Feature: Plan week as member
 
 Background:
-    Given a member with email "sns@caimito.net" and password "geheim" exists
-    And I log in as "sns@caimito.net" with password "geheim"
+#    Given a member with email "sns@caimito.net" and password "geheim" exists
+    Given I log in as "sns@caimito.net" with password "geheim"
 
 Scenario: Pick list
     Given the Egg-Asparagus recipe exists
