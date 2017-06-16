@@ -17,6 +17,8 @@
 		<input type="password" id="password" name="password"/>
 		
 		<input id="login" name="submit" type="submit" value="Log in"/>
+		
+		<span id="loginRejected" class="hidden">Login rejected</span>
 	</div>
 	<script>
 	$('#login').click(function() {
@@ -33,6 +35,9 @@
 	    	}
 	    }).done(function(msg){
 	    	location.href = "/weeklyPlan.html";
+	    })
+	    .fail(function(msg){
+	    	$('#loginRejected').removeClass('hidden');
 	    });
 	}) ;
 	</script>
