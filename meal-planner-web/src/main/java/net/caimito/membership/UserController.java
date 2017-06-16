@@ -2,6 +2,8 @@ package net.caimito.membership;
 
 import java.security.Principal;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+	
+	@Autowired
+	private DataSource dataSource ;
 
 	@RequestMapping("/user")
 	public Principal user(Principal user) {
@@ -42,6 +47,10 @@ public class UserController {
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication().withUser("sns@caimito.net").password("geheim").roles("ACTUATOR", "USER");
+		auth
+			.jdbcAuthentication()
+				.dataSource(dataSource)
+				.withDefaultSchema()
+				.withUser("sns@caimito.net").password("geheim").roles("USER", "ADMIN");
 	}
 }
