@@ -27,6 +27,10 @@ UL.actionMenu {
 	display: none;
 }
 
+.drop-hover {
+	background-color: yellow;
+}
+
 input[type=button] {
     -moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
 	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
@@ -183,7 +187,7 @@ A.landing_menu_item {
 
 .recipe {
     display: grid ;
-    grid-template-columns: 60px auto;
+    grid-template-columns: 60px 1.5em auto;
 }
 
 #searchResultList {
@@ -198,4 +202,56 @@ A.landing_menu_item {
 .errorMessage {
 	color: red ;
 	text-weight: bold ;
+}
+
+#pickList {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+
+.recipe-menu {
+  position: relative;
+  padding-left: 1.25em;
+  cursor: hand ;
+  cursor: pointer ;
+}
+.recipe-menu:before {
+  content: "";
+  position: absolute;
+  top: 0.25em;
+  left: 0;
+  width: 1em;
+  height: 0.125em;
+  border-top: 0.375em double #000;
+  border-bottom: 0.125em solid #000;
+}
+
+#recipeAssignmentDialog {
+	position: absolute ;
+	z-index: 99 ;
+	border: thin solid black ;
+	background-color: white;
+	padding: 5px;
+}
+
+#recipeAssignmentDialog SPAN {
+  cursor: hand ;
+  cursor: pointer ;
+}
+
+#recipeAssignmentDialog UL {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+#recipeAssignmentDialog UL LI UL {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 6em;
+}
+
+#recipeAssignmentDialog .selected {
+	background-color: black ;
+	color: white ;
 }

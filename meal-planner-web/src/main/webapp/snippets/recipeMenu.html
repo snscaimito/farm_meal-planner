@@ -1,0 +1,38 @@
+<div id="recipeAssignmentDialog">
+	<ul>
+		<li>
+			<div class="evenColumn">
+				Monday
+				<ul>
+					<li><span>Breakfast</span></li>
+					<li><span>Lunch</span></li>
+					<li><span>Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="oddColumn">
+				Tuesday
+				<ul>
+					<li><span>Breakfast</span></li>
+					<li><span>Lunch</span></li>
+					<li><span>Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	<input id="addRecipesToPlan" type="button" value="Add to plan"/>
+</div>
+<script id="recipeAssignmentDialogScript">
+	$('#addRecipesToPlan').click(function(){
+		$('#recipeAssignmentDialog').remove();
+		$('#recipeAssignmentDialogScript').remove();
+	});
+	
+	$('#recipeAssignmentDialog SPAN').click(function(){
+		if ($(this).hasClass('selected'))
+			$(this).removeClass('selected');
+		else
+			$(this).addClass('selected');
+	});
+</script>

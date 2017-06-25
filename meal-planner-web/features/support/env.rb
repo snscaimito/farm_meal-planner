@@ -7,7 +7,7 @@ SCREENSHOTS_DIR = "#{TMP_DIR}/screenshots"
 
 MEMBER_DB = "#{TMP_DIR}/members.yaml"
 
-require 'selenium-webdriver'
+require 'watir'
 require 'page-object'
 require 'page-object/page_factory'
 require 'rspec-expectations'
@@ -22,11 +22,11 @@ FileUtils.mkdir_p TMP_DIR
 FileUtils.remove_dir SCREENSHOTS_DIR, true
 FileUtils.mkdir_p SCREENSHOTS_DIR
 
-browser = Selenium::WebDriver.for :chrome
+browser = Watir::Browser.new :chrome
 
 Before do
   @browser = browser
-  @browser.manage.delete_all_cookies
+  @browser.cookies.clear
 end
 
 at_exit do

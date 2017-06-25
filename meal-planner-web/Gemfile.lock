@@ -53,16 +53,14 @@ GEM
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
     rubyzip (1.2.1)
-    selenium-webdriver (3.4.0)
+    selenium-webdriver (3.4.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
-      websocket (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.4)
     watir (6.2.1)
       selenium-webdriver (~> 3.0)
-    websocket (1.2.4)
     yml_reader (0.7)
 
 PLATFORMS

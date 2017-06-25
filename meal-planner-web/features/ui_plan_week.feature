@@ -1,3 +1,4 @@
+@user_interface
 Feature: Week Plan UI Behavior
 
 Scenario: Clear search field after search

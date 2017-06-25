@@ -7,9 +7,7 @@ Then(/^I see the main page$/) do
 end
 
 When(/^I decide to try Meal Planner$/) do
-  visit MainPage do |page|
-    page.try_meal_planner
-  end
+  visit(MainPage).try_meal_planner
 end
 
 Then(/^I can start planning meals for the week$/) do
@@ -90,4 +88,34 @@ end
 Then(/^I see the Egg\-Asparagus recipe in the pick list$/) do
   expect(on(WeekPlanningPage).pick_list_name).to eql 'My personal pick list'
   expect(on(WeekPlanningPage).pick_list).to include('Egg-Asparagus')
+end
+
+When(/^I assign the Egg\-Asparagus recipe to the breakfast meal slot on Monday$/) do
+  on(WeekPlanningPage) do |page|
+# find first item in pick list
+# find element with id monday_breakfast_xxxx
+
+    first_recipe = page.pick_list_element.lis.first.div
+    source = first_recipe
+    target = page.meal_monday_breakfast_element
+    
+    puts "source = #{source}, id = #{source.id}"
+    puts "target = #{target}, id = #{target.id}"
+
+    source.drag_and_drop_on target.element
+  end
+  sleep 20
+end
+
+Then(/^my meal plan lists Egg\-Asparagus for Monday$/) do
+  on(WeekPlanningPage) do |page|
+    meal_slot = page.meal_monday_breakfast_element.parent
+    puts "meal_slot #{meal_slot}, id = #{meal_slot.id}"
+    col = meal_slot.children
+    puts "meal_slot children #{col} length = #{col.length}"
+    col.each do |e|
+      puts "child #{e}, id=#{e.id}"
+    end
+  end
+  fail
 end

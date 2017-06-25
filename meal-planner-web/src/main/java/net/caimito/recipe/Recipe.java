@@ -6,12 +6,22 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Recipe {
+	private String id = "";
 	private String name = "";
 	private String description = "";
 	private String yield = "";
 	private List<String> ingredients = new ArrayList<>();
 	private List<String> instructions = new ArrayList<>();
 
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	
 	public String getName() {
 		return name;
 	}
