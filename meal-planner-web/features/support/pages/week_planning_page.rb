@@ -15,7 +15,9 @@ class WeekPlanningPage
   unordered_list(:pick_list, :id => 'pickList')
   span(:pick_list_name, :id => 'pickListName')
   
-  span(:meal_monday_breakfast, :id => 'meal_monday_breakfast')
+  button(:add_recipe_to_plan, :id => 'addRecipeToPlan')
+
+  div(:monday_schedule, :id => 'mondaySchedule')
 
   page_url :my_page_url
   

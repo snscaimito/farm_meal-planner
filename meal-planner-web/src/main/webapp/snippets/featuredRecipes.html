@@ -24,7 +24,7 @@
 	    	    	</div> \
 	    	    	<div class="recipe-menu"></div> \
 	    	    	<div> \
-	    	    		<p class="">' + value['name'] + '</p> \
+	    	    		<p class="name">' + value['name'] + '</p> \
 	    	    		<p class="description">' + value['description'] + '</p> \
 	    	    	</div> \
 	    	    </div></li>'; 
@@ -35,8 +35,13 @@
 	    $('.recipe-menu').click(function(event){
     		var tPosX = event.pageX - 5;
     		var tPosY = event.pageY + 10;
+			var recipeID = $(this).parent().attr('id');
+			var recipeName = $(this).parent().find('.name').text();
+			console.log('recipe name = ' + recipeName);
     		
     		$('#recipeActionDialog').load('/snippets/recipeMenu.html', function(){
+    			$(this).children().first().attr('recipeID', recipeID);
+    			$(this).children().first().attr('recipeName', recipeName);
          		$(this).offset({top: tPosY, left: tPosX});
     		});
     		

@@ -92,30 +92,16 @@ end
 
 When(/^I assign the Egg\-Asparagus recipe to the breakfast meal slot on Monday$/) do
   on(WeekPlanningPage) do |page|
-# find first item in pick list
-# find element with id monday_breakfast_xxxx
-
     first_recipe = page.pick_list_element.lis.first.div
-    source = first_recipe
-    target = page.meal_monday_breakfast_element
-    
-    puts "source = #{source}, id = #{source.id}"
-    puts "target = #{target}, id = #{target.id}"
-
-    source.drag_and_drop_on target.element
+    menu = first_recipe.div(:class => 'recipe-menu')
+    menu.click
+    page.add_recipe_to_plan
   end
-  sleep 20
 end
 
 Then(/^my meal plan lists Egg\-Asparagus for Monday$/) do
   on(WeekPlanningPage) do |page|
-    meal_slot = page.meal_monday_breakfast_element.parent
-    puts "meal_slot #{meal_slot}, id = #{meal_slot.id}"
-    col = meal_slot.children
-    puts "meal_slot children #{col} length = #{col.length}"
-    col.each do |e|
-      puts "child #{e}, id=#{e.id}"
-    end
+    breakfast_meal_event = page.monday_schedule_element.div
+    expect(breakfast_meal_event.text).to include "Egg-Asparagus"
   end
-  fail
 end

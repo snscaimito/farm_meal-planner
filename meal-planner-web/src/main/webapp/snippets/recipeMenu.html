@@ -3,28 +3,105 @@
 		<li>
 			<div class="evenColumn">
 				Monday
-				<ul>
-					<li><span>Breakfast</span></li>
-					<li><span>Lunch</span></li>
-					<li><span>Dinner</span></li>
+				<ul id='monday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
 				</ul>
 			</div>
 		</li>
 		<li>
 			<div class="oddColumn">
 				Tuesday
-				<ul>
-					<li><span>Breakfast</span></li>
-					<li><span>Lunch</span></li>
-					<li><span>Dinner</span></li>
+				<ul id='tuesday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="evenColumn">
+				Wednesday
+				<ul id='wednesday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="oddColumn">
+				Thursday
+				<ul id='thursday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="evenColumn">
+				Friday
+				<ul id='friday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="oddColumn">
+				Saturday
+				<ul id='saturday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<div class="oddColumn">
+				Sunday
+				<ul id='sunday'>
+					<li><span id="breakfast">Breakfast</span></li>
+					<li><span id="lunch">Lunch</span></li>
+					<li><span id="dinner">Dinner</span></li>
 				</ul>
 			</div>
 		</li>
 	</ul>
-	<input id="addRecipesToPlan" type="button" value="Add to plan"/>
+	<input id="addRecipeToPlan" type="button" value="Add to plan"/>
 </div>
 <script id="recipeAssignmentDialogScript">
-	$('#addRecipesToPlan').click(function(){
+	$('#addRecipeToPlan').click(function(){
+		var recipeID = $('#recipeAssignmentDialog').attr('recipeID');
+		var recipeName = $('#recipeAssignmentDialog').attr('recipeName');
+
+		var structure = {
+			recipeID: recipeID,
+			recipeName: recipeName,
+			monday: [],
+			tuesday: [],
+			wednesday: [],
+			thursday: [],
+			friday: [],
+			saturday: [],
+			sunday: []
+		} ;
+		
+		$('.selected').each(function(){
+			var scheduleDay = $(this).parent().parent().attr('id');
+			var mealEvent = $(this).attr('id');
+
+			structure[scheduleDay].push(mealEvent);
+
+			var targetObject = $('#week').find('#' + scheduleDay).find('#' + mealEvent);
+			$("<li recipeID='" + recipeID + "'>" + recipeName + "</li>").appendTo(targetObject);
+		});
+		
+		console.log('TODO sent this to a service ' + JSON.stringify(structure)) ;
+		
 		$('#recipeAssignmentDialog').remove();
 		$('#recipeAssignmentDialogScript').remove();
 	});
