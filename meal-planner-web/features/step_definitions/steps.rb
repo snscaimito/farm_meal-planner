@@ -95,6 +95,9 @@ When(/^I assign the Egg\-Asparagus recipe to the breakfast meal slot on Monday$/
     first_recipe = page.pick_list_element.lis.first.div
     menu = first_recipe.div(:class => 'recipe-menu')
     menu.click
+    
+    @browser.ul(:id => 'monday').children[0].span(:id => 'breakfast').click
+    
     page.add_recipe_to_plan
   end
 end
