@@ -17,8 +17,6 @@ class WeekPlanningPage
   
   button(:add_recipe_to_plan, :id => 'addRecipeToPlan')
 
-  div(:monday_schedule, :id => 'monday')
-
   page_url :my_page_url
   
   def my_page_url

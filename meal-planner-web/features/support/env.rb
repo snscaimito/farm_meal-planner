@@ -22,7 +22,7 @@ FileUtils.mkdir_p TMP_DIR
 FileUtils.remove_dir SCREENSHOTS_DIR, true
 FileUtils.mkdir_p SCREENSHOTS_DIR
 
-browser = Watir::Browser.new :chrome
+browser = Watir::Browser.new :firefox
 
 Before do
   @browser = browser

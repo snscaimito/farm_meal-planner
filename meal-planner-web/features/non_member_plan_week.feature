@@ -16,5 +16,23 @@ Scenario: Featured recipes
 Scenario: Assign recipe to meal slot
     Given the Egg-Asparagus recipe exists
     And I am planning my week
-    When I assign the Egg-Asparagus recipe to the breakfast meal slot on Monday
-    Then my meal plan lists Egg-Asparagus for Monday
+    When I assign the Egg-Asparagus recipe to breakfast on Monday
+    Then my meal plan lists Egg-Asparagus for breakfast on Monday
+
+@user_interface
+Scenario Outline: Assign recipe to meal slot
+    Given the Egg-Asparagus recipe exists
+    And I am planning my week
+    When I assign the Egg-Asparagus recipe to <meal_event> on <day>
+    Then my meal plan lists Egg-Asparagus for <meal_event> on <day>
+
+    Examples:
+    | meal_event | day       |
+    | breakfast | monday    |
+    | breakfast | tuesday   |
+    | breakfast | wednesday |
+    | breakfast | thursday  |
+    | breakfast | friday    |
+    | breakfast | saturday  |
+    | breakfast | sunday    |
+    

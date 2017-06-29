@@ -90,21 +90,21 @@ Then(/^I see the Egg\-Asparagus recipe in the pick list$/) do
   expect(on(WeekPlanningPage).pick_list).to include('Egg-Asparagus')
 end
 
-When(/^I assign the Egg\-Asparagus recipe to the breakfast meal slot on Monday$/) do
+When(/^I assign the Egg\-Asparagus recipe to ([^"]*) on ([^"]*)$/) do |meal_event, day|
   on(WeekPlanningPage) do |page|
     first_recipe = page.pick_list_element.lis.first.div
     menu = first_recipe.div(:class => 'recipe-menu')
     menu.click
     
-    @browser.ul(:id => 'monday').children[0].span(:id => 'breakfast').click
-    
-    page.add_recipe_to_plan
+    @browser.ul(:id => day.downcase).children[0].span(:id => meal_event.downcase).click
+    add_recipe_to_plan = @browser.button(:id => "addRecipeToPlan")
+    add_recipe_to_plan.click
   end
 end
 
-Then(/^my meal plan lists Egg\-Asparagus for Monday$/) do
+Then(/^my meal plan lists Egg\-Asparagus for ([^"]*) on ([^"]*)$/) do |meal_event, day|
   on(WeekPlanningPage) do |page|
-    breakfast_meal_event = page.monday_schedule_element.div
-    expect(breakfast_meal_event.text).to include "Egg-Asparagus"
+    meals = @browser.element(:xpath => "//div[@id='#{day.downcase}']/div[@class='mealEvent']/ul[@id='#{meal_event.downcase}']")
+    expect(meals.text).to include "Egg-Asparagus"
   end
 end

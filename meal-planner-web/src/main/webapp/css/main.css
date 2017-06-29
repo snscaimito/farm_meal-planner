@@ -235,6 +235,12 @@ A.landing_menu_item {
 	padding: 5px;
 }
 
+DIV#recipeAssignmentDialog {
+	display: grid;
+    grid-auto-columns: 50%;
+    grid-auto-flow: column ;
+}
+
 #recipeAssignmentDialog SPAN {
   cursor: hand ;
   cursor: pointer ;
