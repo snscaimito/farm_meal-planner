@@ -152,6 +152,16 @@ A.landing_menu_item {
     height: 50px;
 }
 
+.mealEvent P {
+    font-size: smaller;
+}
+
+.mealEvent UL {
+	list-style-type: none;
+	margin-top: -0.6em;
+	padding-left: 0.4em;
+}
+
 .daySchedule {
     border-top: thin solid black ;
 }
