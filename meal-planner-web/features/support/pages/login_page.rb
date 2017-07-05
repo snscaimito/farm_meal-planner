@@ -5,7 +5,7 @@ class LoginPage
   text_field(:password, :id => 'password')
   button(:login, :id => 'login')
   
-  span(:login_rejected_message, :id => 'loginRejected')
+  paragraph(:login_rejected_message, :id => 'loginRejected')
   
   page_url :my_page_url
   

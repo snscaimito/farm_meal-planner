@@ -11,7 +11,9 @@ When(/^I decide to try Meal Planner$/) do
 end
 
 Then(/^I can start planning meals for the week$/) do
-  expect(on(WeekPlanningPage).title).to eql('Meal Plan for Week')
+  on WeekPlanningPage do |page|
+    page.wait_until { page.text.include? 'Meal Plan for Week' }
+  end
 end
 
 Given(/^the Egg\-Asparagus recipe exists$/) do
