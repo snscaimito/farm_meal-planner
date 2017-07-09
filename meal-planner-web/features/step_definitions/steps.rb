@@ -110,3 +110,17 @@ Then(/^my meal plan lists Egg\-Asparagus for ([^"]*) on ([^"]*)$/) do |meal_even
     expect(meals.text).to include "Egg-Asparagus"
   end
 end
+
+Given(/^I have planned to eat Egg\-Asparagus for breakfast on Monday$/) do
+  step "the Egg-Asparagus recipe exists"
+  step "I am planning my week"
+  step "I assign the Egg-Asparagus recipe to breakfast on Monday"
+end
+
+When(/^I access my shopping list$/) do
+  visit(ShoppingListPage)
+end
+
+Then(/^the ingredients for Egg\-Asparagus are listed$/) do
+  expect(on(ShoppingListPage).text).to include "Eggs", "Asparagus"
+end

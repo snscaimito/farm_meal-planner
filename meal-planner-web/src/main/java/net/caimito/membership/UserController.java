@@ -38,7 +38,7 @@ public class UserController {
 			http
 			.httpBasic().and()
 			.authorizeRequests()
-				.antMatchers("/", "/index.html", "/signup.html", "/weeklyPlan.html", "/login.html", "/user", "/snippets/**", "/recipes", "/recipes/**").permitAll()
+				.antMatchers("/", "/index.html", "/signup.html", "/weeklyPlan.html", "/shoppingList.html", "/login.html", "/user", "/snippets/**", "/recipes", "/recipes/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 					.csrf().disable();
