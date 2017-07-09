@@ -10,6 +10,15 @@
 </head>
 
 <body id="body" style="display:none;">
+    <div class="landing_header">
+        <img src="http://placehold.it/200x45"/>
+        
+        <a href="/about.html" class="landing_menu_item">About</a>
+        <a href="/buy_food.html" class="landing_menu_item">Buy Food</a>
+        
+        <a href="/weeklyPlan.html" class="landing_menu_item" id="planWeekMenu">Plan Week</a>
+        <a href="/shoppingList.html" class="landing_menu_item" id="shoppingListMenu">Shopping List</a>
+    </div>
     <h1>Meal Plan for Week</h1>
         
     <div id="week">
@@ -152,7 +161,7 @@
 				    <script>
 				        $('#searchForRecipe').click(function(){
 				            $.ajax({
-				                url: "/recipes/search?term=" + $('#searchTerm').val(),
+				                url: "/api/recipes/search?term=" + $('#searchTerm').val(),
 				                method: "GET",
 				                dataType: "json"
 				            }).done(function(msg){

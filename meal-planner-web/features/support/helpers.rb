@@ -5,7 +5,7 @@ end
 
 def clear_recipes
   begin
-    RestClient.delete "#{BASE_URL}/recipes"
+    RestClient.delete "#{BASE_URL}/api/recipes"
   rescue RestClient::ExceptionWithResponse => e
     e.response
   end
@@ -16,10 +16,10 @@ def create_egg_asparagus_recipe
     :description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
     :yield => '3 people',
     :ingredients => [ '3 eggs' ] }
-  RestClient.put "#{BASE_URL}/recipes", request.to_json, {:content_type => :json}
+  RestClient.put "#{BASE_URL}/api/recipes", request.to_json, {:content_type => :json}
 end
 
 def register_member_with(email, password)
   request = { :email => email, :password => password }
-  RestClient.put "#{BASE_URL}/members", request.to_json, {:content_type => :json}
+  RestClient.put "#{BASE_URL}/api/members", request.to_json, {:content_type => :json}
 end
