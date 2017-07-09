@@ -1,5 +1,7 @@
 package net.caimito;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class CookingJob {
 	private String recipeID;
 	private String[] monday;
@@ -10,6 +12,11 @@ public class CookingJob {
 	private String[] saturday;
 	private String[] sunday;
 
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this) ;
+	}
+	
 	public String[] getSaturday() {
 		return saturday;
 	}

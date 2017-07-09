@@ -86,7 +86,6 @@
 
 		var structure = {
 			recipeID: recipeID,
-			recipeName: recipeName,
 			monday: [],
 			tuesday: [],
 			wednesday: [],
@@ -105,8 +104,17 @@
 			var targetObject = $('#week').find('#' + scheduleDay).find('#' + mealEvent);
 			$("<li recipeID='" + recipeID + "'>" + recipeName + "</li>").appendTo(targetObject);
 		});
-		
-		console.log('TODO sent this to a service ' + JSON.stringify(structure)) ;
+
+        
+        console.log(JSON.stringify(structure));
+        $.ajax({
+            url: "/api/cookingJob",
+            method: "POST",
+            data: JSON.stringify(structure),
+            dataType: "json",
+            contentType: "application/json"
+            }).done(function(msg){
+        });
 		
 		$('#recipeAssignmentDialog').remove();
 		$('#recipeAssignmentDialogScript').remove();
