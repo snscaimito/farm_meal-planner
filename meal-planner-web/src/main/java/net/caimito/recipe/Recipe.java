@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import net.caimito.Ingredient;
+
 public class Recipe {
 	private String id = "";
 	private String name = "";
 	private String description = "";
 	private String yield = "";
-	private List<String> ingredients = new ArrayList<>();
+	private List<Ingredient> ingredients = new ArrayList<>();
 	private List<String> instructions = new ArrayList<>();
 
 	
@@ -34,7 +36,7 @@ public class Recipe {
 		return yield;
 	}
 
-	public List<String> getIngredients() {
+	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
 
@@ -54,7 +56,7 @@ public class Recipe {
 		this.yield = yield;
 	}
 
-	public void setIngredients(List<String> ingredients) {
+	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 
