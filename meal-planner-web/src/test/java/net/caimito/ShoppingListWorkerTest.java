@@ -18,13 +18,14 @@ public class ShoppingListWorkerTest {
 	@Test
 	public void compileShoppingListBasedOnMealPlan() {
 		Recipe eggRecipe = new Recipe() ;
-		eggRecipe.setIngredients(Arrays.asList(new Ingredient[]{ new Ingredient("1 Egg") }));
+		eggRecipe.setIngredients(Arrays.asList(new Ingredient[]{ new Ingredient(1, "pcs", "Egg") }));
 		
 		MealPlan mealPlan = new MealPlan() ;
 		mealPlan.add(Calendar.MONDAY, MealEvent.BREAKFAST, eggRecipe) ;
+		mealPlan.add(Calendar.TUESDAY, MealEvent.BREAKFAST, eggRecipe) ;
 		
 		ShoppingListWorker worker = new ShoppingListWorker() ;
-		assertThat(worker.compileItems(mealPlan), hasItem("1 Egg")) ;
+		assertThat(worker.compileItems(mealPlan), hasItem("2 pcs Egg")) ;
 	}
 	
 	@Test
