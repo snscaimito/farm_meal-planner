@@ -1,4 +1,4 @@
-package net.caimito;
+package integration;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
@@ -15,6 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import net.caimito.Application;
+import net.caimito.ShoppingList;
 
 
 @RunWith(SpringRunner.class)

@@ -1,10 +1,13 @@
-package net.caimito.recipe;
+package integration;
 
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+
+import net.caimito.recipe.Recipe;
+import net.caimito.recipe.RecipesController;
 
 public class RecipeControllerTest {
 
