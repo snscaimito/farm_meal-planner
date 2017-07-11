@@ -24,10 +24,7 @@ public class ShoppingListController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<ShoppingList> getShoppingList() {
-		Ingredient ingredient = new Ingredient() ;
-		ingredient.setName("Flour");
-		ingredient.setUnit("gram");
-		ingredient.setQuantity("400");
+		Ingredient ingredient = new Ingredient("400 gram flour") ;
 		
 		List<Ingredient> items = new ArrayList<>();
 		items.add(ingredient);
@@ -40,8 +37,7 @@ public class ShoppingListController {
 		if (recipe != null) {
 			logger.info(recipe.toString());
 			for (String ingredientName : recipe.getIngredients()) {
-				ingredient = new Ingredient() ;
-				ingredient.setName(ingredientName);
+				ingredient = new Ingredient(ingredientName) ;
 				items.add(ingredient);
 			}
 		} else {

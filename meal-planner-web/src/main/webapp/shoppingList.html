@@ -31,7 +31,7 @@
         contentType: "application/json"
     }).done(function(msg){
         $.each(msg.items, function(index, item){
-            $('#shoppingList').append('<LI>' + item['quantity'] + ' ' + item['unit'] + ' ' + item['name'] + '</LI>');
+            $('#shoppingList').append('<LI>' + item['name'] + '</LI>');
         });
     });
     </script>
