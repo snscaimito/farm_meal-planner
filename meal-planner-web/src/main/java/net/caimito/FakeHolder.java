@@ -10,19 +10,15 @@ import net.caimito.recipe.Recipe;
 @Component
 public class FakeHolder {
 
-	private CookingJob cookingJob ;
-	private Map<String, Recipe> recipes = new HashMap<>() ;
-	
-	public CookingJob getCookingJob() {
-		return cookingJob;
+	private MealPlan mealPlan = new MealPlan();
+	private Map<String, Recipe> recipes = new HashMap<>();
+
+	public MealPlan getMealPlan() {
+		return mealPlan;
 	}
-	
-	public void setCookingJob(CookingJob cookingJob) {
-		this.cookingJob = cookingJob;
-	}
-	
+
 	public Map<String, Recipe> getRecipes() {
 		return recipes;
 	}
-	
+
 }

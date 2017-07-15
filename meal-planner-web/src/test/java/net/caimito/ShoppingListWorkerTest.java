@@ -14,17 +14,20 @@ import org.junit.Test;
 import net.caimito.recipe.Recipe;
 
 public class ShoppingListWorkerTest {
+	
+	private FakeHolder fakeHolder = new FakeHolder() ;
 
 	@Test
 	public void compileShoppingListBasedOnMealPlan() {
 		Recipe eggRecipe = new Recipe() ;
 		eggRecipe.setIngredients(Arrays.asList(new Ingredient[]{ new Ingredient(1, "pcs", "Egg") }));
+		fakeHolder.getRecipes().put(eggRecipe.getId(), eggRecipe) ;
 		
 		MealPlan mealPlan = new MealPlan() ;
-		mealPlan.add(Calendar.MONDAY, MealEvent.BREAKFAST, eggRecipe) ;
-		mealPlan.add(Calendar.TUESDAY, MealEvent.BREAKFAST, eggRecipe) ;
+		mealPlan.add(Calendar.MONDAY, MealEvent.BREAKFAST, eggRecipe.getId()) ;
+		mealPlan.add(Calendar.TUESDAY, MealEvent.BREAKFAST, eggRecipe.getId()) ;
 		
-		ShoppingListWorker worker = new ShoppingListWorker() ;
+		ShoppingListWorker worker = new ShoppingListWorker(fakeHolder) ;
 		assertThat(worker.compileItems(mealPlan), hasItem("2 pcs Egg")) ;
 	}
 	
@@ -32,7 +35,7 @@ public class ShoppingListWorkerTest {
 	public void compileNotNullShoppingList() {
 		MealPlan mealPlan = new MealPlan() ;
 
-		ShoppingListWorker worker = new ShoppingListWorker() ;
+		ShoppingListWorker worker = new ShoppingListWorker(fakeHolder) ;
 		assertThat(worker.compileItems(mealPlan), is(not(nullValue()))) ;
 	}
 }

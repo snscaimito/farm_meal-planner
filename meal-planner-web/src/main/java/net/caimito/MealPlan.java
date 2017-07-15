@@ -8,29 +8,29 @@ import net.caimito.recipe.Recipe;
 public class MealPlan {
 	private List<PlanElement> planElements = new ArrayList<PlanElement>() ;
 
-	public void add(int dayOfTheWeek, MealEvent mealEvent, Recipe recipe) {
-		planElements.add(new PlanElement(dayOfTheWeek, mealEvent, recipe)) ;
+	public void add(int dayOfTheWeek, MealEvent mealEvent, String recipeID) {
+		planElements.add(new PlanElement(dayOfTheWeek, mealEvent, recipeID)) ;
 	}
 
 	private class PlanElement {
 		protected int dayOfTheWeek ;
 		protected MealEvent mealEvent ;
-		protected Recipe recipe ;
+		protected String recipeID ;
 		
-		public PlanElement(int dayOfTheWeek, MealEvent mealEvent, Recipe recipe) {
+		public PlanElement(int dayOfTheWeek, MealEvent mealEvent, String recipeID) {
 			this.dayOfTheWeek = dayOfTheWeek ;
 			this.mealEvent = mealEvent ;
-			this.recipe = recipe ;
+			this.recipeID = recipeID ;
 		}
 		
 	}
 
-	public List<Recipe> getAssignedRecipes() {
-		List<Recipe> recipes = new ArrayList<>();
+	public List<String> getAssignedRecipeIDs() {
+		List<String> recipeIDs = new ArrayList<>();
 		
 		for (PlanElement element : planElements)
-			recipes.add(element.recipe) ;
+			recipeIDs.add(element.recipeID) ;
 		
-		return recipes ;
+		return recipeIDs ;
 	}
 }

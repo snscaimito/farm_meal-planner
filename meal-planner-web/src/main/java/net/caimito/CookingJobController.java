@@ -22,9 +22,8 @@ public class CookingJobController {
 	@PostMapping
 	public ResponseEntity<CookingJob> createMealPlan(@RequestBody CookingJob cookingJob) {
 		logger.info(cookingJob.toString());
-		fakeHolder.setCookingJob(cookingJob);
-		
+		new CookingJobWorker().assignJobToMealPlan(fakeHolder.getMealPlan(), cookingJob);
 		return new ResponseEntity<CookingJob>(cookingJob, HttpStatus.OK) ;
 	}
-	
+
 }

@@ -25,6 +25,10 @@ public class RecipesController {
 
 	@Autowired
 	private FakeHolder fakeHolder ;
+
+	public RecipesController(FakeHolder fakeHolder) {
+		this.fakeHolder = fakeHolder ;
+	}
 	
 	@RequestMapping(method=RequestMethod.PUT)
 	public Recipe addRecipe(@RequestBody Recipe recipe) {

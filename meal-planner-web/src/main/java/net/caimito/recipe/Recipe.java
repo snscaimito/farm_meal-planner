@@ -2,7 +2,10 @@ package net.caimito.recipe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import net.caimito.Ingredient;
@@ -15,6 +18,9 @@ public class Recipe {
 	private List<Ingredient> ingredients = new ArrayList<>();
 	private List<String> instructions = new ArrayList<>();
 
+	public Recipe() {
+		this.id = UUID.randomUUID().toString() ;
+	}
 	
 	public void setId(String id) {
 		this.id = id;
@@ -67,5 +73,15 @@ public class Recipe {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this) ;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return EqualsBuilder.reflectionEquals(this, obj) ;
+	}
+	
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this) ;
 	}
 }
