@@ -15,7 +15,8 @@ def create_egg_asparagus_recipe
   request = { :name => 'Egg-Asparagus', 
     :description => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 
     :yield => '3 people',
-    :ingredients => [ '3 eggs', '200 gram asparagus' ] }
+    :ingredients => [ { "name": "Eggs", "quantity": 3, "unit": "pcs" },
+       { "name": "Asparagus", "quantity": 200, "unit": "gram" } ] }
   RestClient.put "#{BASE_URL}/api/recipes", request.to_json, {:content_type => :json}
 end
 
