@@ -22,7 +22,8 @@ public class IngredientsCollector {
 				Ingredient collectedIngredient = collectedIngredients.get(ingredientName) ;
 				if (unitName.equals(collectedIngredient.getUnit())) {
 					collectedIngredient.setQuantity(collectedIngredient.getQuantity() + ingredientQuantity);
-				}
+				} else
+					throw new UnitsDontMatchException(collectedIngredient, ingredient) ;
 			}
 		}
 		
