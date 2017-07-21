@@ -122,5 +122,5 @@ When(/^I access my shopping list$/) do
 end
 
 Then(/^the ingredients for Egg\-Asparagus are listed$/) do
-  expect(on(ShoppingListPage).text).to include "eggs", "asparagus"
+  expect(on(ShoppingListPage).text).to include "3 pcs Eggs", "200 gram Asparagus"
 end

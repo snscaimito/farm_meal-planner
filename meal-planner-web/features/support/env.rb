@@ -22,7 +22,11 @@ FileUtils.mkdir_p TMP_DIR
 FileUtils.remove_dir SCREENSHOTS_DIR, true
 FileUtils.mkdir_p SCREENSHOTS_DIR
 
-browser = Watir::Browser.new :firefox
+caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+  chromeOptions: { args: [
+#     '--headless', 
+     '--window-size=1920,1080' ]})
+browser = Watir::Browser.new :chrome, desired_capabilities: caps
 
 Before do
   @browser = browser
