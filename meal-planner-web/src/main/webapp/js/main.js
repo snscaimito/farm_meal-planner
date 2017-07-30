@@ -56,7 +56,30 @@ function MealPlan() {
 		return new CookingJob(recipeID, recipeName);
 	};
     
+    this.findRecipeNameForID = function(recipeID){
+        return "Not Yet Implemented";
+    };
+    
     this.loadCookingJobs = function(){
+        var mealPlan = this;
+        
+        $.ajax({
+            url: "/api/cookingJob",
+            method: "GET",
+            contentType: "application/json",
+            context: self
+            }).done(function(msg){
+                msg.forEach(function(item){
+                    var recipeID = item[recipeID];
+                    var recipeName = "Not Yet Implemented";
+                    var cookingJob = new CookingJob(recipeID, recipeName);
+                    
+                    var days = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ] ;
+                    days.forEach(function(day){
+                        mealPlan.addToWeeklyPlan(cookingJob, day, item[day]);
+                    });
+                });
+        });
         
     };
     

@@ -218,6 +218,8 @@
 	    			console.log('first time here');
 	    		} else {
 		    		console.log('loading plan for ' + member_uuid);
+                    var mealPlan = new MealPlan();
+                    mealPlan.loadCookingJobs();
 	    		}
 	    	}
 	    	

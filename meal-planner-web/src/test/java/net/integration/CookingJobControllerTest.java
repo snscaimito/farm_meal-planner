@@ -3,6 +3,8 @@ package net.integration;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ import net.caimito.CookingJob;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource(properties = {"management.port=0"})
-public class MealPlanningControllerTest {
+public class CookingJobControllerTest {
 
 	@LocalServerPort
 	private int port;
@@ -33,7 +35,7 @@ public class MealPlanningControllerTest {
 //	"monday":["breakfast"],"tuesday":[],"wednesday":[],"thursday":[],"friday":[],"saturday":[],"sunday":[]}
 
 	@Test
-	public void assignRecipeToMealEvent() {
+	public void postCookingJob() {
 		String requestURL = String.format("http://localhost:%d/api/cookingJob", port) ;
 
 		CookingJob cookingJob = new CookingJob() ;
@@ -41,6 +43,14 @@ public class MealPlanningControllerTest {
 		cookingJob.setMonday(new String[]{"breakfast"}) ;
 		
 		ResponseEntity<CookingJob> entity = testRestTemplate.postForEntity(requestURL, cookingJob, CookingJob.class) ;
+		assertThat(entity.getStatusCode(), is(HttpStatus.OK)) ;
+	}
+	
+	@Test
+	public void loadCookingJobs() {
+		String requestURL = String.format("http://localhost:%d/api/cookingJob", port) ;
+		
+		ResponseEntity<List> entity = testRestTemplate.getForEntity(requestURL, List.class) ;
 		assertThat(entity.getStatusCode(), is(HttpStatus.OK)) ;
 	}
 	
