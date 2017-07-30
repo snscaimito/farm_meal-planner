@@ -81,41 +81,22 @@
 </div>
 <script id="recipeAssignmentDialogScript">
 	$('#addRecipeToPlan').click(function(){
+		var mealPlan = new MealPlan();
+		
 		var recipeID = $('#recipeAssignmentDialog').attr('recipeID');
 		var recipeName = $('#recipeAssignmentDialog').attr('recipeName');
+        
+        var cookingJob = mealPlan.createCookingJob(recipeID, recipeName);
 
-		var structure = {
-			recipeID: recipeID,
-			monday: [],
-			tuesday: [],
-			wednesday: [],
-			thursday: [],
-			friday: [],
-			saturday: [],
-			sunday: []
-		} ;
-		
 		$('.selected').each(function(){
 			var scheduleDay = $(this).parent().parent().attr('id');
 			var mealEvent = $(this).attr('id');
 
-			structure[scheduleDay].push(mealEvent);
-
-			var targetObject = $('#week').find('#' + scheduleDay).find('#' + mealEvent);
-			$("<li recipeID='" + recipeID + "'>" + recipeName + "</li>").appendTo(targetObject);
+			cookingJob.addSchedule(scheduleDay, mealEvent);
 		});
 
+		cookingJob.postCookingJob();
         
-        console.log(JSON.stringify(structure));
-        $.ajax({
-            url: "/api/cookingJob",
-            method: "POST",
-            data: JSON.stringify(structure),
-            dataType: "json",
-            contentType: "application/json"
-            }).done(function(msg){
-        });
-		
 		$('#recipeAssignmentDialog').remove();
 		$('#recipeAssignmentDialogScript').remove();
 	});

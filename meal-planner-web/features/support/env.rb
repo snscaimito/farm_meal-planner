@@ -25,7 +25,7 @@ FileUtils.mkdir_p SCREENSHOTS_DIR
 caps = Selenium::WebDriver::Remote::Capabilities.chrome(
   chromeOptions: { args: [
 #     '--headless', 
-     '--window-size=1920,1080' ]})
+     '--window-size=2560,1600' ]})
 browser = Watir::Browser.new :chrome, desired_capabilities: caps
 
 Before do

@@ -19,6 +19,13 @@ Scenario: Assign recipe to meal slot
     When I assign the Egg-Asparagus recipe to breakfast on Monday
     Then my meal plan lists Egg-Asparagus for breakfast on Monday
 
+Scenario: Leave meal planning and return
+    Given the Egg-Asparagus recipe exists
+    And I am planning my week
+    When I assign the Egg-Asparagus recipe to breakfast on Monday
+    And return later to planning my week
+    Then my meal plan lists Egg-Asparagus for breakfast on Monday
+
 @user_interface
 Scenario Outline: Assign recipe to meal slot
     Given the Egg-Asparagus recipe exists

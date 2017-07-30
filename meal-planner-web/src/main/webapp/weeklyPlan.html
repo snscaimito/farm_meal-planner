@@ -190,6 +190,7 @@
 		<div id="featuredRecipes"></div>
     </div>
 
+	<script src="/js/main.js"></script>
     <script>
 	    $(document).ready(function() {
 	    	function disableMemberFunctions() {
@@ -205,6 +206,30 @@
 		       	$('#featuredRecipes').load('/snippets/personalRecipes.html');
 	    	};
 	    	
+	    	function createGuid() {
+	    	    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+	    	        var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
+	    	        return v.toString(16);
+	    	    });
+	    	}
+	    	
+	    	function loadWeeklyPlan(member_uuid) {
+	    		if (!member_uuid) {
+	    			console.log('first time here');
+	    		} else {
+		    		console.log('loading plan for ' + member_uuid);
+	    		}
+	    	}
+	    	
+	    	function assignGuestMemberUUID() {
+				var guid = Cookies.get('member_uuid');
+				
+				if (!guid) {
+					guid = createGuid();
+					Cookies.set('member_uuid', guid);
+				}
+	    	}
+	    	
 	       	$.ajax({
 		        url: "/user",
 		        method: "GET",
@@ -213,13 +238,17 @@
 		    }).done(function(userInfo){
 				if (userInfo['authenticated'] == false) {
 					disableMemberFunctions();
+					assignGuestMemberUUID();
 				} else {
 					enableMemberFunctions();
 				}
 		    })
 		    .fail(function(userInfo, textStatus, errorThrown){
 		    	disableMemberFunctions();
+		    	assignGuestMemberUUID();
 		    });
+	       	
+	       	loadWeeklyPlan(Cookies.get('member_uuid'));
 	    });
     </script>
 </body>

@@ -124,3 +124,8 @@ end
 Then(/^the ingredients for Egg\-Asparagus are listed$/) do
   expect(on(ShoppingListPage).text).to include "3 pcs Eggs", "400 gram Asparagus", "100 gram Bacon"
 end
+
+When(/^return later to planning my week$/) do
+  @browser.goto "chrome://version/"
+  visit(WeekPlanningPage)
+end
