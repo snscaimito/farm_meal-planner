@@ -37,9 +37,6 @@ function CookingJob(recipeID, recipeName){
 
 	this.addSchedule = function(scheduleDay, mealEvent){
 		this.cookingJob[scheduleDay].push(mealEvent);
-
-		var targetObject = $('#week').find('#' + scheduleDay).find('#' + mealEvent);
-		$("<li recipeID='" + this.cookingJob[recipeID] + "'>" + this.recipeName + "</li>").appendTo(targetObject);
 	};
 
 	this.postCookingJob = function(){
@@ -58,4 +55,14 @@ function MealPlan() {
 	this.createCookingJob = function(recipeID, recipeName){
 		return new CookingJob(recipeID, recipeName);
 	};
+    
+    this.loadCookingJobs = function(){
+        
+    };
+    
+    this.addToWeeklyPlan = function(cookingJob, scheduleDay, mealEvent){
+        cookingJob.addSchedule(scheduleDay, mealEvent);
+		var targetObject = $('#week').find('#' + scheduleDay).find('#' + mealEvent);
+		$("<li recipeID='" + cookingJob.recipeID + "'>" + cookingJob.recipeName + "</li>").appendTo(targetObject);
+    };
 }

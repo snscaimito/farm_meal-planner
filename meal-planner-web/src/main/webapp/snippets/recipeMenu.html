@@ -92,7 +92,7 @@
 			var scheduleDay = $(this).parent().parent().attr('id');
 			var mealEvent = $(this).attr('id');
 
-			cookingJob.addSchedule(scheduleDay, mealEvent);
+			mealPlan.addToWeeklyPlan(cookingJob, scheduleDay, mealEvent);
 		});
 
 		cookingJob.postCookingJob();
