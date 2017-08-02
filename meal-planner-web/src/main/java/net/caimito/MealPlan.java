@@ -8,16 +8,16 @@ import net.caimito.recipe.Recipe;
 public class MealPlan {
 	private List<PlanElement> planElements = new ArrayList<PlanElement>() ;
 
-	public void add(int dayOfTheWeek, MealEvent mealEvent, String recipeID) {
+	public void add(WeekDays dayOfTheWeek, MealEvent mealEvent, String recipeID) {
 		planElements.add(new PlanElement(dayOfTheWeek, mealEvent, recipeID)) ;
 	}
 
 	private class PlanElement {
-		protected int dayOfTheWeek ;
+		protected WeekDays dayOfTheWeek ;
 		protected MealEvent mealEvent ;
 		protected String recipeID ;
 		
-		public PlanElement(int dayOfTheWeek, MealEvent mealEvent, String recipeID) {
+		public PlanElement(WeekDays dayOfTheWeek, MealEvent mealEvent, String recipeID) {
 			this.dayOfTheWeek = dayOfTheWeek ;
 			this.mealEvent = mealEvent ;
 			this.recipeID = recipeID ;

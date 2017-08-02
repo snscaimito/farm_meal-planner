@@ -76,7 +76,7 @@ function MealPlan() {
                     
                     var days = [ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' ] ;
                     days.forEach(function(day){
-                        mealPlan.addToWeeklyPlan(cookingJob, day, item[day]);
+                        mealPlan.addToWeeklyPlan(cookingJob, day, item['schedule'][day]);
                     });
                 });
         });

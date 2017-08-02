@@ -1,7 +1,10 @@
 package net.caimito;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,9 +38,14 @@ public class CookingJobController {
 		logger.info("Getting all cooking jobs");
 		List<CookingJob> jobs = new ArrayList<>() ;
 		
+//		fakeHolder.getMealPlan().
+		
+		Map<String, List<String>> schedule = new HashMap<>() ;
+		schedule.put("monday", Arrays.asList(new String[]{"breakfast"})) ;
+
 		CookingJob job = new CookingJob() ;
 		job.setRecipeID("some ID");
-		job.setMonday(new String[] { "breakfast" } );
+		job.setSchedule(schedule);
 		
 		jobs.add(job) ;
 		

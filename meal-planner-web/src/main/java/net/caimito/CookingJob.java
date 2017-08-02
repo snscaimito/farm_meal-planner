@@ -1,84 +1,32 @@
 package net.caimito;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class CookingJob {
 	private String recipeID;
-	private String[] monday;
-	private String[] tuesday;
-	private String[] wednesday;
-	private String[] thursday;
-	private String[] friday;
-	private String[] saturday;
-	private String[] sunday;
+	private Map<String, List<String>> schedule ;
 
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this) ;
 	}
 	
-	public String[] getSaturday() {
-		return saturday;
-	}
-
-	public void setSaturday(String[] saturday) {
-		this.saturday = saturday;
-	}
-
-	public String getRecipeID() {
-		return recipeID;
-	}
-
 	public void setRecipeID(String recipeID) {
 		this.recipeID = recipeID;
 	}
-
-	public String[] getMonday() {
-		return monday;
+	
+	public String getRecipeID() {
+		return recipeID;
 	}
-
-	public void setMonday(String[] monday) {
-		this.monday = monday;
+	
+	public Map<String, List<String>> getSchedule() {
+		return schedule;
 	}
-
-	public String[] getTuesday() {
-		return tuesday;
+	
+	public void setSchedule(Map<String, List<String>> schedule) {
+		this.schedule = schedule;
 	}
-
-	public void setTuesday(String[] tuesday) {
-		this.tuesday = tuesday;
-	}
-
-	public String[] getWednesday() {
-		return wednesday;
-	}
-
-	public void setWednesday(String[] wednesday) {
-		this.wednesday = wednesday;
-	}
-
-	public String[] getThursday() {
-		return thursday;
-	}
-
-	public void setThursday(String[] thursday) {
-		this.thursday = thursday;
-	}
-
-	public String[] getFriday() {
-		return friday;
-	}
-
-	public void setFriday(String[] friday) {
-		this.friday = friday;
-	}
-
-	public String[] getSunday() {
-		return sunday;
-	}
-
-	public void setSunday(String[] sunday) {
-		this.sunday = sunday;
-	}
-
 }

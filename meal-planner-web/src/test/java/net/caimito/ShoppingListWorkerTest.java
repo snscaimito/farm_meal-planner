@@ -24,8 +24,8 @@ public class ShoppingListWorkerTest {
 		fakeHolder.getRecipes().put(eggRecipe.getId(), eggRecipe) ;
 		
 		MealPlan mealPlan = new MealPlan() ;
-		mealPlan.add(Calendar.MONDAY, MealEvent.BREAKFAST, eggRecipe.getId()) ;
-		mealPlan.add(Calendar.TUESDAY, MealEvent.BREAKFAST, eggRecipe.getId()) ;
+		mealPlan.add(WeekDays.MONDAY, MealEvent.BREAKFAST, eggRecipe.getId()) ;
+		mealPlan.add(WeekDays.TUESDAY, MealEvent.BREAKFAST, eggRecipe.getId()) ;
 		
 		ShoppingListWorker worker = new ShoppingListWorker(fakeHolder) ;
 		assertThat(worker.compileItems(mealPlan), hasItem("2 pcs Egg")) ;
