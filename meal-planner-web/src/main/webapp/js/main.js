@@ -26,20 +26,25 @@ function CookingJob(recipeID, recipeName){
     this.recipeName = recipeName;
 	this.cookingJob = {
 			recipeID: recipeID,
-			monday: [],
-			tuesday: [],
-			wednesday: [],
-			thursday: [],
-			friday: [],
-			saturday: [],
-			sunday: []
+            schedule: {}
 		} ;
 
 	this.addSchedule = function(scheduleDay, mealEvent){
-		this.cookingJob[scheduleDay].push(mealEvent);
+        console.log('addSchedule') ;
+        console.log('schedule day = ' + scheduleDay) ;
+        console.log('mealEvent = ' + mealEvent) ;
+        
+        if (!this.cookingJob.schedule[scheduleDay])
+            this.cookingJob.schedule[scheduleDay] = [] ;
+
+        this.cookingJob.schedule[scheduleDay].push(mealEvent);
+        
+        console.log(this.cookingJob) ;
 	};
 
 	this.postCookingJob = function(){
+        console.log(JSON.stringify(this.cookingJob)) ;
+        
         $.ajax({
             url: "/api/cookingJob",
             method: "POST",
