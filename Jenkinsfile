@@ -5,6 +5,10 @@ pipeline {
         maven 'mvn-3.5.2'
     }
 
+	environment {
+      	VERSION = readMavenPom().getVersion()
+   	}
+   
     stages {
         stage('Build') {
             steps {
@@ -15,7 +19,7 @@ pipeline {
         stage('Make Container') {
             steps {
             		pom = readMavenPom
-		    		sh "docker build -t snscaimito/meal-planner-app:${env.BUILD_ID} --build-arg JAR_VERSION=${pom.version} ."
+		    		sh "docker build -t snscaimito/meal-planner-app:${env.BUILD_ID} --build-arg JAR_VERSION=${VERSION} ."
 		    		sh "docker tag snscaimito/meal-planner-app:${env.BUILD_ID} snscaimito/meal-planner-app:latest"
             }
         }
