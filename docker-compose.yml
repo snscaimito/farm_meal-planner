@@ -1,0 +1,18 @@
+version: '3'
+services:
+  meal-planner-app:
+    image: snscaimito/meal-planner-app:latest
+    ports:
+     - "9080:8080"
+  cucumber:
+    environment:
+    - HOST=meal-planner-app
+    - PORT=8080
+    links:
+    - meal-planner-app
+    volumes:
+    - ./:/home/cucumber
+    build:
+      context: ./
+      dockerfile: Dockerfile-cucumber
+    
