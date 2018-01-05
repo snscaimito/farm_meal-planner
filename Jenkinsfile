@@ -15,7 +15,7 @@ pipeline {
         stage('Make Container') {
             steps {
             		script {
-					def pom = readMavenPom
+					def pom = readMavenPom file: 'pom.xml'
 					VERSION = pom.version
 				}
 		    		sh "docker build -t snscaimito/meal-planner-app:${env.BUILD_ID} --build-arg JAR_VERSION=${VERSION} ."
