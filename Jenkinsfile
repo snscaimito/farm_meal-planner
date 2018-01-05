@@ -6,7 +6,7 @@ pipeline {
     }
 
 	environment {
-      	VERSION = readMavenPom().getVersion()
+      	VERSION = readMavenPom.version
    	}
    
     stages {
