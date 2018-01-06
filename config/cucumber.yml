@@ -1,0 +1,6 @@
+# config/cucumber.yml
+##YAML Template
+---
+default: --profile html_report --profile json_report
+html_report: --format progress --format html --out=target/features.html
+json_report: --format progress --format json --out=target/features.json
