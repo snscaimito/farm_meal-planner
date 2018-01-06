@@ -4,15 +4,23 @@ services:
     image: snscaimito/meal-planner-app:latest
     ports:
      - "9080:8080"
+  selenium:
+    image: selenium/standalone-chrome
+    environment:
+    - JAVA_OPTS=-Dselenium.LOGGER.level=WARNING
+    ports:
+    - "4444:4444"
+    links:
+    - meal-planner-app
   cucumber:
     environment:
     - HOST=meal-planner-app
     - PORT=8080
     links:
     - meal-planner-app
+    - selenium
     volumes:
     - ./:/home/cucumber
     build:
       context: ./
       dockerfile: Dockerfile-cucumber
-    
