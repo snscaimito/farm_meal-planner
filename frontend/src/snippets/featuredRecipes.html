@@ -1,0 +1,50 @@
+<div class="actions">
+    <span id="pickListName">Featured Recipes</span>
+</div>
+
+<ul id="pickList"></ul>
+<div id="recipeActionDialog"></div>
+
+<script>
+	$.ajax({
+	    url: "/api/recipes",
+	    method: "GET",
+	    dataType: "json",
+	    contentType: "application/json"
+	}).done(function(msg){
+	    $('#pickList').empty();
+	    if (msg.length == 0)
+	        $('#pickList').append('<LI>No recipes were found</LI>')
+	        
+	    $.each(msg, function(index, value){
+	    	var listingTemplate = 
+	    		'<li><div id="' + value['id'] + '" class="recipe"> \
+	    	    	<div> \
+	    	    		<img src="http://placehold.it/50x50"/> \
+	    	    	</div> \
+	    	    	<div class="recipe-menu"></div> \
+	    	    	<div> \
+	    	    		<p class="name">' + value['name'] + '</p> \
+	    	    		<p class="description">' + value['description'] + '</p> \
+	    	    	</div> \
+	    	    </div></li>'; 
+
+	    	$('#pickList').append(listingTemplate);
+	    });
+	    
+	    $('.recipe-menu').click(function(event){
+    		var tPosX = event.pageX - 5;
+    		var tPosY = event.pageY + 10;
+			var recipeID = $(this).parent().attr('id');
+			var recipeName = $(this).parent().find('.name').text();
+    		
+    		$('#recipeActionDialog').load('/snippets/recipeMenu.html', function(){
+    			$(this).children().first().attr('recipeID', recipeID);
+    			$(this).children().first().attr('recipeName', recipeName);
+         		$(this).offset({top: tPosY, left: tPosX});
+    		});
+    		
+	    });
+	    
+	});
+</script>

@@ -10,4 +10,4 @@ COPY Gemfile /home/cucumber/Gemfile
 WORKDIR /home/cucumber
 RUN gem install bundler && bundle install
 
-CMD bundle exec cucumber
+CMD bundle exec cucumber --profile json_report

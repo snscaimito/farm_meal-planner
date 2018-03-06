@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Meal Plan for Week</title>
+	<link rel="stylesheet" href="/css/main.css"/>
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/js.cookie-2.1.4.js"></script>
+	<script src="/js/jquery-ui-1.12.1.min.js"></script>
+</head>
+
+<body>
+    <div class="landing_header">
+        <img src="http://placehold.it/200x45"/>
+        
+        <a href="/about.html" class="landing_menu_item">About</a>
+        <a href="/buy_food.html" class="landing_menu_item">Buy Food</a>
+        
+        <a href="/weeklyPlan.html" class="landing_menu_item" id="planWeekMenu">Plan Week</a>
+        <a href="/shoppingList.html" class="landing_menu_item" id="shoppingListMenu">Shopping List</a>
+    </div>
+    
+    <h1>Shopping List</h1>
+    <ul id="shoppingList"></ul>
+    
+    <script>
+    $.ajax({
+        url: "/api/shoppingList",
+        method: "GET",
+        dataType: "json",
+        contentType: "application/json"
+    }).done(function(msg){
+        $.each(msg.items, function(index, item){
+            $('#shoppingList').append('<LI>' + item + '</LI>');
+        });
+    });
+    </script>
+</body>
+</html>

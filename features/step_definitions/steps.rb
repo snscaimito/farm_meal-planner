@@ -20,6 +20,10 @@ Given(/^the Egg\-Asparagus recipe exists$/) do
   create_egg_asparagus_recipe
 end
 
+Given(/^the Pancakes recipe exists$/) do
+  create_pancakes_recipe
+end
+
 Then(/^I see the Egg\-Asparagus recipe in the search result list$/) do
   on WeekPlanningPage do |page|
     expect(page.searchResultList).to include('Egg-Asparagus')

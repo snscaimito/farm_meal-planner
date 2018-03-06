@@ -1,6 +1,0 @@
-source "https://rubygems.org"
-ruby RUBY_VERSION
-
-gem "cucumber"
-gem "page-object"
-gem 'rspec-expectations'

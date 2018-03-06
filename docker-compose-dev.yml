@@ -1,0 +1,18 @@
+version: '3'
+services:
+  meal_planner_service:
+    ports:
+     - "9080:8080"
+    build:
+      context: ./meal_planner_service
+      args:
+        JAR_VERSION: "0.1.0"
+  frontend:
+    image: nginx
+    ports:
+     - "80:80"
+    links:
+    - meal_planner_service
+    volumes:
+    - ./frontend/dist:/usr/share/nginx/html
+    - ./frontend/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
