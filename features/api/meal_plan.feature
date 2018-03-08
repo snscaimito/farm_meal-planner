@@ -1,4 +1,4 @@
-@api
+@todo @api
 Feature: Work with Meal Plans
 
 Scenario: Retrieve Meal Plan

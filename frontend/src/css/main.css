@@ -102,10 +102,6 @@ A.landing_menu_item:hover {
     height: 400px ;
 }
 
-.landing_page {
-    margin: 0 ;
-}
-
 #signupForm {
     display: grid;
     grid-template-columns: 200px 200px;

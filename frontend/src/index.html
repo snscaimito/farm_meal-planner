@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"/>
-	<title>Welcome to Meal Planner</title>
-	<link rel="stylesheet" href="/css/main.css"/>
-	<script src="/js/jquery-3.2.1.min.js"></script>
+  <meta charset="UTF-8"/>
+  <title>Welcome to Meal Planner</title>
+  <link rel="stylesheet" href="/css/main.css"/>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
-<body class="landing_page">
-    <div class="landing_header">
-        <img src="http://placehold.it/200x45"/>
-        
-        <a href="/about.html" class="landing_menu_item">About</a>
-        <a href="/buy_food.html" class="landing_menu_item">Buy Food</a>
-        
-        <span class="landing_menu_item"><input id="tryIt" type="button" value="Try It"/></span>
-        <a href="#" class="landing_menu_item" id="login">Log in</a>
-    </div>
+<body>
+  <div id="navigation">
+  </div>
 
-    <div class="landing_overview">
-        <h2>Meal Planner makes your life easier</h2>
-        <ul>
-            <li>Organize your own recipes</li>
-            <li>Assign recipes to each day of the week</li>
-            <li>Shopping list based on your meal plan for the week</li>
-        </ul>
-    </div>
+  <div class="landing_overview">
+      <h2>Meal Planner makes your life easier</h2>
+      <ul>
+          <li>Organize your own recipes</li>
+          <li>Assign recipes to each day of the week</li>
+          <li>Shopping list based on your meal plan for the week</li>
+      </ul>
+  </div>
 
-    <div class="landing_feature">
-        <h2>Use your own recipes</h2>
-        <p>Meal Planner lets you enter and organize your own recipes.</p>
-        <p>You can decide whether to share your recipes with others.</p>
-    </div>
+  <div class="landing_feature">
+      <h2>Use your own recipes</h2>
+      <p>Meal Planner lets you enter and organize your own recipes.</p>
+      <p>You can decide whether to share your recipes with others.</p>
+  </div>
 
-    <div class="landing_footer">
-        <div>
-            <h2>Meal Planner</h2>
-            <ul>
-                <li>Who makes Meal Planner</li>
-                <li>Send Feedback</li>
-            </ul>
-        </div>
+  <div class="landing_footer">
+      <div>
+          <h2>Meal Planner</h2>
+          <ul>
+              <li>Who makes Meal Planner</li>
+              <li>Send Feedback</li>
+          </ul>
+      </div>
 
-        <div>
-            <h2>Help &amp; Support</h2>
-            <ul>
-                <li>FAQ</li>
-                <li>Contact a human</li>
-            </ul>
-        </div>
-        
-        <div>
-            <h2>Rules of the game</h2>
-            <ul>
-                <li>Privacy</li>
-                <li>Terms of use</li>
-                <li>Security</li>
-            </ul>
-        </div>
-    </div>
+      <div>
+          <h2>Help &amp; Support</h2>
+          <ul>
+              <li>FAQ</li>
+              <li>Contact a human</li>
+          </ul>
+      </div>
+      
+      <div>
+          <h2>Rules of the game</h2>
+          <ul>
+              <li>Privacy</li>
+              <li>Terms of use</li>
+              <li>Security</li>
+          </ul>
+      </div>
+  </div>
     
-	<script src="/js/main.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#navigation').load('/navigation-service/navigation #navbar', function(responseText, status){
+        if (status !== 'success') {
+          $('#navigation').html('<span>Fallback to simple navigation</span');
+        }
+      });
+      
+    });
+  </script>
 </body>
 </html>
