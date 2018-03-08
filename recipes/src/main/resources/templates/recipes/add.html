@@ -1,23 +1,13 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Recipes</title>
+		<title>Add Recipe</title>
 		<link rel="stylesheet" href="/css/main.css"/>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
 		<div id="navigation"></div>
-		<h1>List of Recipes</h1>
-		<div th:unless="${#lists.isEmpty(recipes)}">
-			<table>
-			    <tr th:each="recipe : ${recipes}">
-			      <td th:text="${recipe.name}">Pancakes</td>
-			    </tr>
-			</table>
-		</div>
-		<div>
-			<button onclick="location.href = 'add'">Add Recipe</button>
-		</div>
+		<h1>Add Recipe</h1>
 		
 		<script>
 		  $(document).ready(function() {
