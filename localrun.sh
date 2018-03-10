@@ -4,8 +4,16 @@ if [ $? -ne 0 ]; then
   exit
 fi
 
+cd styles
+mvn install
+if [ $? -ne 0 ]; then
+  cd ..
+  exit
+fi
+cd ..
+
 cd navigation
-mvn package
+mvn install
 if [ $? -ne 0 ]; then
   cd ..
   exit
@@ -13,7 +21,7 @@ fi
 cd ..
 
 cd recipes
-mvn package
+mvn install
 if [ $? -ne 0 ]; then
   cd ..
   exit

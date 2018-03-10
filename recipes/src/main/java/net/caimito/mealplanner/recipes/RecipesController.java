@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.endpoint.web.Link;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class RecipesController {
 
 	@Autowired
 	private RecipeRepository repository ;
-
+	
 	@RequestMapping(method=RequestMethod.GET)
 	public String getNavigation(Model model) {
 		model.addAttribute("recipes", repository.listAll()) ;
