@@ -2,32 +2,25 @@
 <html>
 	<head>
 		<title>Recipes</title>
-		<link rel="stylesheet" href="/css/main.css"/>
+		<link rel="stylesheet" href="/webjars/styles/css/main.css"/>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
 		<div id="navigation"></div>
-		<h1>List of Recipes</h1>
-		<div th:unless="${#lists.isEmpty(recipes)}">
-			<table>
-			    <tr th:each="recipe : ${recipes}">
-			      <td th:text="${recipe.name}">Pancakes</td>
-			    </tr>
-			</table>
-		</div>
-		<div>
-			<button onclick="location.href = 'add'">Add Recipe</button>
+		<div class="left-sidebar-content ">
+			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+			<div>
+				<h1>List of Recipes</h1>
+				<div th:unless="${#lists.isEmpty(recipes)}">
+					<table>
+					    <tr th:each="recipe : ${recipes}">
+					      <td th:text="${recipe.name}">Pancakes</td>
+					    </tr>
+					</table>
+				</div>
+			</div>
 		</div>
 		
-		<script>
-		  $(document).ready(function() {
-		    $('#navigation').load('/navigation-service/navigation #navbar', function(responseText, status){
-		      if (status !== 'success') {
-		        $('#navigation').html('<span>Fallback to simple navigation</span');
-		      }
-		    });
-		    
-		  });
-		</script>
+		<script th:include="navigation/topmenu :: topmenu"></script>
 	</body>
 </html>

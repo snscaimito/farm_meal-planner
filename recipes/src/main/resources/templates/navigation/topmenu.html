@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <body>
+		<script th:fragment="topmenu">
+		  $(document).ready(function() {
+		    $('#navigation').load('/navigation-service/navigation #navbar', function(responseText, status){
+		      if (status !== 'success') {
+		        $('#navigation').html('<div id="navbar class="landing_header" style="background-color: #F2CEA5;"><img src="http://placehold.it/200x45"/><span>Simple Navigation</span></div>');
+		      }
+		    });
+		    
+		  });
+		</script>
+</body>
+</html>

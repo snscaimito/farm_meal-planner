@@ -2,22 +2,51 @@
 <html>
 	<head>
 		<title>Add Recipe</title>
-		<link rel="stylesheet" href="/css/main.css"/>
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" href="/webjars/styles/css/main.css"/>
+		<script src="/webjars/jquery/jquery.min.js"></script>
 	</head>
 	<body>
 		<div id="navigation"></div>
-		<h1>Add Recipe</h1>
+		<div class="left-sidebar-content ">
+			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+			<div>
+				<h1>Add Recipe</h1>
+				<form method="post" th:action="@{/add}" th:object="${recipe}">
+					<ul class="form">
+					    <li>
+					    		<label>Recipe Name <span class="required">*</span></label>
+					    		<input type="text" th:field="*{name}" id="recipeName" placeholder="The name of your recipe" size="60"></input>
+				    		</li>
+				    		<li>
+				    			<label>Description <span class="required">*</span></label>
+					    		<textarea id="recipeDescription" rows="4" cols="60" placeholder="Describe your recipe"></textarea>
+					    </li>
+					    <li>
+					    		<label>Yield <span class="required">*</span></label>
+					    		<input type="text" placeholder="For how many people"></input>
+					    	</li>
+					
+					    <p>Ingredients</p>
+					    <ul id="ingredientsList"></ul>
+					    <div id="ingredientsForm">	
+					        <input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
+					        <input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
+					        <input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
+					        <input type="button" value="Add Ingredient" id="addIngredient"/><br/>
+					    </div>
+					
+					    <p>Instructions</p>
+					    <ul id="instructionsList"></ul>
+					    <div id="instructionForm">
+					        <textarea id="instruction" rows="4" cols="60" placeholder="Describe step by step how to cook this"></textarea>
+					        <input type="button" value="Add step" id="addInstruction"/>
+					    </div>
+					    <input type="submit" value="Save" id="saveRecipe"/>
+				    </ul>
+			    </form>
+		    </div>
+	    </div>
 		
-		<script>
-		  $(document).ready(function() {
-		    $('#navigation').load('/navigation-service/navigation #navbar', function(responseText, status){
-		      if (status !== 'success') {
-		        $('#navigation').html('<span>Fallback to simple navigation</span');
-		      }
-		    });
-		    
-		  });
-		</script>
+		<script th:include="navigation/topmenu :: topmenu"></script>
 	</body>
 </html>
