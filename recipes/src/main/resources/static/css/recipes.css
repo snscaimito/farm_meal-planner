@@ -43,7 +43,7 @@
 	margin-top: 10px ;
 	padding: 10px;
 	display: grid ;
-	grid-auto-columns: auto ;
+	grid-auto-columns: 50px ;
 	grid-auto-flow: column ;
 	direction: rtl;
 	background-color: #085D8A;
@@ -51,6 +51,11 @@
 
 #actionBar A {
 	color: white ;
+	text-decoration: none;
+}
+
+#actionBar A:hover {
+	color: red;
 }
 
 @media print {

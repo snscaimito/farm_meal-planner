@@ -14,6 +14,7 @@
 				<div id="actionBar">
 					<a href="#" th:href="${(#mvc.url('ERC#getRecipe').arg(0, (recipe.id))).build()}">Edit</a>
 					<a href="#" th:href="${(#mvc.url('ERC#deleteRecipe').arg(0, (recipe.id))).build()}">Delete</a>
+					<div width="100%">&nbsp;</div>
 				</div>
 				<h1 th:text="*{name}">Recipe Name</h1>
 				<div id="recipeHeader">
