@@ -54,6 +54,7 @@ UL.actionMenu {
     grid-auto-columns: 220px;
     grid-auto-flow: column ;
     grid-column-gap: 20px;
+    background-color: #E0E8DD;
 }
 
 .landing_menu_item {
