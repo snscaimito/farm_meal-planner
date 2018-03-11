@@ -52,7 +52,13 @@ public class RecipesController {
 		repository.deleteAll() ;
 		return new ResponseEntity<>(HttpStatus.OK) ;
 	}
-	
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Recipe> deleteRecipe(@PathVariable("id") String id) {
+		repository.deleteById(id) ;
+		return new ResponseEntity<>(HttpStatus.OK) ;
+    }
+
 	@PutMapping(consumes = "application/json")
 	public ResponseEntity<Recipe> putRecipe(@RequestBody Recipe recipe) {
 		String id = repository.add(recipe).toString() ;

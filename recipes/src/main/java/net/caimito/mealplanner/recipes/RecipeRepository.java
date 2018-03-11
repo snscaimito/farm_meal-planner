@@ -14,7 +14,7 @@ public class RecipeRepository {
 
 	public String add(Recipe recipe) {
 		recipe.setId(UUID.randomUUID().toString());
-		recipes.put(recipe.getId().toString(), recipe) ;
+		recipes.put(recipe.getId(), recipe) ;
 		return recipe.getId() ;
 	}
 
@@ -31,7 +31,11 @@ public class RecipeRepository {
 	}
 
 	public void update(Recipe recipe) {
-		recipes.put(recipe.getId().toString(), recipe) ;
+		recipes.put(recipe.getId(), recipe) ;
+	}
+
+	public void deleteById(String id) {
+		recipes.remove(id);
 	}
 
 }

@@ -31,7 +31,13 @@ public class EditRecipeController {
 		repository.update(recipe) ;
 		return new RedirectView(String.format("../%s", recipe.getId().toString()));
     }
-	
+
+	@GetMapping("/{id}/delete")
+	public RedirectView deleteRecipe(@PathVariable("id") String id) {
+		repository.deleteById(id);
+		return new RedirectView("../");
+    }
+
 	@RequestMapping(value="/{id}/edit", params={"addRow"})
 	public String addRow(final Recipe recipe, final BindingResult bindingResult) {
 	    recipe.getIngredients().add(new Ingredient());
