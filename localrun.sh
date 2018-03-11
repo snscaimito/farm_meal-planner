@@ -45,6 +45,8 @@ display_help() {
   echo "Usage:"
   echo "--help    displays help"
   echo "up        run without rebuilding"
+  echo "down      put all containers down"
+  echo "rebuild   rebuild and run"
 }
 
 while :
