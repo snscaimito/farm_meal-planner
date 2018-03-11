@@ -2,9 +2,11 @@ package net.caimito.mealplanner.recipes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Recipe {
 
+	private UUID id = UUID.randomUUID() ;
 	private String name ;
 	private String description ;
 	private String yield ;
@@ -45,5 +47,13 @@ public class Recipe {
 
 	public void setInstructions(String instructions) {
 		this.instructions = instructions;
+	}
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
 	}
 }

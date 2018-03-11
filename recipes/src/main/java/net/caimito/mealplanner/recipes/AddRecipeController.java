@@ -22,7 +22,7 @@ public class AddRecipeController {
 	@GetMapping
 	public String addRecipe(Model model) {
 		model.addAttribute("recipe", new Recipe()) ;
-    		return "recipes/add";
+    		return Views.RECIPES_ADD;
     }
 	
 	@PostMapping
@@ -34,16 +34,16 @@ public class AddRecipeController {
 	@RequestMapping(params={"addRow"})
 	public String addRow(final Recipe recipe, final BindingResult bindingResult) {
 	    recipe.getIngredients().add(new Ingredient());
-		return "recipes/add";
+		return Views.RECIPES_ADD;
 	}
 	
 	@RequestMapping(params={"removeRow"})
 	public String removeRow(
 	        final Recipe recipe, final BindingResult bindingResult, 
 	        final HttpServletRequest req) {
-	    final Integer rowId = Integer.valueOf(req.getParameter("removeRow"));
+	    final Integer rowId = Integer.parseInt(req.getParameter("removeRow"));
 	    recipe.getIngredients().remove(rowId.intValue());
-	    return "recipes/add";
+		return Views.RECIPES_ADD;
 	}
 
 }

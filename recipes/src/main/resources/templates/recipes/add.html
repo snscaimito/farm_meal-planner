@@ -26,36 +26,40 @@
 					    		<input type="text" th:field="*{yield}" id="recipeYield" placeholder="For how many people"></input>
 					    	</li>
 					
-					    <p>Ingredients</p>
-					    <table>
-					    		<thead>
-					    			<tr>
-					    				<th>#</th>
-					    				<th>Quantity</th>
-					    				<th>Unit</th>
-					    				<th>Ingredient Name</th>
-					    				<th>
-										<button type="submit" name="addRow">Add ingredient</button>
-					    				</th>
-					    			</tr>
-					    		</thead>
-					    		<tbody>
-					    			<tr th:each="row,rowStat : *{ingredients}">
-      								<td th:text="${rowStat.count}">1</td>
-      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].quantity}" /></td>
-      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].unit}" /></td>
-      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].name}" /></td>
-      								<td>
-      								<button type="submit" name="removeRow" th:value="${rowStat.index}">Remove ingredient</button>
-      								</td>
-    								</tr>
-					    		</tbody>
-					    </table>
-					
-					    <p>Instructions</p>
-					    <textarea id="instructions" th:field="*{instructions}" rows="4" cols="60" placeholder="Describe step by step how to cook this"></textarea>
-
-					    <input type="submit" value="Save" id="saveRecipe"/>
+						<li>
+						    <label>Ingredients</label>
+						    <table>
+						    		<thead>
+						    			<tr>
+						    				<th>#</th>
+						    				<th>Quantity</th>
+						    				<th>Unit</th>
+						    				<th>Ingredient Name</th>
+						    				<th>
+											<button type="submit" name="addRow">Add ingredient</button>
+						    				</th>
+						    			</tr>
+						    		</thead>
+						    		<tbody>
+						    			<tr th:each="row,rowStat : *{ingredients}">
+	      								<td th:text="${rowStat.count}">1</td>
+	      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].quantity}" /></td>
+	      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].unit}" /></td>
+	      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].name}" /></td>
+	      								<td>
+	      								<button type="submit" name="removeRow" th:value="${rowStat.index}">Remove ingredient</button>
+	      								</td>
+	    								</tr>
+						    		</tbody>
+						    </table>
+						</li>
+						<li>
+						    <label>Instructions</label>
+						    <textarea id="instructions" th:field="*{instructions}" rows="4" cols="60" placeholder="Describe step by step how to cook this"></textarea>
+						</li>
+						<li>
+						    <input type="submit" value="Save" id="saveRecipe"/>
+						</li>
 				    </ul>
 			    </form>
 		    </div>

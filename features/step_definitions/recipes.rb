@@ -19,6 +19,13 @@ end
 
 Then("the recipe is part of the recipe list") do
   visit(ListRecipesPage) do |page|
-    expect(page.recipes_list).to include "Pancakes"
+    @recipe_link = @browser.link text: 'Pancakes'
+    expect(@recipe_link).to exist
   end
+end
+
+Then("the recipe is returned in JSON format") do
+  rest_response = RestClient.get @recipe_link.href, {accept: :json}
+  json_object = JSON.parse rest_response
+  expect(json_object["name"]).to eq(PANCAKE_RECIPE[:name])
 end

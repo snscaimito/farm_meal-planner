@@ -14,7 +14,7 @@
 				<div id="recipesList" th:unless="${#lists.isEmpty(recipes)}">
 					<table>
 					    <tr th:each="recipe : ${recipes}">
-					      <td th:text="${recipe.name}">Name</td>
+					      <td><a th:href="${recipe.id}" th:text="${recipe.name}"></a></td>
 					      <td th:text="${recipe.description}">Description</td>
 						  <td th:text="${recipe.yield}">Yield</td>
 					    </tr>
