@@ -1,3 +1,4 @@
+@todo
 Feature: Plan week as member
 
 Background:

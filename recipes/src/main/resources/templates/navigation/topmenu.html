@@ -7,7 +7,7 @@
 		  $(document).ready(function() {
 		    $('#navigation').load('/navigation-service/navigation #navbar', function(responseText, status){
 		      if (status !== 'success') {
-		        $('#navigation').html('<div id="navbar class="landing_header" style="background-color: #F2CEA5;"><img src="http://placehold.it/200x45"/><span>Simple Navigation</span></div>');
+		        $('#navigation').html('<div id="navbar class="landing_header" style="background-color: #F2CEA5;"><a href="./"><img src="http://placehold.it/200x45"/></a><span>Simple Navigation</span></div>');
 		      }
 		    });
 		    

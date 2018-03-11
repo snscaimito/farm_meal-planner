@@ -1,4 +1,4 @@
-@api
+@todo @api
 Feature: Recipes
 
 Scenario: 201 - Store recipe
