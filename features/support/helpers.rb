@@ -42,6 +42,10 @@ end
 
 def fill_form(page, data)
   data.each do |key, value|
-    page.send "#{key}=".to_sym, value
+    if value.instanceof?(Array.class)
+      puts value
+    else
+      page.send "#{key}=".to_sym, value
+    end
   end
 end
