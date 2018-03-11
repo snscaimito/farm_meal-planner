@@ -1,8 +1,6 @@
 When("I add a recipe") do
   visit(AddRecipePage) do |page|
-    page.name = 'Pancakes'
-    page.description = 'Tasty pancakes'
-    page.yield = '4 persons'
+    fill_form(page, PANCAKE_RECIPE)
     page.add
   end
 end

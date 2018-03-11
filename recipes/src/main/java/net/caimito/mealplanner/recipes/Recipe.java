@@ -1,11 +1,20 @@
 package net.caimito.mealplanner.recipes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Recipe {
 
 	private String name ;
 	private String description ;
 	private String yield ;
+	private List<Ingredient> ingredients = new ArrayList<>() ;
+	private String instructions ;
 	
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -28,5 +37,13 @@ public class Recipe {
 
 	public void setYield(String yield) {
 		this.yield = yield;
+	}
+
+	public String getInstructions() {
+		return instructions;
+	}
+
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
 	}
 }

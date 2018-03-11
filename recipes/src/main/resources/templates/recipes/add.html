@@ -27,13 +27,30 @@
 					    	</li>
 					
 					    <p>Ingredients</p>
-					    <ul id="ingredientsList"></ul>
-					    <div id="ingredientsForm">	
-					        <input type="text" class="focusOnNext" name="ingredientQuantity" size="4" placeholder="qty"/>
-					        <input type="text" class="focusOnNext" name="ingredientUnit" size="10" placeholder="unit"/>	
-					        <input type="text" class="focusOnNext submit" name="ingredientName" size="30" placeholder="ingredient name"/>	
-					        <input type="button" value="Add Ingredient" id="addIngredient"/><br/>
-					    </div>
+					    <table>
+					    		<thead>
+					    			<tr>
+					    				<th>#</th>
+					    				<th>Quantity</th>
+					    				<th>Unit</th>
+					    				<th>Ingredient Name</th>
+					    				<th>
+										<button type="submit" name="addRow">Add ingredient</button>
+					    				</th>
+					    			</tr>
+					    		</thead>
+					    		<tbody>
+					    			<tr th:each="row,rowStat : *{ingredients}">
+      								<td th:text="${rowStat.count}">1</td>
+      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].quantity}" /></td>
+      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].unit}" /></td>
+      								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].name}" /></td>
+      								<td>
+      								<button type="submit" name="removeRow" th:value="${rowStat.index}">Remove ingredient</button>
+      								</td>
+    								</tr>
+					    		</tbody>
+					    </table>
 					
 					    <p>Instructions</p>
 					    <ul id="instructionsList"></ul>

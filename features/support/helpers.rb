@@ -39,3 +39,9 @@ def register_member_with(email, password)
   request = { :email => email, :password => password }
   RestClient.put "#{BASE_URL}/api/members", request.to_json, {:content_type => :json}
 end
+
+def fill_form(page, data)
+  data.each do |key, value|
+    page.send "#{key}=".to_sym, value
+  end
+end

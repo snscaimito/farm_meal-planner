@@ -1,3 +1,4 @@
+@recipes
 Feature: Recipe Management
 
 Scenario: Add recipe
