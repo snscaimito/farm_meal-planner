@@ -1,6 +1,18 @@
 When("I add a recipe") do
   visit(AddRecipePage) do |page|
-    fill_form(page, PANCAKE_RECIPE)
+    page.name = PANCAKE_RECIPE[:name]
+    page.description = PANCAKE_RECIPE[:description]
+    page.yield = PANCAKE_RECIPE[:yield]
+    
+    PANCAKE_RECIPE[:ingredients].each_index do |index|
+      page.add_row
+      page.ingredients[index].quantity = PANCAKE_RECIPE[:ingredients][index][:quantity]
+      page.ingredients[index].unit = PANCAKE_RECIPE[:ingredients][index][:unit]
+      page.ingredients[index].ingredient = PANCAKE_RECIPE[:ingredients][index][:name]
+    end
+    
+    page.instructions = PANCAKE_RECIPE[:instructions]
+    
     page.add
   end
 end

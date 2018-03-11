@@ -19,11 +19,11 @@
 				    		</li>
 				    		<li>
 				    			<label>Description <span class="required">*</span></label>
-					    		<textarea id="recipeDescription" rows="4" cols="60" placeholder="Describe your recipe"></textarea>
+					    		<textarea th:field="*{description}" id="recipeDescription" rows="4" cols="60" placeholder="Describe your recipe"></textarea>
 					    </li>
 					    <li>
 					    		<label>Yield <span class="required">*</span></label>
-					    		<input type="text" id="recipeYield" placeholder="For how many people"></input>
+					    		<input type="text" th:field="*{yield}" id="recipeYield" placeholder="For how many people"></input>
 					    	</li>
 					
 					    <p>Ingredients</p>
@@ -53,11 +53,8 @@
 					    </table>
 					
 					    <p>Instructions</p>
-					    <ul id="instructionsList"></ul>
-					    <div id="instructionForm">
-					        <textarea id="instruction" rows="4" cols="60" placeholder="Describe step by step how to cook this"></textarea>
-					        <input type="button" value="Add step" id="addInstruction"/>
-					    </div>
+					    <textarea id="instructions" th:field="*{instructions}" rows="4" cols="60" placeholder="Describe step by step how to cook this"></textarea>
+
 					    <input type="submit" value="Save" id="saveRecipe"/>
 				    </ul>
 			    </form>
