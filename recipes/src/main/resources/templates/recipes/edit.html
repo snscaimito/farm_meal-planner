@@ -1,17 +1,17 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Add Recipe</title>
-		<link rel="stylesheet" th:href="@{./webjars/styles/css/main.css}"/>
-		<script src="./webjars/jquery/jquery.min.js"></script>
+		<title>Edit Recipe</title>
+		<link rel="stylesheet" th:href="@{../webjars/styles/css/main.css}"/>
+		<script src="../webjars/jquery/jquery.min.js"></script>
 	</head>
 	<body>
 		<div id="navigation"></div>
 		<div class="left-sidebar-content ">
 			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
 			<div>
-				<h1>Add Recipe</h1>
-				<form method="post" th:action="@{./add}" th:object="${recipe}">
+				<h1>Edit Recipe</h1>
+				<form method="post" th:action="@{./edit}" th:object="${recipe}">
 					<ul th:include="fragments/recipeForm :: recipeForm" class="form"></ul>
 			    </form>
 		    </div>

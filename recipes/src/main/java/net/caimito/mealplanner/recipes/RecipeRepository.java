@@ -12,8 +12,8 @@ public class RecipeRepository {
 	
 	private Map<String, Recipe> recipes = new HashMap<>() ;
 
-	public UUID add(Recipe recipe) {
-		recipe.setId(UUID.randomUUID());
+	public String add(Recipe recipe) {
+		recipe.setId(UUID.randomUUID().toString());
 		recipes.put(recipe.getId().toString(), recipe) ;
 		return recipe.getId() ;
 	}
@@ -28,6 +28,10 @@ public class RecipeRepository {
 
 	public void deleteAll() {
 		recipes.clear();
+	}
+
+	public void update(Recipe recipe) {
+		recipes.put(recipe.getId().toString(), recipe) ;
 	}
 
 }

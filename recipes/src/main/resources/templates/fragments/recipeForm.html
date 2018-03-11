@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<body>
+		<ul th:fragment="recipeForm" class="form">
+		    <li>
+		    		<label>Recipe Name <span class="required">*</span></label>
+		    		<input type="text" th:field="*{name}" id="recipeName" placeholder="The name of your recipe" size="60"></input>
+	    		</li>
+	    		<li>
+	    			<label>Description <span class="required">*</span></label>
+		    		<textarea th:field="*{description}" id="recipeDescription" rows="4" cols="60" placeholder="Describe your recipe"></textarea>
+		    </li>
+		    <li>
+		    		<label>Yield <span class="required">*</span></label>
+		    		<input type="text" th:field="*{yield}" id="recipeYield" placeholder="For how many people"></input>
+		    	</li>
+		
+			<li>
+			    <label>Ingredients</label>
+			    <table>
+			    		<thead>
+			    			<tr>
+			    				<th>#</th>
+			    				<th>Quantity</th>
+			    				<th>Unit</th>
+			    				<th>Ingredient Name</th>
+			    				<th>
+								<button type="submit" name="addRow">Add ingredient</button>
+			    				</th>
+			    			</tr>
+			    		</thead>
+			    		<tbody>
+			    			<tr th:each="row,rowStat : *{ingredients}">
+    								<td th:text="${rowStat.count}">1</td>
+    								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].quantity}" /></td>
+    								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].unit}" /></td>
+    								<td><input type="text" th:field="*{ingredients[__${rowStat.index}__].name}" /></td>
+    								<td>
+    								<button type="submit" name="removeRow" th:value="${rowStat.index}">Remove ingredient</button>
+    								</td>
+  								</tr>
+			    		</tbody>
+			    </table>
+			</li>
+			<li>
+			    <label>Instructions</label>
+			    <textarea id="instructions" th:field="*{instructions}" rows="4" cols="60" placeholder="Describe step by step how to cook this"></textarea>
+			</li>
+			<li>
+			    <input type="submit" value="Save" id="saveRecipe"/>
+			</li>
+		</ul>
+</body>
+</html>

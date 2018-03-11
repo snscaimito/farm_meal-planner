@@ -36,8 +36,10 @@ public class RecipesController {
 
 	@GetMapping("/{id}")
 	public String getRecipe(@PathVariable("id") String id, Model model) {
-		model.addAttribute("recipe", repository.findById(id)) ;
-    		return Views.RECIPES_ADD;
+		Recipe recipe = repository.findById(id) ;
+		model.addAttribute("recipe", recipe) ;
+		model.addAttribute("recipeName", recipe.getName()) ;
+    		return Views.RECIPES_VIEW;
     }
 
 	@GetMapping(value="/{id}", produces = "application/json")

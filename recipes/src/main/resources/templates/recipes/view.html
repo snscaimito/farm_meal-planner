@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title th:text="recipeName">View Recipe</title>
+		<link rel="stylesheet" th:href="@{./webjars/styles/css/main.css}"/>
+		<link rel="stylesheet" href="./css/recipes.css"/>
+		<script src="./webjars/jquery/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="navigation"></div>
+		<div class="left-sidebar-content ">
+			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+			<div th:object="${recipe}">
+				<div id="actionBar">
+					<a href="#" th:href="${(#mvc.url('ERC#getRecipe').arg(0, (recipe.id))).build()}">Edit</a>
+				</div>
+				<h1 th:text="*{name}">Recipe Name</h1>
+				<div id="recipeHeader">
+					<img src="http://placehold.it/300x200"/>
+					<div>
+						<p th:text="*{description}">Description</p>
+						<p>Feeds <span th:text="*{yield}">Yield</span></p>
+					</div>				
+				</div>
+
+				<div id="recipeBody">				
+					<div>
+					    <h2>Ingredients</h2>
+					    <table>
+					    		<tbody>
+					    			<tr th:each="row,rowStat : *{ingredients}">
+									<td th:text="*{ingredients[__${rowStat.index}__].quantity}"></td>
+									<td th:text="*{ingredients[__${rowStat.index}__].unit}"></td>
+									<td th:text="*{ingredients[__${rowStat.index}__].name}"></td>
+								</tr>
+					    		</tbody>
+					    </table>
+				    </div>
+	
+					<div>
+					    <h2>Instructions</h2>
+					    <p th:text="*{instructions}">Instructions</p>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+		
+		<script th:include="navigation/topmenu :: topmenu"></script>
+	</body>
+</html>

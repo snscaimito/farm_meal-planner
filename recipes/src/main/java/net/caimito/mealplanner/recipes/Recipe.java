@@ -49,11 +49,11 @@ public class Recipe {
 		this.instructions = instructions;
 	}
 
-	public UUID getId() {
-		return id;
+	public String getId() {
+		return id.toString();
 	}
 
-	public void setId(UUID id) {
-		this.id = id;
+	public void setId(String id) {
+		this.id = UUID.fromString(id);
 	}
 }

@@ -45,7 +45,7 @@ RestClient.put "#{BASE_URL}/",
 RestClient.put "#{BASE_URL}/", 
   { 
     :name => 'Afrikanisches Huhn', 
-    :description => 'Farbenfroh', 
+    :description => 'Ein farbenfroher Gruß aus Afrika oder auch der Karibik. Eine tolle Farbkombination macht Fernweh und steigert den Hunger. Guten Appetit!', 
     :yield => '3 people',
     :ingredients => [
           { "name": "Hähnchenbrustfilet", "quantity": 400, "unit": "gram" },
