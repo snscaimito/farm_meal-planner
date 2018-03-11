@@ -4,7 +4,7 @@ def clear_members
 end
 
 def clear_recipes
-  url = SINGLE_APP ? "#{BASE_URL}" : "#{BASE_URL}/recipes"
+  url = SINGLE_APP ? "#{BASE_URL}" : "#{BASE_URL}/recipes/"
   begin
     RestClient.delete url
   rescue RestClient::ExceptionWithResponse => e
