@@ -4,6 +4,8 @@ services:
     build: ./navigation
   recipes:
     build: ./recipes
+  cookbooks:
+    build: ./cookbooks
   frontend:
     image: nginx
     ports:

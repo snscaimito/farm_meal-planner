@@ -1,7 +1,7 @@
 require 'rest_client'
 require 'json'
 
-BASE_URL = "http://localhost:8080"
+BASE_URL = "http://localhost:80/recipes"
 
 RestClient.put "#{BASE_URL}/", 
   { 

@@ -47,6 +47,7 @@
 	grid-auto-flow: column ;
 	direction: rtl;
 	background-color: #085D8A;
+	white-space: nowrap;
 }
 
 #actionBar A {

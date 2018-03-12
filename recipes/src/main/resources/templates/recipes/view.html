@@ -15,6 +15,31 @@
 					<a href="#" th:href="${(#mvc.url('ERC#getRecipe').arg(0, (recipe.id))).build()}">Edit</a>
 					<a href="#" th:href="${(#mvc.url('ERC#deleteRecipe').arg(0, (recipe.id))).build()}">Delete</a>
 					<div width="100%">&nbsp;</div>
+					<a href="#" id="addToCookbook">Add to Cookbook</a>
+					<script type="text/javascript">
+					$('#addToCookbook').click(function() {
+				       	$.ajax({
+					        url: "./" + '[[${recipe.id}]]',
+					        method: "GET",
+					        dataType: "json",
+					        contentType: "application/json"
+					    }).done(function(recipe){
+					    		alert(JSON.stringify(recipe));
+					       	$.ajax({
+						        url: "/cookbooks/user/userId/recipe",
+						        method: "POST",
+						        dataType: "json",
+						        data: JSON.stringify(recipe),
+						        contentType: "application/json"
+						    }).done(function(data){
+						    		alert("Recipe posted to cookbook") ;
+						    })
+						    .fail(function(data, textStatus, errorThrown){
+						    		alert("Error posting recipe to cookbook");
+						    });
+					    });
+					});
+					</script>
 				</div>
 				<h1 th:text="*{name}">Recipe Name</h1>
 				<div id="recipeHeader">

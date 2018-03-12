@@ -16,6 +16,14 @@ build_jars() {
   fi
   cd ..
 
+  cd common
+  mvn install
+  if [ $? -ne 0 ]; then
+    cd ..
+    exit
+  fi
+  cd ..
+
   cd navigation
   mvn install
   if [ $? -ne 0 ]; then
@@ -31,6 +39,15 @@ build_jars() {
     exit
   fi
   cd ..
+  
+  cd cookbooks
+  mvn install
+  if [ $? -ne 0 ]; then
+    cd ..
+    exit
+  fi
+  cd ..
+
 }
 
 docker_build_up() {
