@@ -28,7 +28,7 @@ public class AddRecipeController {
 	@PostMapping
     public RedirectView submit(@ModelAttribute Recipe recipe) {
 		repository.add(recipe) ;
-		return new RedirectView("./");
+		return new RedirectView("/", true);
     }
 
 	@RequestMapping(params={"addRow"})

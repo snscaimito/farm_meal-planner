@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<title>Add Recipe</title>
-		<link rel="stylesheet" th:href="@{./webjars/styles/css/main.css}"/>
-		<script src="./webjars/jquery/jquery.min.js"></script>
+		<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+		<link rel="stylesheet" th:href="@{/css/recipes.css}"/>
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	</head>
 	<body>
 		<div id="navigation"></div>
@@ -11,7 +12,7 @@
 			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
 			<div>
 				<h1>Add Recipe</h1>
-				<form method="post" th:action="@{./add}" th:object="${recipe}">
+				<form method="post" th:action="@{/add}" th:object="${recipe}">
 					<ul th:include="fragments/recipeForm :: recipeForm" class="form"></ul>
 			    </form>
 		    </div>

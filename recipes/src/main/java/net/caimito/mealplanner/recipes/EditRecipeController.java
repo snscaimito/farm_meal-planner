@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
+@RequestMapping("/")
 public class EditRecipeController {
 
 	@Autowired
@@ -29,13 +30,13 @@ public class EditRecipeController {
 	@PostMapping("/{id}/edit")
     public RedirectView submit(@ModelAttribute Recipe recipe) {
 		repository.update(recipe) ;
-		return new RedirectView(String.format("../%s", recipe.getId().toString()));
+		return new RedirectView(String.format("/%s", recipe.getId()), true);
     }
 
 	@GetMapping("/{id}/delete")
 	public RedirectView deleteRecipe(@PathVariable("id") String id) {
 		repository.deleteById(id);
-		return new RedirectView("../");
+		return new RedirectView("/", true);
     }
 
 	@RequestMapping(value="/{id}/edit", params={"addRow"})

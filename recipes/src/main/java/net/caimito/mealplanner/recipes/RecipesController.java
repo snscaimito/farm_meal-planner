@@ -37,8 +37,10 @@ public class RecipesController {
 	@GetMapping("/{id}")
 	public String getRecipe(@PathVariable("id") String id, Model model) {
 		Recipe recipe = repository.findById(id) ;
+
 		model.addAttribute("recipe", recipe) ;
 		model.addAttribute("recipeName", recipe.getName()) ;
+		
     		return Views.RECIPES_VIEW;
     }
 

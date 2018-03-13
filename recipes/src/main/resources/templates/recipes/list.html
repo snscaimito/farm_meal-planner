@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<title>Recipes</title>
-		<link rel="stylesheet" th:href="@{./webjars/styles/css/main.css}"/>
-		<link rel="stylesheet" href="./css/recipes.css"/>
-		<script src="./webjars/jquery/jquery.min.js"></script>
+		<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+		<link rel="stylesheet" th:href="@{/css/recipes.css}"/>
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	</head>
 	<body>
 		<div id="navigation"></div>
@@ -15,7 +15,7 @@
 				<div id="recipesList" th:unless="${#lists.isEmpty(recipes)}">
 					<div class="recipe" th:each="recipe : ${recipes}">
 						<div class="recipeTeaserImage">
-							<a th:href="${recipe.id}"><img src="http://placehold.it/300x200"/></a>
+							<a th:href="${(#mvc.url('RC#getRecipe').arg(0, (recipe.id))).build()}"><img src="http://placehold.it/300x200"/></a>
 							<div class="caption" th:text="${recipe.name}"></div>
 						</div>
 					</div>
