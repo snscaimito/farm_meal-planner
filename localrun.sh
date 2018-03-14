@@ -32,6 +32,14 @@ build_jars() {
   fi
   cd ..
 
+  cd main
+  mvn install
+  if [ $? -ne 0 ]; then
+    cd ..
+    exit
+  fi
+  cd ..
+
   cd recipes
   mvn install
   if [ $? -ne 0 ]; then

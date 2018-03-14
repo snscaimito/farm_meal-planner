@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>Meal Planner</title>
+	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}" />
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+<body>
+	<div id="navigation"></div>
+
+	<div class="landing_feature">
+		<h2>Use your own recipes</h2>
+		<p>Meal Planner lets you enter and organize your own recipes.</p>
+		<p>You can decide whether to share your recipes with others.</p>
+	</div>
+
+	<div class="landing_footer">
+		<div>
+			<h2>Meal Planner</h2>
+			<ul>
+				<li>Who makes Meal Planner</li>
+				<li>Send Feedback</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Help &amp; Support</h2>
+			<ul>
+				<li>FAQ</li>
+				<li>Contact a human</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>Rules of the game</h2>
+			<ul>
+				<li>Privacy</li>
+				<li>Terms of use</li>
+				<li>Security</li>
+			</ul>
+		</div>
+	</div>
+	<script th:include="navigation/topmenu :: topmenu"></script>
+</body>
+</html>

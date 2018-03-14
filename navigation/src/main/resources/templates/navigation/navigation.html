@@ -1,17 +1,16 @@
 <!doctype html>
 <html>
-  <head>
-  </head>
+<head>
+	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
   
-  <body>
-      <div id="navbar" class="landing_header">
-        <a href="/"><img src="http://placehold.it/200x45"/></a>
-        
-        <a href="/about.html" class="landing_menu_item">About</a>
-        <a href="/recipes" class="landing_menu_item">Recipes</a>
-        
-        <span class="landing_menu_item"><input id="tryIt" type="button" value="Try It"/></span>
-        <a href="#" class="landing_menu_item" id="login">Log in</a>
-    </div>
-  </body>
+<body>
+	<div id="navbar" class="landing_header">
+	    <a href="/"><img src="http://placehold.it/200x45"/></a>
+	    <a href="/recipes" class="landing_menu_item">Recipes</a>
+	    <a href="/cookbooks" class="landing_menu_item">Cookbooks</a>
+	    <a href="#" th:href="@{/login}" class="landing_menu_item" id="login">Log in</a>
+  	</div>
+</body>
 </html>

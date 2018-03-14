@@ -77,7 +77,7 @@ A.landing_menu_item:hover {
 .landing_footer {
     border-top: thin solid silver ;
     display: grid;
-    grid-auto-columns: 400px;
+    grid-auto-columns: auto;
     grid-auto-flow: column ;
     justify-items: center;
 }
