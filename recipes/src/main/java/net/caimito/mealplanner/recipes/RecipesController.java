@@ -46,7 +46,12 @@ public class RecipesController {
 
 	@GetMapping(value="/{id}", produces = "application/json")
 	public ResponseEntity<Recipe> getRecipeJson(@PathVariable("id") String id, Model model) {
-		return new ResponseEntity<>(repository.findById(id), HttpStatus.OK) ;
+		Recipe recipe =  repository.findById(id) ;
+		
+		if (recipe == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND) ;
+		else
+			return new ResponseEntity<>(recipe, HttpStatus.OK) ;
     }
 	
 	@DeleteMapping(produces = "application/json")

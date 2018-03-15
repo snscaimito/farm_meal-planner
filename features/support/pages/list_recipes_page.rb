@@ -8,4 +8,8 @@ class ListRecipesPage
   def my_page_url
     SINGLE_APP ? "#{BASE_URL}" : "#{BASE_URL}/recipes"
   end
+
+  def view_recipe(recipe)
+    @browser.image(alt: PANCAKE_RECIPE[:name]).click
+  end
 end

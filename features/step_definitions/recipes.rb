@@ -29,3 +29,36 @@ Then("the recipe is returned in JSON format") do
   json_object = JSON.parse rest_response
   expect(json_object["name"]).to eq(PANCAKE_RECIPE[:name])
 end
+
+When(/^I modify the pancakes recipe$/) do
+  visit(ListRecipesPage).view_recipe(PANCAKE_RECIPE[:name])
+  on(ViewRecipePage).edit_recipe
+  on(EditRecipePage).modify_recipe
+end
+
+Then(/^the modified recipe is returned in JSON format$/) do
+  fail
+end
+
+Given(/^then pancakes recipe exists$/) do
+  response = RestClient.put "#{BASE_URL}/recipes/", PANCAKE_RECIPE.to_json, {:content_type => :json}
+  @last_recipe_url = response.headers[:location]
+end
+
+
+Then(/^the pancakes recipe has been modified$/) do
+  rest_response = RestClient.get @last_recipe_url, {accept: :json}
+  json_object = JSON.parse rest_response
+  expect(json_object["name"]).to eq("mod #{PANCAKE_RECIPE[:name]}")
+end
+
+
+When(/^I delete the pancakes recipe$/) do
+  visit(ListRecipesPage).view_recipe(PANCAKE_RECIPE[:name])
+  on(ViewRecipePage).delete_recipe
+end
+
+
+Then(/^the pancakes recipe does not exist$/) do
+  expect { RestClient.get @last_recipe_url, {accept: :json} }.to raise_error(RestClient::NotFound)
+end

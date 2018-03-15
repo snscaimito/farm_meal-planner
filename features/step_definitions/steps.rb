@@ -3,7 +3,7 @@ When(/^I visit the Meal Planner$/) do
 end
 
 Then(/^I see the main page$/) do
-  expect(on(MainPage).title).to eql("Welcome to Meal Planner")
+  expect(on(MainPage).title).to eql("Meal Planner")
 end
 
 When(/^I decide to try Meal Planner$/) do

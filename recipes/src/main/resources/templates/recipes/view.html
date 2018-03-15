@@ -12,8 +12,8 @@
 			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
 			<div th:object="${recipe}">
 				<div id="actionBar">
-					<a href="#" th:href="${(#mvc.url('ERC#getRecipe').arg(0, (recipe.id))).build()}">Edit</a>
-					<a href="#" th:href="${(#mvc.url('ERC#deleteRecipe').arg(0, (recipe.id))).build()}">Delete</a>
+					<a href="#" id="editRecipe" th:href="${(#mvc.url('ERC#getRecipe').arg(0, (recipe.id))).build()}">Edit</a>
+					<a href="#" id="deleteRecipe" th:href="${(#mvc.url('ERC#deleteRecipe').arg(0, (recipe.id))).build()}">Delete</a>
 					<div width="100%">&nbsp;</div>
 					<a href="#" id="addToCookbook">Add to Cookbook</a>
 					<script type="text/javascript">
