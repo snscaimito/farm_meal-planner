@@ -3,15 +3,22 @@
 <head>
 	<title>Meal Planner</title>
 	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}"/>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 </head>
 <body>
 	<div id="navigation"></div>
 
 	<div class="landing_feature">
-		<h2>Use your own recipes</h2>
-		<p>Meal Planner lets you enter and organize your own recipes.</p>
-		<p>You can decide whether to share your recipes with others.</p>
+		<h2>Featured recipes from members</h2>
+		<div id="featuredRecipes" th:unless="${#lists.isEmpty(recipes)}">
+			<div class="recipe" th:each="recipe : ${recipes}">
+				<div class="recipeTeaserImage">
+					<a th:href="${mainApplicationURL} + '/recipes/' + ${recipe.id}"><img src="http://placehold.it/300x200" th:alt="${recipe.name}"/></a>
+					<a th:href="${mainApplicationURL} + '/recipes/' + ${recipe.id}"><div class="caption" th:text="${recipe.name}"></div></a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="landing_footer">

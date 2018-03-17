@@ -54,7 +54,7 @@ UL.actionMenu {
     grid-auto-columns: 220px;
     grid-auto-flow: column ;
     grid-column-gap: 20px;
-    background-color: #E0E8DD;
+    background-color: #E3F9E1;
 }
 
 .landing_menu_item {
@@ -63,7 +63,7 @@ UL.actionMenu {
 	text-decoration: none;
 	justify-self: center;
 	align-self: center;
-	color: #388175;
+	color: black;
 }
 
 A.landing_menu_item {
@@ -71,34 +71,9 @@ A.landing_menu_item {
 }
 
 A.landing_menu_item:hover {
-	color: #EB9C3F;
+	color: red;
 }
 
-.landing_footer {
-    border-top: thin solid silver ;
-    display: grid;
-    grid-auto-columns: auto;
-    grid-auto-flow: column ;
-    justify-items: center;
-}
-
-.landing_footer H2 {
-    font-size: 14pt;
-}
-
-.landing_overview {
-    background-color: #eef9d4;
-    height: 400px ;
-}
-
-.landing-overview H2 {
-    margin: 0px ;
-}
-
-.landing_feature {
-    background-color: #e3f9ee;
-    height: 400px ;
-}
 
 #signupForm {
     display: grid;

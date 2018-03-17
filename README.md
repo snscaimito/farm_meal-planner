@@ -19,3 +19,7 @@ Cooking Jobs are private to a user but can be shared with other users. The recip
 Set of cooking instructions and list of ingredients to prepare a dish.
 
 Recipies can be private or public. Private recipes can be shared with other users who receive a modifiable copy.
+
+# Configuration
+
+APPLICATION_URL
