@@ -23,3 +23,7 @@ Recipies can be private or public. Private recipes can be shared with other user
 # Configuration
 
 APPLICATION_URL
+
+# Inspiration
+* [Talk by Stefan Tilkov](https://www.innoq.com/en/talks/2014/12/talk-microservices-modularization-softwarearchitecture-berlin/)
+* [Blog article](https://blog.codecentric.de/en/2015/01/self-contained-systems-roca-complete-example-using-spring-boot-thymeleaf-bootstrap/)
