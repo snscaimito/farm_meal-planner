@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+	<link rel="stylesheet" th:href="@{/css/navigation.css}"/>
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 </head>
   
@@ -10,7 +11,8 @@
 	    <a href="/"><img src="http://placehold.it/200x45"/></a>
 	    <a href="/recipes" class="landing_menu_item">Recipes</a>
 	    <a href="/cookbooks" class="landing_menu_item">Cookbooks</a>
-	    <a href="#" th:href="@{/login}" class="landing_menu_item" id="login">Log in</a>
+	    <a th:if="${#strings.isEmpty(username)}" href="#" th:href="@{/login}" class="landing_menu_item" id="login">Log in</a>
+	    <a th:if="${not #strings.isEmpty(username)}" th:href="@{~/user/{name}(name=${username})}" th:text="${username}" class="user_info landing_menu_item" id="username">Username</a>
   	</div>
 </body>
 </html>

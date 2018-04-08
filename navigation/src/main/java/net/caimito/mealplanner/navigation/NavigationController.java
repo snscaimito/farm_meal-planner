@@ -9,6 +9,7 @@ public class NavigationController {
 	
     @GetMapping("/")
     public String getNavigation(Model model) {
+    		model.addAttribute("username", "to be done") ;
     		return "navigation/navigation";
     }
     
