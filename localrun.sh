@@ -66,13 +66,23 @@ docker_up() {
   docker-compose -f docker-compose-dev.yml up
 }
 
+docker_replace() {
+  docker-compose -f docker-compose-dev.yml up -d --no-deps --build $1
+}
+
 display_help() {
   echo "Usage:"
-  echo "--help    displays help"
-  echo "up        run without rebuilding"
-  echo "down      put all containers down"
-  echo "rebuild   rebuild and run"
+  echo "--help              displays help"
+  echo "up                  run without rebuilding"
+  echo "down                put all containers down"
+  echo "rebuild             rebuild and run"
+  echo "replace <service>   rebuild and start <service> as defined in docker-compose file"
 }
+
+if [ $# -eq 0 ]; then
+  display_help
+  exit 0
+fi
 
 while :
 do
@@ -93,6 +103,10 @@ do
           docker_down
           build_jars
           docker_build_up
+          exit 0
+          ;;
+      replace)
+          docker_replace $2
           exit 0
           ;;
       *)  # No more options

@@ -10,9 +10,9 @@
 		<div id="navigation"></div>
 		<div class="left-sidebar-content ">
 			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
-			<div>
+			<div th:object="${recipe}">
 				<h1>Edit Recipe</h1>
-				<form method="post" th:action="@{./edit}" th:object="${recipe}">
+				<form method="post" th:action="@{/edit/{id}(id=${recipe.id})}">
 					<ul th:include="fragments/recipeForm :: recipeForm" class="form"></ul>
 			    </form>
 		    </div>

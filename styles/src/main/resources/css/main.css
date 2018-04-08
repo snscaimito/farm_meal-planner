@@ -74,6 +74,11 @@ A.landing_menu_item:hover {
 	color: red;
 }
 
+A.user_info {
+	text-transform: none ;
+	color: blue;
+}
+
 
 #signupForm {
     display: grid;

@@ -1,9 +1,11 @@
 require 'rest_client'
 require 'json'
 
-BASE_URL = "http://localhost:80/recipes"
+BASE_URL = "http://localhost:8080/recipes"
 
-RestClient.put "#{BASE_URL}/", 
+resource = RestClient::Resource.new("#{BASE_URL}/", :user => 'user@caimito.net', :password => 'password', :headers => { :content_type => :json } )
+
+resource.put(
   { 
     :name => 'Pancakes', 
     :description => 'Pancake base recipe', 
@@ -14,9 +16,9 @@ RestClient.put "#{BASE_URL}/",
           { "name": "Milk", "quantity": 700, "unit": "ml" } 
        ],
     :instructions => 'Mix everything together' 
-    }.to_json, {:content_type => :json}
+    }.to_json)
 
-RestClient.put "#{BASE_URL}/", 
+resource.put( 
   { 
     :name => 'Carribean beef with onions and tomatoes', 
     :description => 'Quick recipe for beef', 
@@ -27,9 +29,9 @@ RestClient.put "#{BASE_URL}/",
           { "name": "Beef", "quantity": 500, "unit": "gram" } 
        ],
     :instructions => 'Mix everything together' 
-    }.to_json, {:content_type => :json}
+    }.to_json)
 
-RestClient.put "#{BASE_URL}/", 
+resource.put( 
   { 
     :name => 'White rice', 
     :description => 'Basic white rice', 
@@ -40,9 +42,9 @@ RestClient.put "#{BASE_URL}/",
           { "name": "Salt", "quantity": 1, "unit": "tablespoon" } 
        ],
     :instructions => 'Mix everything together' 
-    }.to_json, {:content_type => :json}
+    }.to_json)
 
-RestClient.put "#{BASE_URL}/", 
+resource.put( 
   { 
     :name => 'Afrikanisches Huhn', 
     :description => 'Ein farbenfroher Gruß aus Afrika oder auch der Karibik. Eine tolle Farbkombination macht Fernweh und steigert den Hunger. Guten Appetit!', 
@@ -69,4 +71,6 @@ RestClient.put "#{BASE_URL}/",
     Das Fleisch aus der Marinade nehmen und abtropfen lassen (Marinade aufheben!), mit etwas Salz, viel süßem Paprika und etwas Curry würzen. 
     
     Zwiebeln, Knoblauch und Fleisch in etwas Öl anbraten. Chilis und Paprikastreifen hinzufügen, mit der Marinade, der halben Dose Kokosmilch sowie einem Schuss Sahne ablöschen. Einige Minuten köcheln lassen bis das Fleisch gar ist. Mit den Gewürzen, Sahne und Kokosmilch abschmecken und die Soße bei Bedarf binden.' 
-    }.to_json, {:content_type => :json}
+    }.to_json)
+
+   
