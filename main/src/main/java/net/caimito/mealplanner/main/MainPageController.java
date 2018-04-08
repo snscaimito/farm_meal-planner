@@ -2,11 +2,7 @@ package net.caimito.mealplanner.main;
 
 import java.util.Collection;
 
-import javax.servlet.ServletContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +20,7 @@ public class MainPageController {
 	
 	private String mainApplicationURL = null ;
 
+	// APPLICATION_URL is an environment variable and indicates where the app is running as seen from the outside
 	@ModelAttribute("mainApplicationURL")
 	public String getMainApplicationURL() {
 		if (mainApplicationURL == null) {
@@ -35,7 +32,9 @@ public class MainPageController {
 	
 	@GetMapping
 	public String getFeaturedRecipes(Model model) {
-		Collection<Recipe> recipes = restTemplate.getForObject(getMainApplicationURL() + "/recipes/", Collection.class) ;
+		// http://recipes:8080 refers to intra-container networking
+		// TODO move this into some configuration or service discovery (Docker swarm mode may already do it)
+		Collection<Recipe> recipes = restTemplate.getForObject("http://recipes:8080/recipes/", Collection.class) ;
 		
 		model.addAttribute("recipes", recipes) ;
 		return "main/welcome";
