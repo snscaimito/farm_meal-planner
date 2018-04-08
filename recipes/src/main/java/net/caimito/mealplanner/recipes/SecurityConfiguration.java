@@ -17,7 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http
 			.csrf().disable()
 			.authorizeRequests()
-			.antMatchers("/").permitAll()
+			.antMatchers("/recipes").permitAll()
 			.antMatchers("/login").permitAll()
 			.anyRequest().authenticated()
 			.and()
@@ -33,7 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
-           .antMatchers("/webjars/**", "/actuator/**", "/error", "/css/**");
+           .antMatchers("/webjars/**", "/actuator/**", "/error", "/css/**", "/v2/api-docs/**", "/swagger-resources/**", "/swagger-ui.html");
     }
 
 }

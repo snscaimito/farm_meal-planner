@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import springfox.documentation.annotations.ApiIgnore;
+
 @Controller
-@RequestMapping("/")
+@RequestMapping("/recipes")
 public class RecipesController {
 
 	@Autowired
 	private RecipeRepository repository ;
 	
+	@ApiIgnore
 	@GetMapping
 	public String getAllRecipes(Model model) {
 		model.addAttribute("recipes", repository.listAll()) ;
@@ -34,6 +37,7 @@ public class RecipesController {
     		return new ResponseEntity<>(repository.listAll(), HttpStatus.OK) ;
     }
 
+	@ApiIgnore
 	@GetMapping("/{id}")
 	public String getRecipe(@PathVariable("id") String id, Model model) {
 		Recipe recipe = repository.findById(id) ;
