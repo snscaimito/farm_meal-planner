@@ -1,32 +1,32 @@
-@todo @api
+@api @recipes
 Feature: Recipes
 
 Scenario: 201 - Store recipe
-	When a new element is posted to the collection "/api/recipes":
+	When a new element is posted to the collection "/recipes/api/recipes":
 		"""
 		{
 			"name":"Pancakes",
 			"description":"Pancake base recipe",
 			"yield":"4 people",
 			"ingredients":[],
-			"instructions":[]
+			"instructions":""
 		}
 		"""
-	Then the location of the new element is returned
+	Then the id of the new element at "/recipes/api/recipes" is returned
 	
 Scenario: 404 - Cannot find recipe
-	When the element at "/api/recipes/a98b4423-f2ea-486f-8454-9b8558c7c186" is retrieved
+	When the element at "/recipes/api/recipes/a98b4423-f2ea-486f-8454-9b8558c7c186" is retrieved
 	Then the element is not found
 
 Scenario: 200 - Retrieve recipe
-	Given a new element is posted to the collection "/api/recipes":
+	Given a new element is posted to the collection "/recipes/api/recipes":
 		"""
 		{
 			"name":"Pancakes",
 			"description":"Pancake base recipe",
 			"yield":"4 people",
 			"ingredients":[],
-			"instructions":[]
+			"instructions":""
 		}
 		"""
 	When the element is requested
@@ -37,29 +37,30 @@ Scenario: 200 - Retrieve recipe
 			"description":"Pancake base recipe",
 			"yield":"4 people",
 			"ingredients":[],
-			"instructions":[]
+			"instructions":""
 		}
 		"""
 
+@todo
 Scenario: 200 - Retrieve collection
-	Given a new element is posted to the collection "/api/recipes":
+	Given a new element is posted to the collection "/recipes/api/recipes":
 		"""
 		{
 			"name":"Pancakes",
 			"description":"Pancake base recipe",
 			"yield":"4 people",
 			"ingredients":[],
-			"instructions":[]
+			"instructions":""
 		}
 		"""
-	And a new element is posted to the collection "/api/recipes":
+	And a new element is posted to the collection "/recipes/api/recipes":
 		"""
 		{
 			"name":"Boiled egss",
 			"description":"Boiled eggs in a few minutes",
 			"yield":"1 person",
 			"ingredients":[],
-			"instructions":[]
+			"instructions":""
 		}
 		"""
 	When the collection "/api/recipes" is retrieved
@@ -71,14 +72,14 @@ Scenario: 200 - Retrieve collection
 				"description":"Pancake base recipe",
 				"yield":"4 people",
 				"ingredients":[],
-				"instructions":[]
+				"instructions":""
 			},
 			{
 				"name":"Boiled egss",
 				"description":"Boiled eggs in a few minutes",
 				"yield":"1 person",
 				"ingredients":[],
-				"instructions":[]
+				"instructions":""
 			}
 		]
 		"""

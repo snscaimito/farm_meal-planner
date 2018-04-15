@@ -17,7 +17,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @ApiIgnore
 @Controller
-@RequestMapping("/recipes/edit")
+@RequestMapping("/edit")
 public class EditRecipeController {
 
 	@Autowired

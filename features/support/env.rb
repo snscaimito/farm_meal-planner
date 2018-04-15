@@ -4,10 +4,8 @@ CLICK_DUMMY = true
 
 if (ENV['PORT'] == "80")
   BASE_URL = "http://#{ENV['HOST']}"
-  SINGLE_APP = false
 else
   BASE_URL = "http://#{ENV['HOST']}:#{ENV['PORT']}"
-  SINGLE_APP = true
 end
 
 TMP_DIR = "#{Dir.pwd}/target/cucumber-tmp"

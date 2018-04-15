@@ -1,9 +1,9 @@
 require 'rest_client'
 require 'json'
 
-BASE_URL = "http://localhost:8080/recipes"
+BASE_URL = "http://localhost/recipes"
 
-resource = RestClient::Resource.new("#{BASE_URL}/", :user => 'user@caimito.net', :password => 'password', :headers => { :content_type => :json } )
+resource = RestClient::Resource.new("#{BASE_URL}/recipes", :user => 'user@caimito.net', :password => 'password', :headers => { :content_type => :json } )
 
 resource.put(
   { 

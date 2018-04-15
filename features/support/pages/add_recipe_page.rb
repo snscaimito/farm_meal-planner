@@ -18,6 +18,6 @@ class AddRecipePage
   page_url :my_page_url
   
   def my_page_url
-    SINGLE_APP ? "#{BASE_URL}/add" : "#{BASE_URL}/recipes/add"
+    "#{BASE_URL}/recipes/add"
   end
 end

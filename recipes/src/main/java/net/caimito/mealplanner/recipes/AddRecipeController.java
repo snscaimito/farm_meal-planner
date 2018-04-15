@@ -16,7 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @ApiIgnore
 @Controller
-@RequestMapping("/recipes/add")
+@RequestMapping("/add")
 public class AddRecipeController {
 	
 	@Autowired

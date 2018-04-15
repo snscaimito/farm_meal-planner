@@ -10,9 +10,9 @@ When("a new element is posted to the collection {string}:") do |resourceURL, con
   @rest_response = RestClient.put("#{BASE_URL}#{resourceURL}", content, {:content_type => :json})
 end
 
-Then("the location of the new element is returned") do
+Then("the id of the new element at {string} is returned") do |location|
   expect(@rest_response.code).to be 201
-  expect(@rest_response.headers[:location]).to include(BASE_URL)
+  expect(@rest_response.headers[:location]).to include("#{BASE_URL}#{location}")
 end
 
 When("the element is requested") do

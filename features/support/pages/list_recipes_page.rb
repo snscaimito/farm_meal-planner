@@ -6,7 +6,7 @@ class ListRecipesPage
   page_url :my_page_url
   
   def my_page_url
-    SINGLE_APP ? "#{BASE_URL}" : "#{BASE_URL}/recipes"
+    "#{BASE_URL}/recipes"
   end
 
   def view_recipe(recipe)

@@ -9,14 +9,19 @@ display_help() {
 test_all() {
   export HOST=localhost
   export PORT=80
-  bundle exec cucumber $1 $2 $3 $4 $5 $6 $7 $8 $9
+  bundle exec cucumber --tags 'not @todo' $1 $2 $3 $4 $5 $6 $7 $8 $9
 }
 
 test_recipes() {
   export HOST=localhost
   export PORT=8080
-  bundle exec cucumber --tags @recipes $1 $2 $3 $4 $5 $6 $7 $8 $9
+  bundle exec cucumber --tags @recipes --tags 'not @todo' $1 $2 $3 $4 $5 $6 $7 $8 $9
 }
+
+if [ $# -eq 0 ]; then
+  display_help
+  exit 0
+fi
 
 while :
 do

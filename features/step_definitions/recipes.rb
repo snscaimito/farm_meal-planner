@@ -24,24 +24,14 @@ Then("the recipe is part of the recipe list") do
   end
 end
 
-Then("the recipe is returned in JSON format") do
-  rest_response = RestClient.get @recipe_link.href, {accept: :json}
-  json_object = JSON.parse rest_response
-  expect(json_object["name"]).to eq(PANCAKE_RECIPE[:name])
-end
-
 When(/^I modify the pancakes recipe$/) do
   visit(ListRecipesPage).view_recipe(PANCAKE_RECIPE[:name])
   on(ViewRecipePage).edit_recipe
   on(EditRecipePage).modify_recipe
 end
 
-Then(/^the modified recipe is returned in JSON format$/) do
-  fail
-end
-
-Given(/^then pancakes recipe exists$/) do
-  response = RestClient.put "#{BASE_URL}/recipes/", PANCAKE_RECIPE.to_json, {:content_type => :json}
+Given(/^the pancakes recipe exists$/) do
+  response = RestClient.put "#{BASE_URL}/recipes/api/recipes/", PANCAKE_RECIPE.to_json, {:content_type => :json}
   @last_recipe_url = response.headers[:location]
 end
 
