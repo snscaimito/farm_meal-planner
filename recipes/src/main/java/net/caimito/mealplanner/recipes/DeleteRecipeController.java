@@ -11,7 +11,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @ApiIgnore
 @Controller
-@RequestMapping("/delete")
+@RequestMapping("/ui/delete")
 public class DeleteRecipeController {
 
 	@Autowired

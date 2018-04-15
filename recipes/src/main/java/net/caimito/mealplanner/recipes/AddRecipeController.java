@@ -16,7 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @ApiIgnore
 @Controller
-@RequestMapping("/add")
+@RequestMapping("/ui/add")
 public class AddRecipeController {
 	
 	@Autowired
@@ -31,7 +31,7 @@ public class AddRecipeController {
 	@PostMapping
     public RedirectView submit(@ModelAttribute Recipe recipe) {
 		repository.add(recipe) ;
-		return new RedirectView("/", true);
+		return new RedirectView("/ui", true);
     }
 
 	@RequestMapping(params={"addRow"})

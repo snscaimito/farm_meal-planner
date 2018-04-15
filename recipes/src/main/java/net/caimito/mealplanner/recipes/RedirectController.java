@@ -10,6 +10,11 @@ import springfox.documentation.annotations.ApiIgnore;
 @Controller
 public class RedirectController {
 
+	@GetMapping("/")
+	public RedirectView rootRedirectToUi() {
+		return new RedirectView("/ui", true) ;
+	}
+	
 	@GetMapping("/login")
 	public RedirectView getLogin() {
 		return new RedirectView("/user/login", false) ;

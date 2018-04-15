@@ -12,7 +12,7 @@
 			<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
 			<div th:object="${recipe}">
 				<h1>Edit Recipe</h1>
-				<form method="post" th:action="@{/edit/{id}(id=${recipe.id})}">
+				<form method="post" th:action="@{/ui/edit/{id}(id=${recipe.id})}">
 					<ul th:include="fragments/recipeForm :: recipeForm" class="form"></ul>
 			    </form>
 		    </div>
