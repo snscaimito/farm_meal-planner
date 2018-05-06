@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.caimito</groupId>
+	<artifactId>styles</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destinationDir>
+	</properties>
+
+	<scm>
+		<developerConnection>scm:git:git@github.com:snscaimito/farm_meal-planner.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>caimito-release</id>
+			<url>http://bosque.caimito.net:8081/repository/caimito-release/</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<targetPath>${destinationDir}</targetPath>
+			</resource>
+		</resources>
+	</build>
+</project>
+

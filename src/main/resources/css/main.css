@@ -1,0 +1,356 @@
+BODY {
+	background: white;
+	font-family: Sans-Serif;
+	color: black;
+}
+
+H1 {
+	color: #388175;
+}
+
+UL.actionMenu {
+	list-style-type: none ;
+	padding-left: 0px;
+}
+
+.defaultValue {
+	color: #d8d4d4;
+}
+
+.unavailable {
+	color: #d8d4d4;
+}
+
+.hidden {
+	display: none;
+}
+
+.drop-hover {
+	background-color: yellow;
+}
+
+.landing_menu_item input[type=button] {
+	color: #ffffff;
+	font-size:12pt;
+	font-weight: bold;
+	background: #EB9C3F;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.landing_menu_item input[type=button]:hover {
+	 background: #EB9C3F;
+	 background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	 background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	 background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	 background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	 background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	 text-decoration: none;
+}
+
+.landing_header {
+    display: grid;
+    grid-auto-columns: 220px;
+    grid-auto-flow: column ;
+    grid-column-gap: 20px;
+    background-color: #E3F9E1;
+}
+
+.landing_menu_item {
+	font-size:12pt;
+	font-weight: bold;
+	text-decoration: none;
+	justify-self: center;
+	align-self: center;
+	color: black;
+}
+
+A.landing_menu_item {
+	text-transform: uppercase;
+}
+
+A.landing_menu_item:hover {
+	color: red;
+}
+
+A.user_info {
+	text-transform: none ;
+	color: blue;
+}
+
+
+#signupForm {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+#loginForm {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+#week {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+}
+
+.weekHeader {
+    border-bottom: thin solid black ;
+}
+
+.evenColumn {
+    border-left: thin solid #4B7F75 ;
+    padding: 5px;
+    color: #852C21;
+}
+
+.oddColumn {
+    border-left: thin solid #4B7F75 ;
+    padding: 5px;
+    color: #388175;
+}
+
+.mealEvent {
+    height: 50px;
+}
+
+.mealEvent P {
+    font-size: smaller;
+}
+
+.mealEvent UL {
+	list-style-type: none;
+	margin-top: -0.6em;
+	padding-left: 0.4em;
+}
+
+.daySchedule {
+    border-top: thin solid black ;
+}
+
+.recipeSelectionArea {
+    display: grid ;
+    grid-auto-columns: 50%;
+    grid-auto-flow: column ;
+}
+
+.recipeSelectionArea .actions {
+    display: grid ;
+    grid-auto-columns: auto;
+    grid-auto-flow: column ;
+    height: 30px;
+}
+
+.recipe P.title {
+    font-weight: bold ;
+}
+
+.recipe .description {
+    font-size: smaller;
+}
+
+.recipe P {
+    margin: 0 ;
+}
+
+.recipe IMG {
+    margin-right: 15px;
+}
+
+.recipe {
+    display: grid ;
+    grid-template-columns: 60px 1.5em auto;
+}
+
+#searchResultList {
+    margin-top: 15px;
+	list-style-type: none;
+}
+
+.advertisement {
+    background-color: blanchedalmond ;
+}
+
+.errorMessage {
+	color: red ;
+	text-weight: bold ;
+}
+
+#pickList {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+
+.recipe-menu {
+  position: relative;
+  padding-left: 1.25em;
+  cursor: hand ;
+  cursor: pointer ;
+}
+.recipe-menu:before {
+  content: "";
+  position: absolute;
+  top: 0.25em;
+  left: 0;
+  width: 1em;
+  height: 0.125em;
+  border-top: 0.375em double #000;
+  border-bottom: 0.125em solid #000;
+}
+
+#recipeAssignmentDialog {
+	position: absolute ;
+	z-index: 99 ;
+	border: thin solid black ;
+	background-color: white;
+	padding: 5px;
+}
+
+DIV#recipeAssignmentDialog {
+	display: grid;
+    grid-auto-columns: 50%;
+    grid-auto-flow: column ;
+}
+
+#recipeAssignmentDialog SPAN {
+  cursor: hand ;
+  cursor: pointer ;
+}
+
+#recipeAssignmentDialog UL {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+#recipeAssignmentDialog UL LI UL {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 6em;
+}
+
+#recipeAssignmentDialog .selected {
+	background-color: black ;
+	color: white ;
+}
+
+
+		.form {
+		    padding: 20px 12px 10px 20px;
+		    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		}
+		.form li {
+		    padding: 0;
+		    display: block;
+		    list-style: none;
+		    margin: 10px 0 0 0;
+		}
+		.form label{
+		    margin:0 0 3px 0;
+		    padding:0px;
+		    display:block;
+		    font-weight: bold;
+		}
+		.form input[type=text], 
+		.form input[type=date],
+		.form input[type=datetime],
+		.form input[type=number],
+		.form input[type=search],
+		.form input[type=time],
+		.form input[type=url],
+		.form input[type=email],
+		textarea, 
+		select{
+		    box-sizing: border-box;
+		    -webkit-box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    border:1px solid #BEBEBE;
+		    padding: 7px;
+		    margin:0px;
+		    -webkit-transition: all 0.30s ease-in-out;
+		    -moz-transition: all 0.30s ease-in-out;
+		    -ms-transition: all 0.30s ease-in-out;
+		    -o-transition: all 0.30s ease-in-out;
+		    outline: none;  
+		}
+		.form input[type=text]:focus, 
+		.form input[type=date]:focus,
+		.form input[type=datetime]:focus,
+		.form input[type=number]:focus,
+		.form input[type=search]:focus,
+		.form input[type=time]:focus,
+		.form input[type=url]:focus,
+		.form input[type=email]:focus,
+		.form textarea:focus, 
+		.form select:focus{
+		    -moz-box-shadow: 0 0 8px #88D5E9;
+		    -webkit-box-shadow: 0 0 8px #88D5E9;
+		    box-shadow: 0 0 8px #88D5E9;
+		    border: 1px solid #88D5E9;
+		}
+		.form .field-divided{
+		    width: 49%;
+		}
+		
+		.form .field-long{
+		    width: 100%;
+		}
+		.form .field-select{
+		    width: 100%;
+		}
+		.form .field-textarea{
+		    height: 100px;
+		}
+		.form input[type=submit], .form input[type=button]{
+		    background: #4B99AD;
+		    padding: 8px 15px 8px 15px;
+		    border: none;
+		    color: #fff;
+		}
+		.form input[type=submit]:hover, .form input[type=button]:hover{
+		    background: #4691A4;
+		    box-shadow:none;
+		    -moz-box-shadow:none;
+		    -webkit-box-shadow:none;
+		}
+		.form .required{
+		    color: red;
+		}
+		
+		.left-sidebar-content {
+		    display: grid;
+		    grid-auto-columns: 200px auto;
+		    grid-auto-flow: column;
+		    grid-gap: 1em;
+		}
+		
+		.sidebar {
+			background-color: #f8f9fa ;
+		    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+		    margin-right: 20px;
+		    height: 100vh;
+		    width: 200px;
+		}
+		
+		.sidebar UL {
+			list-style: none;
+		}
+		
+		.sidebar UL LI {
+			margin-left: -30px;
+			font-weight: bold;
+			font-family: sans-serif;
+			padding-top: 5px;
+		}
+		
+@media print {
+	.left-sidebar-content {
+	    display: block;
+	}
+	
+	#navigation {
+		display: none ;
+	}
+}
